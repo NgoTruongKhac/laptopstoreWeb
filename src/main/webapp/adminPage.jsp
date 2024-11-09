@@ -16,14 +16,14 @@
 
   <body>
   <jsp:include page="components/alert.jsp"></jsp:include>
-    <div class="wrapper position-relative">
-      <aside id="sidebar" style="border-right: solid" class="sticky-top">
+    <div class="wrapper">
+      <aside id="sidebar" style="border-right: solid; position: fixed;z-index: 1002; height: 100%">
         <div class="d-flex">
           <button class="toggle-btn" type="button">
             <i class="lni lni-grid-alt"></i>
           </button>
           <div class="sidebar-logo">
-            <img src="Laptop Store.png" alt="" style="width: 120px" />
+            <img src="images/laptopStoreLogo.png" alt="" style="width: 120px" />
           </div>
         </div>
         <ul class="sidebar-nav">
@@ -54,15 +54,16 @@
         </ul>
       </aside>
       <div class="main">
-      <div class="sticky-top">
+      <div style="position: fixed; z-index: 1001; width: 95%; margin-left: 65px;">
         <nav
-          class="navbar navbar-expand-md px-4 py-3 d-flex justify-content-between"
+          class="navbar navbar-expand-md px-4 py-3 "
           style="border-bottom: solid"
         >
         
           <!-- Đặt ms-auto để di chuyển nút navbar-toggler sang phải -->
           <button
-            class="navbar-toggler ms-auto"
+          style="margin-left: 17rem"
+            class="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarToggler"
@@ -74,7 +75,7 @@
           </button>
 
           <div class="collapse navbar-collapse" id="navbarToggler">
-            <form class="d-flex flex-grow-1" role="search">
+            <form class="d-flex flex-grow-1" style="display: flex; justify-content: center;" role="search">
               <input
                 class="form-control me-2"
                 type="search"
@@ -88,7 +89,7 @@
               </button>
             </form>
 
-            <div class="dropdown me-5">
+            <div class="dropdown" style="margin-right: 64px">
               <!-- Thêm btn-sm để nút đăng nhập nhỏ gọn hơn ở màn hình nhỏ -->
               <button
                 id="accountIcon"
@@ -118,7 +119,9 @@
         </nav>
         </div>
 
-        <main class="content px-3 py-4">
+<div style="margin-top: 70px; overflow: hidden; margin-left: 70px">
+
+        <main class="content px-3 py-4" style="height: 200vh">
           <div
             id="dashboard"
             class="content-section active container-fluid mt-2"
@@ -223,9 +226,10 @@
           <div id="Product" class="content-section"><h4>San pham</h4></div>
           <div id="Order" class="content-section"><h4>Dat hang</h4></div>
         </main>
+        </div>
       </div>
     </div>
-    <%@ include file="components/footer.jsp" %>
+ 
 
     <script src="javaScript/admin.js"></script>
   </body>

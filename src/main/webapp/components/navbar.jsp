@@ -13,7 +13,7 @@
 
 		<div class="col-md-3 mb-2">
 			<a href="index.jsp" class="text-decoration-none"><img
-				src="images/laptopStore.png"
+				src="images/laptopStoreLogo.png"
 				style="width: 160px; "></a>
 		</div>
 		<div class="col-md-6">
