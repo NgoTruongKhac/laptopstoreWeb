@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+.nav-item .nav-link:hover{
+	color: white;
+}
+
+.dropdown-menu .dropdown-item:hover{
+	background-color: #0dcaf0;
+}
