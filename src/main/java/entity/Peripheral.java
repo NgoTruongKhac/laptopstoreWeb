@@ -9,14 +9,27 @@ public class Peripheral {
 	private int price;
 	private String brand;
 	private String category;
+	private String connect;
+	private boolean ledRGB;
 
-	public Peripheral(String name, String description, String image, int price, String brand, String category) {
+	public Peripheral(String name, String description, String image, int price, String brand, String category,String connect, boolean ledRGB) {
 		this.name = name;
 		this.description = description;
 		this.image = image;
 		this.price = price;
 		this.brand = brand;
 		this.category = category;
+		this.connect=connect;
+		this.ledRGB=ledRGB;
+		
+	}
+
+	public boolean isLedRGB() {
+		return ledRGB;
+	}
+
+	public void setLedRGB(boolean ledRGB) {
+		this.ledRGB = ledRGB;
 	}
 
 	public int getPeripheralId() {
@@ -74,6 +87,26 @@ public class Peripheral {
 	public void setCategory(String category) {
 		this.category = category;
 	}
+
+	public String getConnect() {
+		return connect;
+	}
+
+	public void setConnect(String connect) {
+		this.connect = connect;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	@Override
+	public String toString() {
+		return "Peripheral [peripheralId=" + peripheralId + ", name=" + name + ", description=" + description
+				+ ", image=" + image + ", price=" + price + ", brand=" + brand + ", category=" + category + ", connect="
+				+ connect + ", ledRGB=" + ledRGB + "]";
+	}
+	
 	
 	
 

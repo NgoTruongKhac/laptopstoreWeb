@@ -15,13 +15,16 @@ public class ListAddressDAO {
 	private ConnectDatabase db;
 	private List<Address> listAddress;
 	
+	public ListAddressDAO() {
+		db=new ConnectDatabase();
+		conn=db.getConnection();
+	}
 	
 	public List<Address> getListAddress(int userId){
 		
 		listAddress=new ArrayList<Address>();
 		
 		try {
-			conn=db.getConnection();
 			 String sql= "SELECT * FROM address WHERE userId = ?";
 			 PreparedStatement pr=conn.prepareStatement(sql);
 			 

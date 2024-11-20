@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import database.ConnectDatabase;
-import entity.Laptop;
 import entity.Peripheral;
 
 public class ListPeripheralDAO {
@@ -25,24 +24,15 @@ public class ListPeripheralDAO {
 		listPeripheral = new ArrayList<Peripheral>();
 		try {
 			
-			String query = "SELECT\r\n"
-					+ "* \r\n"
-					+ "FROM\r\n"
-					+ "    peripheral\r\n"
-					+ "ORDER BY\r\n"
-					+ "    \r\n"
-					+ "    peripheralId\r\n"
-					+ "OFFSET ? ROWS \r\n"
-					+ "FETCH NEXT 4 ROWS ONLY;\r\n"
-					+ "";
+			String query = "SELECT *FROM peripheral ORDER BY peripheralId OFFSET ? ROWS FETCH NEXT 8 ROWS ONLY;";
 			PreparedStatement pr = conn.prepareStatement(query);
 			pr.setInt(1, amount);
 
 			ResultSet rs = pr.executeQuery();
 
 			while (rs.next()) {
-				Peripheral peripheral= new Peripheral(rs.getString("name"), rs.getString("description"), rs.getString("image"),
-						rs.getInt("price"), rs.getString("brand"), rs.getString("category")
+				Peripheral peripheral= new Peripheral( rs.getString("name"), rs.getString("description"), rs.getString("image"),
+						rs.getInt("price"), rs.getString("brand"), rs.getString("category"),rs.getString("connect"),rs.getBoolean("ledRGB")
 					  );
 				listPeripheral.add(peripheral);
 			}
@@ -52,6 +42,50 @@ public class ListPeripheralDAO {
 			e.printStackTrace();
 		}
 		return listPeripheral;
+	}
+	public List<Peripheral> getListPeripheralManage(int page,int pageSize) {
+		listPeripheral = new ArrayList<Peripheral>();
+		
+		
+	    
+	    int offset = (page - 1) * pageSize;
+		
+		try {
+			
+			String query = "SELECT * FROM peripheral ORDER BY peripheralId OFFSET ? ROWS FETCH NEXT ? ROWS ONLY";
+			PreparedStatement pr = conn.prepareStatement(query);
+			pr.setInt(1, offset);
+			pr.setInt(2, pageSize);
+
+			ResultSet rs = pr.executeQuery();
+
+			while (rs.next()) {
+				Peripheral peripheral= new Peripheral(rs.getString("name"), rs.getString("description"), rs.getString("image"),
+						rs.getInt("price"), rs.getString("brand"), rs.getString("category"), rs.getString("connect"),rs.getBoolean("ledRGB")
+					 );
+				peripheral.setPeripheralId(rs.getInt("peripheralId"));
+				listPeripheral.add(peripheral);
+			}
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return listPeripheral;
+	}
+	public int getTotalProductCount() {
+	    int totalProducts = 0;
+	    try {
+	        String query = "SELECT COUNT(*) FROM peripheral";
+	        PreparedStatement pr = conn.prepareStatement(query);
+	        ResultSet rs = pr.executeQuery();
+	        if (rs.next()) {
+	            totalProducts = rs.getInt(1);
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	    return totalProducts;
 	}
 
 }

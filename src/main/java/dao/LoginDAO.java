@@ -3,7 +3,6 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
 import bcrypt.BCrypt;
 import database.ConnectDatabase;
@@ -14,6 +13,11 @@ public class LoginDAO {
 	private Connection conn;
 	private ConnectDatabase db;
 
+	public LoginDAO() {
+		db=new ConnectDatabase();
+		conn=db.getConnection();
+	}
+	
 	public User isSuccess(String emailOrPhone, String pass) {
 		// TODO Auto-generated method stub
 		User user=null;
@@ -21,7 +25,6 @@ public class LoginDAO {
 
 		try {
 			
-			conn = db.getConnection();
 			String SQLLogin = "SELECT * FROM account WHERE email = ? or phoneNumber= ?";
 			PreparedStatement pr = conn.prepareStatement(SQLLogin);
 

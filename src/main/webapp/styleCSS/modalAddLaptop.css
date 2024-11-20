@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+.custom-file-upload {
+	border: 1px solid #ccc;
+	display: inline-block;
+	cursor: pointer;
+	border-radius: 5px;
+	padding: 6px 10px 6px 10px;
+}
+
+#preview-add, #preview-p,#preview-p-edit {
+	max-width: 55px;
+	display: none; /* Ẩn ảnh trước khi chọn tệp */
+}
+
+@media ( max-width : 768px) {
+	input::placeholder, label {
+		font-size: 9px;
+	}
+	input, label {
+		height: 24px;
+	}
+}
+
+#preview-edit {
+	max-width: 55px;
+	display: none; /* Ẩn ảnh trước khi chọn tệp */
+}

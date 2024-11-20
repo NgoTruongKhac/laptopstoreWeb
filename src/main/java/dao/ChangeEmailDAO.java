@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import bcrypt.BCrypt;
 import database.ConnectDatabase;
 
 public class ChangeEmailDAO {
@@ -13,7 +12,10 @@ public class ChangeEmailDAO {
 	private Connection conn;
 	private ConnectDatabase db;
 	
-	
+	public ChangeEmailDAO() {
+		db=new ConnectDatabase();
+		conn=db.getConnection();
+	}
 	
 	public boolean isSuccess(String oldEmail) {
 		// TODO Auto-generated method stub
@@ -21,7 +23,6 @@ public class ChangeEmailDAO {
 
 		try {
 		
-			conn = db.getConnection();
 
 			String insertSQL = "  select * from account where email=?;";
 			PreparedStatement pr = conn.prepareStatement(insertSQL);
@@ -45,7 +46,6 @@ public class ChangeEmailDAO {
 	public boolean isChangeEmail(String newEmail, int userId) {
 		boolean isChangeEmail=false;
 		try {
-			conn = db.getConnection();
 			String sql="update account set email=? where userId=?;";
 			PreparedStatement pr=conn.prepareStatement(sql);
 			

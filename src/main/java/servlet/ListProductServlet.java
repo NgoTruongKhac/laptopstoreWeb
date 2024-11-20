@@ -14,22 +14,24 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/index")
-public class ListLaptopServlet extends HttpServlet {
+@WebServlet("")
+public class ListProductServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
+		int amount=0;
+		
+		
 		//list lap top
 		ListLaptopDAO listLaptopdao = new ListLaptopDAO();
 
-		List<Laptop> listLaptop = listLaptopdao.getListLaptop();
+		List<Laptop> listLaptop = listLaptopdao.getListLaptop(amount);
 
 		req.getServletContext().setAttribute("ListLaptop", listLaptop);
 		
 		//list peripheral
-		int amount=0;
+		
 		
 		
 		ListPeripheralDAO listPeripheraldao=new ListPeripheralDAO();
@@ -47,8 +49,6 @@ public class ListLaptopServlet extends HttpServlet {
 
 		req.getServletContext().setAttribute("BestSeller", bestSeller);
 
-		System.out.println("kich hoat list best seller");
-		System.out.println(amount);
 
 		req.getRequestDispatcher("index.jsp").forward(req, resp);
 		

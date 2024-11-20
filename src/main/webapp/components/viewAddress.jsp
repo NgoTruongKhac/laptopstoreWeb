@@ -50,7 +50,9 @@
 
 
 						<button type="button" class="btn btn-primary">thay đổi</button>
-						<button type="button" class="btn btn-primary">xoá</button>
+						
+						
+						<a href="${pageContext.request.contextPath}/deleteAddress?addressId=${address.addressId}" type="button" class="btn btn-primary">xoá</a>
 					</div>
 				</div>
 			</div>

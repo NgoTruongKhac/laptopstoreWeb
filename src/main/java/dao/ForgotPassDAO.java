@@ -12,13 +12,16 @@ public class ForgotPassDAO {
 	private Connection conn;
 	private ConnectDatabase db;
 
+	public ForgotPassDAO() {
+		db=new ConnectDatabase();
+		conn=db.getConnection();
+	}
 	public boolean isForgotPass(String email) {
 		boolean isForgotPass = false;
 
 		try {
 
 			
-			conn = db.getConnection();
 			String sqlSelectEmail = "select * from account where email= ?;";
 
 			PreparedStatement pr = conn.prepareStatement(sqlSelectEmail);
@@ -38,7 +41,6 @@ public class ForgotPassDAO {
 	public boolean isChangePass(String newPass, String email) {
 		boolean isChangePass=false;
 		try {
-			conn = db.getConnection();
 			String hashNewPass=BCrypt.hashpw(newPass, BCrypt.gensalt());
 			
 			String sqlUpdatePass="update account set pass=? where email=?;";

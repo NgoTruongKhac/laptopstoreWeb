@@ -42,7 +42,7 @@ public class LoginServlet extends HttpServlet {
 					resp.sendRedirect("index.jsp");
 					return;
 				}
-//				resp.sendRedirect("authorization");
+
 
 			} else {
 				req.getSession().setAttribute("message", "mật khẩu hoặc email/sđt không đúng!");

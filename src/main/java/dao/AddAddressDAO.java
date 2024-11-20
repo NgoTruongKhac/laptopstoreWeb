@@ -10,13 +10,17 @@ public class AddAddressDAO {
 
 	private Connection conn;
 	private ConnectDatabase db;
+	
+	public AddAddressDAO() {
+		db=new ConnectDatabase();
+		conn=db.getConnection();
+	}
 
 	public boolean addAddress(Address address, int userId) {
 		boolean isAdd = false;
 		try {
 			
 			
-			conn = db.getConnection();
 
 			if (address.getIsDefault()) {
 				// Cập nhật địa chỉ cũ thành không mặc định

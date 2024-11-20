@@ -36,8 +36,8 @@ public class AuthorizationFilter implements Filter {
         // Authorization logic
         if (user == null) {
             // If the user is not logged in and tries to access admin page, redirect to login or index
-            if (uri.contains("/adminPage.jsp")) {
-                httpResponse.sendRedirect("index.jsp?message=Access Denied: Please log in as an admin.");
+            if (uri.contains("/adminPage")) {
+                httpResponse.sendRedirect("error.jsp");
                 return;
             }
         } else {
@@ -45,7 +45,7 @@ public class AuthorizationFilter implements Filter {
 
             // Redirect customers trying to access admin page
             if ("customer".equals(role) && uri.contains("/adminPage.jsp")) {
-                httpResponse.sendRedirect("index.jsp?message=Access Denied: Insufficient permissions.");
+                httpResponse.sendRedirect("error.jsp");
                 return;
             }
 

@@ -11,11 +11,15 @@ public class UpdateUserInfoDAO {
 	private Connection conn;
 	private ConnectDatabase db;
 	
+	public UpdateUserInfoDAO() {
+		db=new ConnectDatabase();
+		conn=db.getConnection();
+	}
+	
 	public boolean isUpdate(UserUpdate userUpdate, int userId) {
 		boolean isUpdate=false;
 		
 		try {
-			conn=db.getConnection();
 			
 			String sql="UPDATE account SET firstName=?,lastName=?, sex=?, birthday=?, avatar=? where userId=?;"; 
 			

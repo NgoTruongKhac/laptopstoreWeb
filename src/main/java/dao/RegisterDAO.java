@@ -12,6 +12,11 @@ public class RegisterDAO {
 
 	private Connection conn;
 	private ConnectDatabase db;
+	
+	public RegisterDAO() {
+		db=new ConnectDatabase();
+		conn=db.getConnection();
+	}
 
 	public boolean isSuccess(String emailOrPhone) {
 		// TODO Auto-generated method stub
@@ -19,7 +24,6 @@ public class RegisterDAO {
 
 		try {
 		
-			conn = db.getConnection();
 
 			String insertSQL = "  select * from account where email=? or phoneNumber=?;";
 			PreparedStatement pr = conn.prepareStatement(insertSQL);
@@ -45,8 +49,6 @@ public class RegisterDAO {
 		boolean isVerified = false;
 
 		try {
-			db = new ConnectDatabase();
-			conn = db.getConnection();
 			String verifySQL = "INSERT INTO account(firstName,lastName, pass, email, phoneNumber, verificationCode) VALUES (?, ?, ?, ?, ?,?);";
 			PreparedStatement pr = conn.prepareStatement(verifySQL);		
 			pr.setString(1, user.getFirstName());

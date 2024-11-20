@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<h1>bạn không quyền truy cập</h1>
+<h3>bạn không có quyền truy cập</h3>
 
 </body>
 </html>

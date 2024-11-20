@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import bcrypt.BCrypt;
 import database.ConnectDatabase;
 import entity.User;
 
@@ -12,6 +11,11 @@ public class UserInfoDAO {
 
 	private Connection conn;
 	private ConnectDatabase db;
+	
+	public UserInfoDAO() {
+		db=new ConnectDatabase();
+		conn=db.getConnection();
+	}
 
 	public User userInfo(int userId) {
 		// TODO Auto-generated method stub
@@ -19,7 +23,6 @@ public class UserInfoDAO {
 
 		try {
 
-			conn = db.getConnection();
 			String SQLLogin = "SELECT * FROM account WHERE userId=?";
 			PreparedStatement pr = conn.prepareStatement(SQLLogin);
 

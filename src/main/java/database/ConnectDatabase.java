@@ -9,7 +9,7 @@ public class ConnectDatabase {
 	private static final String USER="sa";
 	private static final String PASS="123";
 	
-	public static Connection getConnection() {
+	public  Connection getConnection() {
 		Connection conn=null;
 		
 		try {

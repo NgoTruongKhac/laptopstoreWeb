@@ -32,9 +32,9 @@ public class RegisterServlet extends HttpServlet {
 
 			if (!pass.equals(confirmPass)) {
 
-				req.setAttribute("message", "Mật khẩu không trùng khớp!");
-				req.setAttribute("type", "error");
-				req.setAttribute("error", "register");
+				req.getSession().setAttribute("message", "Mật khẩu không trùng khớp!");
+				req.getSession().setAttribute("type", "error");
+				req.getSession().setAttribute("error", "register");
 				req.getRequestDispatcher("index.jsp").include(req, resp);
 				return;
 
@@ -72,12 +72,12 @@ public class RegisterServlet extends HttpServlet {
 					
 					SmsUtil.sendSms(emailOrPhone, verificationSMS);
 
-					req.getSession().setAttribute("verificationTime", System.currentTimeMillis());
-					req.getSession().setAttribute("verificationSMS", verificationSMS);
-					req.getSession().setAttribute("firstName", firstName);
-					req.getSession().setAttribute("lastName", lastName);
-					req.getSession().setAttribute("phoneNumber", emailOrPhone);
-					req.getSession().setAttribute("pass", pass);
+					req.setAttribute("verificationTime", System.currentTimeMillis());
+					req.setAttribute("verificationSMS", verificationSMS);
+					req.setAttribute("firstName", firstName);
+					req.setAttribute("lastName", lastName);
+					req.setAttribute("phoneNumber", emailOrPhone);
+					req.setAttribute("pass", pass);
 
 					req.getRequestDispatcher("verifyOTP.jsp").forward(req, resp);
 

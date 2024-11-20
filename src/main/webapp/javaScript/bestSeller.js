@@ -64,7 +64,7 @@ carouselInner.addEventListener("mousemove", (e) => {
   if (!isDragging) return;
   e.preventDefault();
   const x = e.pageX - carouselInner.offsetLeft;
-  const walk = (x - startX) * 1; // Tăng tốc độ trượt nếu muốn
+  const walk = (x - startX) * 1; 
   carouselInner.scrollLeft = scrollLeft - walk;
 });
 
