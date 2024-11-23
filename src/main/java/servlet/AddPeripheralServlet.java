@@ -81,7 +81,7 @@ public class AddPeripheralServlet extends HttpServlet {
 
 		if (isSuccess) {
 
-			System.out.println("thanh cong");
+			
 //			resp.sendRedirect(req.getContextPath() + "/adminPage/listProduct");
 			resp.sendRedirect(req.getContextPath() + "/adminPage/listPeripheral");
 		}

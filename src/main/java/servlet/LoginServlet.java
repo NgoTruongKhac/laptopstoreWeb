@@ -28,6 +28,16 @@ public class LoginServlet extends HttpServlet {
 
 			User user = login.isSuccess(emailOrPhone, pass);
 
+			boolean Iscorrect = login.getIsCorrectPass();
+
+			if (!Iscorrect) {
+				req.getSession().setAttribute("message", "mật khẩu không đúng!");
+				req.getSession().setAttribute("type", "error");
+				req.getSession().setAttribute("error", "login");
+				req.getRequestDispatcher("index.jsp").include(req, resp);
+				return;
+			}
+
 			if (user != null) {
 
 				req.getSession().setAttribute("User", user);
@@ -43,14 +53,12 @@ public class LoginServlet extends HttpServlet {
 					return;
 				}
 
-
-			} else {
-				req.getSession().setAttribute("message", "mật khẩu hoặc email/sđt không đúng!");
-				req.getSession().setAttribute("type", "error");
-				req.getSession().setAttribute("error", "login");
-				req.getRequestDispatcher("index.jsp").include(req, resp);
-
 			}
+
+			req.getSession().setAttribute("message", "email hoặc sđt không đúng!");
+			req.getSession().setAttribute("type", "error");
+			req.getSession().setAttribute("error", "login");
+			req.getRequestDispatcher("index.jsp").include(req, resp);
 
 		} catch (Exception e) {
 			// TODO: handle exception

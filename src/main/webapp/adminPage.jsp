@@ -14,11 +14,13 @@
 <%@ include file="styleCSS/allCss.jsp"%>
 <link rel="stylesheet" href="styleCSS/adminCSS.css" />
 <link rel="stylesheet" href="styleCSS/modalAddLaptop.css" />
+<link rel="stylesheet" href="styleCSS/avatar.css" />
 
 
 </head>
 <body>
-	<jsp:include page="components/alert.jsp"></jsp:include>
+
+<jsp:include page="components/alert.jsp"></jsp:include>
 	<div class="wrapper">
 		<aside id="sidebar"
 			style="border-right: solid; position: fixed; z-index: 1002; height: 100%;">
@@ -78,9 +80,9 @@
 								Tìm kiếm</button>
 						</form>
 						<div>
-						<a href="#" style="font-size: 22px; margin-right: 13px">
-						<i class="bi bi-bell" ></i>
-						</a>
+							<a href="#" style="font-size: 22px; margin-right: 13px"> <i
+								class="bi bi-bell"></i>
+							</a>
 						</div>
 
 						<div class="dropdown" style="margin-right: 64px">
@@ -152,9 +154,27 @@
 						</div>
 					</div>
 
-					<div id="User" class="content-section"></div>
+					<div id="User" class="content-section">
+						<div class="mb-4 d-flex justify-content-center">
+							<h4>Tài Khoản</h4>
+						</div>
+
+
+
+						<div class="mb-4 d-flex justify-content-end">
+							<button data-bs-toggle="modal" data-bs-target="#addUser"
+								class="btn btn-outline-primary btn-sm">
+								<i class="bi bi-plus-lg me-1"></i>Tài khoản
+							</button>
+							<%@include file="/componentsAdmin/addUser.jsp"%>
+						</div>
+						<div id="listUserManage"></div>
+
+
+
+					</div>
 					<div id="Product" class="content-section"></div>
-					
+
 					<div id="Order" class="content-section">
 						<h4>Dat hang</h4>
 					</div>
@@ -163,12 +183,14 @@
 		</div>
 	</div>
 
+	
 	<script type="text/javascript" src="javaScript/admin.js"></script>
 	<script type="text/javascript" src="javaScript/alertLogout.js"></script>
 	<script type="text/javascript" src="javaScript/pagination.js"></script>
 	<script type="text/javascript" src="javaScript/alertDeleteProduct.js"></script>
-	
-	
+	<script type="text/javascript" src="javaScript/selectAvatar.js"></script>
+
+
 
 
 </body>

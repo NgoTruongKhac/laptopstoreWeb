@@ -3,8 +3,6 @@ package servlet;
 import java.io.IOException;
 
 import bcrypt.BCrypt;
-import dao.ChangeEmailDAO;
-import dao.ForgotPassDAO;
 import dao.RegisterDAO;
 import entity.User;
 import jakarta.servlet.ServletException;
@@ -27,7 +25,7 @@ public class VerifyRegisterServlet extends HttpServlet {
 		String pass = (String) req.getSession().getAttribute("pass");
 		String hashedPassword = BCrypt.hashpw(pass, BCrypt.gensalt());
 
-		User user = new User(firstName,lastName, hashedPassword, email, null, verificationCode);
+		User user = new User(firstName,lastName, hashedPassword, email, null);
 
 		
 		long verificationTime = (long) req.getSession().getAttribute("verificationTime");

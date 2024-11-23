@@ -12,20 +12,18 @@ public class User {
 	private String phoneNumber;
 	private String sex;
 	private Date birthday;
-	private String verificationCode;
 	private String avatar;
 	private String role;
 	
 	
 
-	public User(String firstName, String LastName, String pass, String email, String phoneNumber,
-			String verificationCode) {
+	public User(String firstName, String LastName, String pass, String email, String phoneNumber
+			) {
 		this.firstName = firstName;
 		this.LastName = LastName;
 		this.pass = pass;
 		this.email = email;
 		this.phoneNumber = phoneNumber;
-		this.verificationCode = verificationCode;
 	}
 	
 
@@ -61,13 +59,7 @@ public class User {
 		this.email = email;
 	}
 
-	public String getVerificationCode() {
-		return verificationCode;
-	}
 
-	public void setVerificationCode(String verificationCode) {
-		this.verificationCode = verificationCode;
-	}
 
 	public String getPhoneNumber() {
 		return phoneNumber;
@@ -128,7 +120,7 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [firstName=" + firstName + ", LastName=" + LastName + ", pass=" + pass + ", email=" + email
-				+ ", phoneNumber=" + phoneNumber + ", verificationCode=" + verificationCode + "]";
+				+ ", phoneNumber=" + phoneNumber + ", verificationCode=" +"]";
 	}
 	
 

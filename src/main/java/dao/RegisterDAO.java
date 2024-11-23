@@ -49,14 +49,13 @@ public class RegisterDAO {
 		boolean isVerified = false;
 
 		try {
-			String verifySQL = "INSERT INTO account(firstName,lastName, pass, email, phoneNumber, verificationCode) VALUES (?, ?, ?, ?, ?,?);";
+			String verifySQL = "INSERT INTO account(firstName,lastName, pass, email, phoneNumber) VALUES (?, ?, ?, ?, ?);";
 			PreparedStatement pr = conn.prepareStatement(verifySQL);		
 			pr.setString(1, user.getFirstName());
 			pr.setString(2, user.getLastName());
 			pr.setString(3, user.getPass());
 			pr.setString(4, user.getEmail());
 			pr.setString(5, user.getPhoneNumber());
-			pr.setString(6, user.getVerificationCode());
 
 			int i = pr.executeUpdate();
 

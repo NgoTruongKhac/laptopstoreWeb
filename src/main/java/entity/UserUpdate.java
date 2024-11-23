@@ -6,7 +6,6 @@ public class UserUpdate {
 
 	private String firstName;
 	private String lastName;
-
 	private String sex;
 	private Date birthday;
 	private String avatar;

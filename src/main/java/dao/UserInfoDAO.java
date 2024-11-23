@@ -35,12 +35,12 @@ public class UserInfoDAO {
 			// Kiểm tra nếu có kết quả trả về, nghĩa là đăng nhập thành công
 			if (rs.next()) {
 
-				user = new User(rs.getString(2), rs.getString(3), "", rs.getString(5), rs.getString(6), "");
-				user.setUserId(rs.getInt(1));
-				user.setSex(rs.getString(9));
-				user.setBirthday(rs.getDate(10));
-				user.setAvatar(rs.getString(11));
-				user.setRole(rs.getString(12));
+				user =new User(rs.getString("firstName"), rs.getString("lastName"), "", rs.getString("email"), rs.getString("phoneNumber"));
+				user.setUserId(rs.getInt("userId"));
+				user.setSex(rs.getString("sex"));
+				user.setBirthday(rs.getDate("birthday"));
+				user.setAvatar(rs.getString("avatar"));
+				user.setRole(rs.getString("role"));
 			}
 
 		} catch (Exception e) {

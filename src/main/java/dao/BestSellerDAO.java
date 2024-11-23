@@ -31,7 +31,7 @@ public class BestSellerDAO {
 					+ "FROM laptop l\r\n"
 					+ "LEFT JOIN orderLaptop o ON l.laptopId = o.laptopId\r\n"
 					+ "GROUP BY l.laptopId, l.name, l.description, l.image, l.price, l.brand, \r\n"
-					+ "         l.category, l.cpu, l.gpu, l.ram, l.drive, l.size, l.resolution\r\n"
+					+ "         l.category, l.cpu, l.gpu, l.ram, l.drive, l.size, l.resolution, l.createdAt\r\n"
 					+ "ORDER BY total_sold DESC;";
 			PreparedStatement pr = conn.prepareStatement(query);
 

@@ -65,57 +65,59 @@ function showSection(sectionId) {
 		.querySelector(`.sidebar-item[data-section='${sectionId}']`)
 		.classList.add("active");
 
+	// Xóa các script đã thêm trước đó
+	document.querySelectorAll("script.dynamic-script").forEach((script) => {
+		script.remove();
+	});
 	// Đặt URL servlet tương ứng dựa trên sectionId
 	var contextPath = window.location.origin + window.location.pathname.substring(0, window.location.pathname.indexOf("/", 1))
-	let url;
-	switch (sectionId) {
-		case "User":
-			url = contextPath + "/adminPage/listUser";
-			break;
-		case "Product":
-			url = contextPath + "/adminPage/listProduct";
-			break;
-		case "Order":
-			url = contextPath + "/adminPage/listOrder";
-			break;
-		default:
-			console.error("Unknown section ID:", sectionId);
-			return; // Dừng hàm nếu không có section hợp lệ
-	}
+
 
 	// Gọi AJAX để tải nội dung cho section
-	$.ajax({
-		url: url,
-		type: "get",
-		dataType: "html",
-		success: function(response) {
-			selectedSection.innerHTML = response;
+	if (sectionId === "Product") {
+		$.ajax({
+			url: contextPath + "/adminPage/listProduct",
+			type: "get",
+			dataType: "html",
+			success: function(response) {
+				document.getElementById("Product").innerHTML = response;
 
+				// Tải script liên quan đến Product
+				addDynamicScript('javaScript/previewImage.js');
+				addDynamicScript('javaScript/ajaxAddProduct.js');
+				addDynamicScript('javaScript/ajaxEditProduct.js');
+			},
+			error: function(xhr, status, error) {
+				console.error("Error loading Product section:", error);
+			}
+		});
+	} else if (sectionId === "User") {
+		$.ajax({
+			url: contextPath + "/adminPage/listUser",
+			type: "get",
+			dataType: "html",
+			success: function(response) {
+				document.getElementById("listUserManage").innerHTML = response;
 
-			var previewImage = document.createElement('script');
-			previewImage.type = 'text/javascript';
-			previewImage.src = 'javaScript/previewImage.js';
-			document.body.appendChild(previewImage);
+				// Tải script liên quan đến User
+				addDynamicScript('javaScript/ajaxAddUser.js');
+				addDynamicScript('javaScript/selectAvatar.js');
+				addDynamicScript('javaScript/alertDeleteUser.js');
+			},
+			error: function(xhr, status, error) {
+				console.error("Error loading User section:", error);
+			}
+		});
+	}
+}
 
-			
-
-			var ajaxAddLaptop = document.createElement('script');
-			ajaxAddLaptop.type = 'text/javascript';
-			ajaxAddLaptop.src = 'javaScript/ajaxAddProduct.js';
-			document.body.appendChild(ajaxAddLaptop);
-
-			var ajaxEditProduct = document.createElement('script');
-			ajaxEditProduct.type = 'text/javascript';
-			ajaxEditProduct.src = 'javaScript/ajaxEditProduct.js';
-			document.body.appendChild(ajaxEditProduct);
-
-
-
-		},
-		error: function(xhr, status, error) {
-			console.error("Error loading section:", error);
-		}
-	});
+// Hàm để thêm script động với class "dynamic-script"
+function addDynamicScript(src) {
+	const script = document.createElement('script');
+	script.type = 'text/javascript';
+	script.src = src;
+	script.classList.add('dynamic-script'); // Gắn class để nhận diện
+	document.body.appendChild(script);
 }
 
 

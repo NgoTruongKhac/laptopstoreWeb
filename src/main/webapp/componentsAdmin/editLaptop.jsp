@@ -74,7 +74,7 @@
 										value="${Laptop.drive}" />
 								</div>
 								<div class="mb-3">
-									<input id="size" class="form-control" type="text"
+									<input id="sizeUpdate" class="form-control" type="text"
 										placeholder="kích thước màn hình" name="size"
 										value="${Laptop.size}" />
 								</div>

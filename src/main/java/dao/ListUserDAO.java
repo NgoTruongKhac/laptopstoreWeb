@@ -32,7 +32,7 @@ public class ListUserDAO {
 			ResultSet rs=pr.executeQuery();
 			
 			while(rs.next()) {
-				User user=new User(rs.getString("firstName"), rs.getString("lastName"), "", rs.getString("email"), rs.getString("phoneNumber"), "");
+				User user=new User(rs.getString("firstName"), rs.getString("lastName"), "", rs.getString("email"), rs.getString("phoneNumber"));
 				user.setUserId(rs.getInt("userId"));
 				user.setBirthday(rs.getDate("birthday"));
 				

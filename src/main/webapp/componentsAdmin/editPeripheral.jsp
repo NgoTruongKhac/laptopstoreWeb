@@ -33,24 +33,24 @@
 							</div>
 
 							<div class="form-check form-check-inline">
-								<input id="mouse" name="category" class="form-check-input"
+								<input id="mouseEdit" name="category" class="form-check-input"
 									type="radio" value="mouse"
 									${Peripheral.category.trim() =='mouse' ? 'checked' : ''} /> <label
-									class="form-check-label" for="mouse">Chuột</label>
+									class="form-check-label" for="mouseEdit">Chuột</label>
 							</div>
 							<div class="form-check form-check-inline">
-								<input id="keyboard" name="category" class="form-check-input"
+								<input id="keyboardEdit" name="category" class="form-check-input"
 									type="radio" value="keyboard"
 									${Peripheral.category.trim() =='keyboard' ? 'checked' : ''} /> <label
-									class="form-check-label" for="keyboard">bàn phím</label>
+									class="form-check-label" for="keyboardEdit">bàn phím</label>
 									
 									
 							</div>
 							<div class="form-check form-check-inline">
-								<input id="headphone" name="category" class="form-check-input"
+								<input id="headphoneEdit" name="category" class="form-check-input"
 									type="radio" value="headphone"
 									${Peripheral.category.trim() =='headphone' ? 'checked' : ''} /> <label
-									class="form-check-label" for="headphone">tai nghe</label>
+									class="form-check-label" for="headphoneEdit">tai nghe</label>
 							</div>
 						</div>
 					</div>
@@ -80,16 +80,16 @@
 								</div>
 
 								<div class="form-check form-check-inline">
-									<input id="yes" name="connect" class="form-check-input"
+									<input id="yesEdit" name="connect" class="form-check-input"
 										type="radio" value="có dây"
 										${Peripheral.connect.trim() == 'có dây' ? 'checked' : ''} /> <label
-										class="form-check-label" for="yes">Có dây</label>
+										class="form-check-label" for="yesEdit">Có dây</label>
 								</div>
 								<div class="form-check form-check-inline">
-									<input id="no" name="connect" class="form-check-input"
+									<input id="noEdit" name="connect" class="form-check-input"
 										type="radio" value="không dây"
 										${Peripheral.connect.trim() == 'không dây' ? 'checked' : ''} /> <label
-										class="form-check-label" for="no">Không dây</label>
+										class="form-check-label" for="noEdit">Không dây</label>
 										
 								</div>
 							</div>
@@ -99,14 +99,14 @@
 								</div>
 
 								<div class="form-check form-check-inline">
-									<input id="rgb" name="ledRGB" class="form-check-input"
+									<input id="rgbEdit" name="ledRGB" class="form-check-input"
 										type="radio" value="1" ${Peripheral.ledRGB ? 'checked' : ''} />
-									<label class="form-check-label" for="rgb">Có</label>
+									<label class="form-check-label" for="rgbEdit">Có</label>
 								</div>
 								<div class="form-check form-check-inline">
-									<input id="noRgb" name="ledRGB" class="form-check-input"
+									<input id="noRgbEdit" name="ledRGB" class="form-check-input"
 										type="radio" value="0" ${!Peripheral.ledRGB ? 'checked' : ''} />
-									<label class="form-check-label" for="noRgb">Không</label>
+									<label class="form-check-label" for="noRgbEdit">Không</label>
 								</div>
 							</div>
 						</div>
@@ -122,7 +122,7 @@
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button onclick="updatePeripheral(${pagePeripheral})" id="submitBtn"
+				<button onclick="updatePeripheral(${pagePeripheral})" 
 					type="submit" class="btn btn-primary">Cập nhật</button>
 			</div>
 		</form>

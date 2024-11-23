@@ -89,7 +89,7 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button id="submitBtn" type="submit" class="btn btn-primary">Thêm
+					<button type="submit" class="btn btn-primary">Thêm
 						sản phẩm</button>
 				</div>
 			</form>

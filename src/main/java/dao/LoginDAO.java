@@ -3,6 +3,7 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import bcrypt.BCrypt;
 import database.ConnectDatabase;
@@ -12,15 +13,18 @@ public class LoginDAO {
 
 	private Connection conn;
 	private ConnectDatabase db;
+	private boolean isCorrectPass;
 
 	public LoginDAO() {
 		db=new ConnectDatabase();
 		conn=db.getConnection();
+		this.isCorrectPass=true;
 	}
 	
 	public User isSuccess(String emailOrPhone, String pass) {
 		// TODO Auto-generated method stub
 		User user=null;
+		
 		
 
 		try {
@@ -41,23 +45,30 @@ public class LoginDAO {
 				String hashedPass=rs.getString("pass");
 				
 				if(BCrypt.checkpw(pass, hashedPass)) {
-					user=new User(rs.getString(2), rs.getString(3), "", rs.getString(5), rs.getString(6), "");
-					user.setUserId(rs.getInt(1));
-					user.setSex(rs.getString(9));
-					user.setBirthday(rs.getDate(10));
-					user.setAvatar(rs.getString(11));
-					user.setRole(rs.getString(12));
+					user=new User(rs.getString("firstName"), rs.getString("lastName"), "", rs.getString("email"), rs.getString("phoneNumber"));
+					user.setUserId(rs.getInt("userId"));
+					user.setSex(rs.getString("sex"));
+					user.setBirthday(rs.getDate("birthday"));
+					user.setAvatar(rs.getString("avatar"));
+					user.setRole(rs.getString("role"));
+				}
+				else {
+					isCorrectPass=false;
+					
 				}
 			}
 
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		
 		}
 		return user;
+		
 	}
-	
+	public boolean getIsCorrectPass() {
+		return isCorrectPass;
+	}
 	
 
 }

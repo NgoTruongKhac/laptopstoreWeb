@@ -38,7 +38,7 @@ function loadPageUser(pageNumber) {
         type: "get",
         dataType: "html",
         success: function(response) {
-             document.getElementById("User").innerHTML = response;
+             document.getElementById("listUserManage").innerHTML = response;
         },
         error: function(xhr, status, error) {
             console.error("Error loading section:", error);
