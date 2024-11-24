@@ -1,7 +1,7 @@
 var contextPath = window.location.origin + window.location.pathname.substring(0, window.location.pathname.indexOf("/", 1))
 function deleteUser(userId,page) {
 	Swal.fire({
-		title: 'Bạn có muốn tài khoản này?',
+		title: 'Bạn có muốn xoá tài khoản này?',
 
 		icon: 'question',
 		showCancelButton: true,
@@ -20,7 +20,7 @@ function deleteUser(userId,page) {
 					const notyf = new Notyf();
 					       notyf.open({
 					           type : "success",
-					           message : "xoá tài khoản  thành công",
+					           message : "xoá tài khoản thành công",
 					           position : {
 					               x : "center",
 					               y : "center",

@@ -17,18 +17,20 @@
 					<div class="row">
 						<div class="col-6">
 							<div class="row">
+							
+							
 								<div class="col-5 mb-3">
 									<input id="firstName" name="firstName" class="form-control"
-										type="text" placeholder="Tên" />
+										type="text" placeholder="Tên" required="required" />
 								</div>
 								<div class="col-7 mb-3">
 									<input id="lastName" name="lastName" class="form-control"
-										type="text" placeholder="Họ" />
+										type="text" placeholder="Họ" required="required" />
 								</div>
 							</div>
 							<div class="mb-3">
 								<input id="pass" name="pass" class="form-control"
-									type="password" placeholder="mật khẩu" />
+									type="password" placeholder="mật khẩu" required="required" />
 							</div>
 							<div class="mb-3">
 								<input id="email" name="email" class="form-control" type="text"
@@ -44,7 +46,8 @@
 								<img class="rounded-circle" width="18%"
 									src="images/blank_avatar.png" alt="Avatar" class="avatar"
 									id="selected-avatar" name="image" /> <input id="avatarSrc"
-									type="hidden" name="avatarSrc" id="avatarSrc">
+									type="hidden" name="avatarSrc" 
+									value="images/blank_avatar.png">
 							</div>
 							<%@ include file="/components/selectAvatar.jsp"%>
 							<div class="mb-3 ms-3 d-flex flex-row">
@@ -53,7 +56,7 @@
 								</div>
 								<div>
 									<input id="birthday" class="form-control" type="date"
-										name="birthday" pattern='yyyy-MM-dd' />
+										name="birthday" pattern='yyyy-MM-dd' required="required" />
 								</div>
 							</div>
 							<div class="mb-3 ms-3 d-flex flex-row">

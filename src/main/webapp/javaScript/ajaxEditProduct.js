@@ -29,7 +29,7 @@ document.getElementById("editLaptopForm").addEventListener("submit", function(ev
 					x: "center",
 					y: "center",
 				},
-				duration: "success" === "error" ? null : 2500,
+				duration:   2500,
 				dismissible: true
 			});
 			for (var pair of formData.entries()) {
@@ -72,7 +72,7 @@ document.getElementById("editPeripheralForm").addEventListener("submit", functio
 					x: "center",
 					y: "center",
 				},
-				duration: "success" === "error" ? null : 2500,
+				duration: 2500,
 				dismissible: true
 			});
 			for (var pair of formData.entries()) {

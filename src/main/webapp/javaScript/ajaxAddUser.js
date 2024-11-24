@@ -26,7 +26,8 @@ document.getElementById("addUserForm").addEventListener("submit", function(event
 			if (response.type === "success") {
 
 				$('#addUser').modal('hide');
-				$('#addUserForm')[0].reset(); // Reset form về giá trị mặc định
+				$('#addUserForm')[0].reset();
+				$('#selected-avatar').attr('src', 'images/blank_avatar.png') 
 			}
 
 			document.getElementById("listUserManage").innerHTML = response;

@@ -30,9 +30,7 @@ public class AddUserServlet extends HttpServlet {
 			String sex = req.getParameter("sex");
 			String birthdayStr = req.getParameter("birthday");
 
-			System.out.println(firstName);
-			System.out.println(lastName);
-			System.out.println(birthdayStr);
+
 			Date birthday = Date.valueOf(birthdayStr);
 			String avatar = req.getParameter("avatarSrc");
 			String role = req.getParameter("role");
@@ -56,10 +54,7 @@ public class AddUserServlet extends HttpServlet {
 
 				resp.getWriter().write("{\"message\": \"Thêm tài khoản thành công\", \"type\": \"success\"}");
 			} 
-//				  else { resp.setContentType("application/json");
-//				  resp.setCharacterEncoding("UTF-8"); resp.getWriter().
-//				  write("{\"message\": \"email/số điện thoại đã tồn tại\", \"type\": \"error\"}"
-//				  ); }
+
 				 
 
 		} catch (SQLException e) {

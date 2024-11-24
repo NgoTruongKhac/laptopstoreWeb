@@ -103,6 +103,7 @@ function showSection(sectionId) {
 				addDynamicScript('javaScript/ajaxAddUser.js');
 				addDynamicScript('javaScript/selectAvatar.js');
 				addDynamicScript('javaScript/alertDeleteUser.js');
+				addDynamicScript('javaScript/ajaxEditUser.js');
 			},
 			error: function(xhr, status, error) {
 				console.error("Error loading User section:", error);

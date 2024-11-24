@@ -29,10 +29,12 @@
 						<td>${user.email}</td>
 						<td>${user.phoneNumber}</td>
 						<td>${user.birthday}</td>
-						<td><button class="btn">
+						<td><button data-bs-toggle="modal" data-bs-target="#editUser"
+								class="btn" onclick="editUser(${user.userId},${page})">
 								<i class="bi bi-pencil-square" style="color: blue;"></i>
 							</button></td>
-						<td><button onclick="deleteUser(${user.userId}, ${page})" class="btn">
+						<td><button onclick="deleteUser(${user.userId}, ${page})"
+								class="btn">
 								<i class="bi bi-trash3-fill" style="color: red;"></i>
 							</button></td>
 					</tr>
@@ -41,6 +43,10 @@
 		</tbody>
 
 	</table>
+</div>
+<div class="modal fade mt-5" id="editUser" tabindex="-1"
+	aria-labelledby="userModalLabel2" aria-hidden="true">
+	<%@include file="editUser.jsp"%>
 </div>
 
 <div class="d-flex justify-content-center">

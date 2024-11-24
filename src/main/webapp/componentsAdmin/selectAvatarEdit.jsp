@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%> 
-
-
-
-<div class="avatar-options" id="avatar-options">
+    pageEncoding="UTF-8"%>
+<div class="avatar-options" id="avatar-options-edit">
 	<img src="images/boy.png" alt="Boy"
 		onclick="selectAvatar('images/boy.png')"> <img
 		src="images/girl.png" alt="Girl"
@@ -24,25 +21,3 @@
 		onclick="selectAvatar('images/girl3.png')">
 
 </div>
-
-
-
-
-<script>
-	document
-			.querySelector('.avatar-picker')
-			.addEventListener(
-					'click',
-					function() {
-						const avatarOptions = document
-								.getElementById('avatar-options');
-						avatarOptions.style.display = avatarOptions.style.display === 'block' ? 'none'
-								: 'block';
-					});
-
-	function selectAvatar(avatar) {
-		document.getElementById('selected-avatar').src = avatar;
-		document.getElementById('avatarSrc').value = avatar;
-		document.getElementById('avatar-options').style.display = 'none';
-	}
-</script>

@@ -119,10 +119,13 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [firstName=" + firstName + ", LastName=" + LastName + ", pass=" + pass + ", email=" + email
-				+ ", phoneNumber=" + phoneNumber + ", verificationCode=" +"]";
+		return "User [userId=" + userId + ", firstName=" + firstName + ", LastName=" + LastName + ", pass=" + pass
+				+ ", email=" + email + ", phoneNumber=" + phoneNumber + ", sex=" + sex + ", birthday=" + birthday
+				+ ", avatar=" + avatar + ", role=" + role + "]";
 	}
-	
+
+
+
 
 
 
