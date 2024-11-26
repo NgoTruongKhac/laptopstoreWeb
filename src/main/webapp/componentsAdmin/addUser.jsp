@@ -15,7 +15,7 @@
 
 				<div class="modal-body">
 					<div class="row">
-						<div class="col-6">
+						<div class="col-md-6 col-12">
 							<div class="row">
 							
 							
@@ -33,7 +33,7 @@
 									type="password" placeholder="mật khẩu" required="required" />
 							</div>
 							<div class="mb-3">
-								<input id="email" name="email" class="form-control" type="text"
+								<input id="email" name="email" class="form-control" type="email"
 									placeholder="email" />
 							</div>
 							<div class="mb-3">
@@ -41,7 +41,7 @@
 									type="text" placeholder="Số điện thoại" />
 							</div>
 						</div>
-						<div class="col-6">
+						<div class="col-md-6 col-12">
 							<div class="avatar-picker mb-3 d-flex justify-content-center">
 								<img class="rounded-circle" width="18%"
 									src="images/blank_avatar.png" alt="Avatar" class="avatar"

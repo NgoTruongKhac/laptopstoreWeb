@@ -12,7 +12,7 @@
 			</div>
 			<div class="modal-body">
 				<div class="row">
-					<div class="col-5">
+					<div class="col-md-5 col-12">
 						<input id="laptopIdUpdate" name="laptopId" type="text"
 							value="${Laptop.laptopId}" hidden="true" />
 						<div class="mb-3">
@@ -32,7 +32,7 @@
 								placeholder="Loại" name="category" value="${Laptop.category}" />
 						</div>
 					</div>
-					<div class="col-7">
+					<div class="col-md-7 col-12">
 						<div class="row">
 							<div class="col-6 mb-3">
 								<label for="file-upload-edit" class="custom-file-upload">

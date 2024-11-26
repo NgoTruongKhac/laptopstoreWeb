@@ -16,6 +16,7 @@ public class AddAddressServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
 		// TODO Auto-generated method stub
 		String nameAddress = req.getParameter("nameAddress");
 		String province = req.getParameter("province");

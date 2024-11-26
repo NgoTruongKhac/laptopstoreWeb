@@ -12,7 +12,7 @@
 			</div>
 			<div class="modal-body">
 				<div class="row">
-					<div class="col-6">
+					<div class="col-md-6 col-12">
 						<input type="text" name="peripheralId"
 							value="${Peripheral.peripheralId}" hidden="true">
 						<div class="mb-3">
@@ -54,7 +54,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-6">
+					<div class="col-md-6 col-12">
 						<div class="row">
 							<div class="col-6 mb-3">
 								<label for="file-upload-p-edit" class="custom-file-upload">
@@ -76,37 +76,37 @@
 						<div class="row">
 							<div class="mb-3 d-flex flex-row">
 								<div class="mb-1">
-									<label class="form-check me-2" for="">Kết nối :</label>
+									<label class="form-check me-2" for="" style="min-width: 80px">Kết nối :</label>
 								</div>
 
 								<div class="form-check form-check-inline">
 									<input id="yesEdit" name="connect" class="form-check-input"
 										type="radio" value="có dây"
 										${Peripheral.connect.trim() == 'có dây' ? 'checked' : ''} /> <label
-										class="form-check-label" for="yesEdit">Có dây</label>
+										class="form-check-label" for="yesEdit" style="min-width: 60px">Có dây</label>
 								</div>
 								<div class="form-check form-check-inline">
 									<input id="noEdit" name="connect" class="form-check-input"
 										type="radio" value="không dây"
 										${Peripheral.connect.trim() == 'không dây' ? 'checked' : ''} /> <label
-										class="form-check-label" for="noEdit">Không dây</label>
+										class="form-check-label" for="noEdit" style="min-width: 60px">Không dây</label>
 										
 								</div>
 							</div>
 							<div class="mb-3 d-flex flex-row">
 								<div class="mb-1">
-									<label class="form-check me-2" for="">led RGB :</label>
+									<label class="form-check me-2" for="" style="min-width: 80px">led RGB :</label>
 								</div>
 
 								<div class="form-check form-check-inline">
 									<input id="rgbEdit" name="ledRGB" class="form-check-input"
 										type="radio" value="1" ${Peripheral.ledRGB ? 'checked' : ''} />
-									<label class="form-check-label" for="rgbEdit">Có</label>
+									<label class="form-check-label" for="rgbEdit" style="min-width: 60px">Có</label>
 								</div>
 								<div class="form-check form-check-inline">
 									<input id="noRgbEdit" name="ledRGB" class="form-check-input"
 										type="radio" value="0" ${!Peripheral.ledRGB ? 'checked' : ''} />
-									<label class="form-check-label" for="noRgbEdit">Không</label>
+									<label class="form-check-label" for="noRgbEdit" style="min-width: 60px">Không</label>
 								</div>
 							</div>
 						</div>

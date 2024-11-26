@@ -15,10 +15,10 @@
 
 @media ( max-width : 768px) {
 	input::placeholder, label {
-		font-size: 9px;
+		font-size: 13px;
 	}
 	input, label {
-		height: 24px;
+		height: 25px;
 	}
 }
 

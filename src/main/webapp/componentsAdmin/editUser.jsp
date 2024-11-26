@@ -5,7 +5,7 @@
 	<div class="modal-content">
 		<form id="editUserForm" method="post">
 			<div class="modal-header">
-				<h1 class="modal-title fs-5" id="userModalLabel2">Thêm tài
+				<h1 class="modal-title fs-5" id="userModalLabel2">Cập nhật tài
 					khoản</h1>
 				<button type="button" class="btn-close" data-bs-dismiss="modal"
 					aria-label="Close"></button>
@@ -13,7 +13,7 @@
 
 			<div class="modal-body">
 				<div class="row">
-					<div class="col-6">
+					<div class="col-md-6 col-12">
 						<div class="row">
 							<input type="text" name="userId" value="${User.userId}" hidden="true">
 							<div class="col-5 mb-3">
@@ -30,7 +30,7 @@
 								placeholder="mật khẩu" readonly="readonly" />
 						</div>
 						<div class="mb-3">
-							<input name="email" class="form-control" type="text"
+							<input name="email" class="form-control" type="email"
 								placeholder="email" value="${User.email}" />
 						</div>
 						<div class="mb-3">
@@ -38,7 +38,7 @@
 								placeholder="Số điện thoại" value="${User.phoneNumber}" />
 						</div>
 					</div>
-					<div class="col-6">
+					<div class="col-md-6 col-12">
 						<div onclick="avatarPicker()"
 							class="avatar-picker mb-3 d-flex justify-content-center">
 							<img class="rounded-circle" width="18%" src="${User.avatar}"
@@ -97,7 +97,7 @@
 			</div>
 			<div class="modal-footer">
 				<button onclick="updateUser(${page})" type="submit"
-					class="btn btn-primary">Thêm</button>
+					class="btn btn-primary">Cập nhật</button>
 			</div>
 		</form>
 	</div>

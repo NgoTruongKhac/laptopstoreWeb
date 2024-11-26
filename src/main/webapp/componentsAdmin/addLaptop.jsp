@@ -13,7 +13,7 @@
 				</div>
 				<div class="modal-body">
 					<div class="row">
-						<div class="col-5">
+						<div class="col-md-5 col-12">
 							<div class="mb-3">
 								<input id="name" class="form-control" type="text"
 									placeholder="Tên" name="name" />
@@ -31,7 +31,7 @@
 									placeholder="Loại" name="category" />
 							</div>
 						</div>
-						<div class="col-7">
+						<div class="col-md-7 col-12">
 							<div class="row">
 								<div class="col-6 mb-3">
 									<label for="file-upload-add" class="custom-file-upload">

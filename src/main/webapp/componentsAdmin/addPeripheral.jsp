@@ -12,9 +12,9 @@
 				</div>
 				<div class="modal-body">
 					<div class="row">
-						<div class="col-6">
+						<div class="col-md-6 col-12">
 							<div class="mb-3">
-								<input  name="name" class="form-control" type="text"
+								<input name="name" class="form-control" type="text"
 									placeholder="Tên" />
 							</div>
 							<div class="mb-3">
@@ -38,14 +38,12 @@
 								<div class="form-check form-check-inline">
 									<input id="keyboard" name="category" class="form-check-input"
 										type="radio" value="keyboard" /> <label
-										class="form-check-label" for="keyboard">bàn
-										phím</label>
+										class="form-check-label" for="keyboard">bàn phím</label>
 								</div>
 								<div class="form-check form-check-inline">
 									<input id="headphone" name="category" class="form-check-input"
 										type="radio" value="headphone" /> <label
-										class="form-check-label" for="headphone">tai
-										nghe</label>
+										class="form-check-label" for="headphone">tai nghe</label>
 								</div>
 							</div>
 						</div>
@@ -54,52 +52,54 @@
 								<div class="col-6 mb-3">
 									<label for="file-upload-p" class="custom-file-upload">
 										<i class="bi bi-upload me-1"></i> Ảnh
-									</label> <input id="file-upload-p" type="file" accept="image/*" name="image"
-										style="display: none" />
+									</label> <input id="file-upload-p" type="file" accept="image/*"
+										name="image" style="display: none" />
 
 									<!-- Vùng hiển thị bản xem trước -->
 								</div>
-								<div class="col-6">
+								<div class="col-md-6 col-12">
 									<img id="preview-p" alt="" />
 								</div>
 							</div>
 
-							<div class="row">
-								<div class="mb-3 d-flex flex-row">
-									<div class="mb-1">
-										<label class="form-check me-2" for="">Kết nối :</label>
-									</div>
 
-									<div class="form-check form-check-inline">
-										<input id="yes" name="connect" class="form-check-input"
-											type="radio" value="có dây" /> <label
-											class="form-check-label" for="yes">Có
-											dây</label>
-									</div>
-									<div class="form-check form-check-inline">
-										<input id="no" name="connect" class="form-check-input"
-											type="radio" value="không dây" /> <label
-											class="form-check-label" for="no">Không
-											dây</label>
-									</div>
+							<div class="mb-3 d-flex flex-row">
+								<div class="mb-1">
+									<label class="form-check me-2" for="" style="min-width: 80px;">Kết
+										nối :</label>
 								</div>
-								<div class="mb-3 d-flex flex-row">
-									<div class="mb-1">
-										<label class="form-check me-2" for="">led RGB :</label>
-									</div>
 
-									<div class="form-check form-check-inline">
-										<input id="rgb" name="ledRGB" class="form-check-input"
-											type="radio" value="1" /> <label class="form-check-label"
-											for="rgb">Có</label>
-									</div>
-									<div class="form-check form-check-inline">
-										<input id="noRgb" name="ledRGB" class="form-check-input"
-											type="radio" value="0" /> <label class="form-check-label"
-											for="noRgb">Không</label>
-									</div>
+								<div class="form-check form-check-inline">
+									<input id="yes" name="connect" class="form-check-input"
+										type="radio" value="có dây" /> <label
+										class="form-check-label" for="yes" style="min-width: 60px;">Có
+										dây</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input id="no" name="connect" class="form-check-input"
+										type="radio" value="không dây" /> <label
+										class="form-check-label" for="no" style="min-width: 60px;">Không
+										dây</label>
 								</div>
 							</div>
+							<div class="mb-3 d-flex flex-row">
+								<div class="mb-1">
+									<label class="form-check me-2" for="" style="min-width: 80px;">led
+										RGB :</label>
+								</div>
+
+								<div class="form-check form-check-inline">
+									<input id="rgb" name="ledRGB" class="form-check-input"
+										type="radio" value="1" /> <label class="form-check-label"
+										for="rgb" style="min-width: 60px;">Có</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input id="noRgb" name="ledRGB" class="form-check-input"
+										type="radio" value="0" /> <label class="form-check-label"
+										for="noRgb" style="min-width: 60px;">Không</label>
+								</div>
+							</div>
+
 						</div>
 					</div>
 
@@ -107,12 +107,11 @@
 						<div>
 							<label class="form-label" for="">Mô tả chi tiết</label>
 						</div>
-						<textarea class="form-control" name="description"
-							rows="5"></textarea>
+						<textarea class="form-control" name="description" rows="5"></textarea>
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button  type="submit" class="btn btn-primary">Thêm sản
+					<button type="submit" class="btn btn-primary">Thêm sản
 						phẩm</button>
 				</div>
 			</form>
