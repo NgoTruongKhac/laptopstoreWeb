@@ -1,4 +1,4 @@
-// Lấy tất cả các avatar-picker
+
 
 
 function avatarPicker() {

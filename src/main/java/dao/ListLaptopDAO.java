@@ -39,6 +39,7 @@ public class ListLaptopDAO {
 					    rs.getString("drive"), 
 					    rs.getString("size"), 
 					    rs.getString("resolution"));
+				laptop.setLaptopId(rs.getInt("laptopId"));
 				listLaptop.add(laptop);
 			}
 

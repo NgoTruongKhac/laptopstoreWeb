@@ -27,6 +27,8 @@ public class ChangeEmailServlet extends HttpServlet {
 
 		ChangeEmailDAO changeEmail = new ChangeEmailDAO();
 		boolean isChange = changeEmail.isSuccess(newEmail);
+		
+		
 
 		String verificationCode = String.valueOf((int) (Math.random() * 900000) + 100000);
 

@@ -45,6 +45,7 @@ public class BestSellerDAO {
 					    rs.getString("drive"), 
 					    rs.getString("size"), 
 					    rs.getString("resolution"));
+				laptop.setLaptopId(rs.getInt("laptopId"));
 				bestSeller.add(laptop);
 			}
 

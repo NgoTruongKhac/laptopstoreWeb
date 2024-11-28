@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%> 
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 
@@ -13,21 +13,21 @@
 					aria-label="Close"></button>
 			</div>
 			<!-- Thêm phần này -->
-			<div class="modal-body" >
+			<div class="modal-body">
 				<div class="d-flex justify-content-center">
 					<div>
 						<form action="login" method="post">
-							
+
 							<div class="d-flex justify-content-center mb-2"
 								style="margin-top: -10px">
 								<h3>Đăng Nhập</h3>
 							</div>
-							
+
 							<div class="mb-3">
 								<label class="form-label">Email/Số điện thoại </label> <input
-									type="text" class="form-control" name="emailOrPhone"
-									required="required" size="32"
-									value="${param.emailOrPhone != null ? param.emailOrPhone : ''}" />
+									id="emailOrPhone" type="text" class="form-control"
+									name="emailOrPhone" required="required" size="32"
+									value="${param.emailOrPhone != null ? param.emailOrPhone : ''}"  />
 							</div>
 							<div class="mb-3">
 								<label class="form-label">Mật khẩu</label> <input
@@ -39,7 +39,8 @@
 								<button type="submit" class="btn btn-primary">Đăng Nhập
 								</button>
 								<span class="mt-2 align-self-center">bạn chưa có tài
-									khoản ?<a href="#" data-bs-toggle="modal" data-bs-target="#register" type="button">Đăng ký</a>
+									khoản ?<a href="#" data-bs-toggle="modal"
+									data-bs-target="#register" type="button">Đăng ký</a>
 								</span> <span class="mt-2 align-self-center">bạn quên mật khẩu ?<a
 									href="forgotPass.jsp">quên mật khẩu</a>
 								</span>

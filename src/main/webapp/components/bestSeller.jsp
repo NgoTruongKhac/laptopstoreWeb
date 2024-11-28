@@ -9,19 +9,19 @@
 			<c:forEach var="laptop" items="${BestSeller}" varStatus="status">
 				<div class="carousel-item ${status.first ? 'active' : ''}">
 					<div class="card-seller"
-						style="background-color: white; flex: 1 0 20%; height: 23rem">
+						style="background-color: white; flex: 1 0 20%; height: 24rem">
 						<div class="card-body" style="margin-top: -13px">
-							<a href="http://" style="text-decoration: none; color: black"
+							<a href="${pageContext.request.contextPath}/detailProduct?laptopId=${laptop.laptopId}" style="text-decoration: none; color: black"
 								draggable="false">
 								<div class="d-flex justify-content-center">
-									<img src="${laptop.image}" class="card-img-top" alt="..."
-										style="width: 9rem; height: 9rem" draggable="false" />
+									<img src="${laptop.image}" class="cardSellerImg card-img-top" alt="..."
+										 draggable="false" />
 								</div>
-								<h6 class="mb-2 card-title" style="padding-left: 30px">
+								<h6 class="name mb-2 card-title" style="padding-left: 30px">
 									${laptop.name}</h6>
 
-								<div class="mb-2 bg-info-subtle rounded-1 d-flex flex-wrap"
-									style="font-size: 15px; padding-left: 24px">
+								<div class="spec mb-2 bg-info-subtle rounded-1 d-flex flex-wrap"
+									style="padding-left: 24px">
 									<div class="me-3 ms-1">
 										<i class="bi bi-cpu-fill me-1"></i>${laptop.cpu}
 									</div>
@@ -40,13 +40,13 @@
 									</div>
 								</div>
 
-								<div class="text-danger text-center" style="font-size: 20px">
+								<div class="price text-danger text-center">
 									<span id="price"> <c:out
 											value="${String.format('%,d', laptop.price)} đ" /></span>
 								</div>
 
-								<div style="font-size: 15px"
-									class="mb-1 d-flex justify-content-center">
+								<div 
+									class="vote mb-1 d-flex justify-content-center">
 									<span class="text-warning me-1">0.0</span> <i
 										class="bi bi-star-fill text-warning me-1"></i> (0 đánh giá)
 								</div>

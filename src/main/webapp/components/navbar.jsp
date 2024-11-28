@@ -11,11 +11,11 @@
 	<div class="container mt-3 mb-1">
 		<div class=row>
 
-			<div class="col-md-3 mb-2">
+			<div class="col-md-3 col-2 mb-2">
 				<a href="index.jsp" class="text-decoration-none"><img
-					src="images/laptopStoreLogo.png" style="width: 160px;"></a>
+					src="images/laptopStoreLogo.png" class="logoImg"></a>
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-6 col-10">
 
 				<form class="d-flex" role="search">
 					<div class="w-75">
@@ -27,7 +27,7 @@
 				</form>
 
 			</div>
-			<div class="col-md-3 d-flex justify-content-evenly">
+			<div class="user col-md-3 col-6 d-flex justify-content-evenly">
 
 
 				<c:if test="${not empty User}">

@@ -32,11 +32,9 @@ document.getElementById("addLaptopForm").addEventListener("submit", function(eve
 				duration:  2500 ,
 				dismissible: true
 			});
-			for (var pair of formData.entries()) {
-				console.log(pair[0] + ': ' + pair[1]);
-			}
+			
 		},
-		error: function(xhr, status, error) {
+		error: function(error) {
 			console.error("Error:", error);
 		}
 	});

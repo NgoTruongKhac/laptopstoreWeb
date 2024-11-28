@@ -7,18 +7,19 @@
 <c:if test="${not empty ListLaptop}">
 	<c:forEach var="laptop" items="${ListLaptop}">
 		<div class="laptopItem col-6 col-md-3 mb-4">
-			<div class="card" style="height: 25rem">
+			<div class="card">
 				<div class="card-body" style="margin-top: -13px">
-					<a href="http://" style="text-decoration: none; color: black">
+					<a
+						href="${pageContext.request.contextPath}/detailProduct?laptopId=${laptop.laptopId}"
+						style="text-decoration: none; color: black">
 						<div class="d-flex justify-content-center">
-							<img src="${laptop.image}" class="card-img-top" alt="..."
-								style="width: 11rem; height: 11rem" />
+							<img src="${laptop.image}" class="cardImg card-img-top" alt="..." />
 						</div>
-						<h6 class="mb-2 card-title" style="padding-left: 30px">
+						<h6 class="name mb-2 card-title" style="padding-left: 30px">
 							${laptop.name}</h6>
 
-						<div class="mb-2 bg-info-subtle rounded-1 d-flex flex-wrap"
-							style="font-size: 15px; padding-left: 24px">
+						<div class="spec mb-2 bg-info-subtle rounded-1 d-flex flex-wrap"
+							style="padding-left: 24px">
 							<div class="me-3 ms-1">
 								<i class="bi bi-cpu-fill me-1"></i>${laptop.cpu}
 							</div>
@@ -36,13 +37,12 @@
 							</div>
 						</div>
 
-						<div class="text-danger text-center" style="font-size: 20px">
+						<div class="price text-danger text-center">
 							<span id="price"> <c:out
 									value="${String.format('%,d', laptop.price)} đ" /></span>
 						</div>
 
-						<div style="font-size: 15px"
-							class="mb-1 d-flex justify-content-center">
+						<div class="vote mb-1 d-flex justify-content-center">
 							<span class="text-warning me-1">0.0</span> <i
 								class="bi bi-star-fill text-warning me-1"></i> (0 đánh giá)
 						</div>

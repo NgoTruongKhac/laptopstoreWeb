@@ -33,7 +33,25 @@ document.addEventListener("DOMContentLoaded", function() {
 				}
 			});
 	} else {
-		multipleCardCarousel.classList.add("slide");
+		multipleCardCarousel.classList.remove("slide");
+		carouselInner.addEventListener("touchstart", (e) => {
+			isDragging = true;
+			startX = e.touches[0].pageX - carouselInner.offsetLeft;
+			scrollLeft = carouselInner.scrollLeft;
+		});
+
+		carouselInner.addEventListener("touchend", () => {
+			isDragging = false;
+		});
+
+		carouselInner.addEventListener("touchmove", (e) => {
+			if (!isDragging) return;
+			e.preventDefault();
+			const x = e.touches[0].pageX - carouselInner.offsetLeft;
+			const walk = (x - startX) * 1;
+			carouselInner.scrollLeft = scrollLeft - walk;
+		});
+
 	}
 });
 
@@ -44,57 +62,57 @@ let startX;
 let scrollLeft;
 
 carouselInner.addEventListener("mousedown", (e) => {
-  isDragging = true;
-  carouselInner.classList.add("active");
-  startX = e.pageX - carouselInner.offsetLeft;
-  scrollLeft = carouselInner.scrollLeft;
+	isDragging = true;
+	carouselInner.classList.add("active");
+	startX = e.pageX - carouselInner.offsetLeft;
+	scrollLeft = carouselInner.scrollLeft;
 });
 
 carouselInner.addEventListener("mouseleave", () => {
-  isDragging = false;
-  carouselInner.classList.remove("active");
+	isDragging = false;
+	carouselInner.classList.remove("active");
 });
 
 carouselInner.addEventListener("mouseup", () => {
-  isDragging = false;
-  carouselInner.classList.remove("active");
+	isDragging = false;
+	carouselInner.classList.remove("active");
 });
 
 carouselInner.addEventListener("mousemove", (e) => {
-  if (!isDragging) return;
-  e.preventDefault();
-  const x = e.pageX - carouselInner.offsetLeft;
-  const walk = (x - startX) * 1; 
-  carouselInner.scrollLeft = scrollLeft - walk;
+	if (!isDragging) return;
+	e.preventDefault();
+	const x = e.pageX - carouselInner.offsetLeft;
+	const walk = (x - startX) * 1;
+	carouselInner.scrollLeft = scrollLeft - walk;
 });
 
 let mouseDownTime = 0;
 const clickThreshold = 200; // Set a threshold for a quick click (200 ms)
 
 document.querySelectorAll('#carouselExampleControls .carousel-item').forEach(item => {
-  // Record the time when mouse is pressed down
-  item.addEventListener('mousedown', () => {
-    mouseDownTime = new Date().getTime();
-  });
+	// Record the time when mouse is pressed down
+	item.addEventListener('mousedown', () => {
+		mouseDownTime = new Date().getTime();
+	});
 
-  // Handle mouse up event to determine if it's a quick click
-  item.addEventListener('mouseup', (event) => {
-    const mouseUpTime = new Date().getTime();
-    const clickDuration = mouseUpTime - mouseDownTime;
+	// Handle mouse up event to determine if it's a quick click
+	item.addEventListener('mouseup', (event) => {
+		const mouseUpTime = new Date().getTime();
+		const clickDuration = mouseUpTime - mouseDownTime;
 
-    // If the duration is longer than the threshold, prevent the click
-    if (clickDuration > clickThreshold) {
-      event.preventDefault();
-    }
-  });
+		// If the duration is longer than the threshold, prevent the click
+		if (clickDuration > clickThreshold) {
+			event.preventDefault();
+		}
+	});
 
-  // Prevent click event if it was a hold
-  item.addEventListener('click', (event) => {
-    const clickDuration = new Date().getTime() - mouseDownTime;
-    if (clickDuration > clickThreshold) {
-      event.preventDefault();
-    }
-  });
+	// Prevent click event if it was a hold
+	item.addEventListener('click', (event) => {
+		const clickDuration = new Date().getTime() - mouseDownTime;
+		if (clickDuration > clickThreshold) {
+			event.preventDefault();
+		}
+	});
 });
 
 

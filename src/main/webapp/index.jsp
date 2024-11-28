@@ -33,7 +33,7 @@ response.setDateHeader("Expires", 0); // Proxies.
 			style="padding-top: 8px; width: 95%; border-radius: 20px;">
 			<div class="d-flex justify-content-center">
 				<div>
-					<img src="images/Sản Phẩm Bán Chạy.png" style="width: 380px" />
+					<img class="titleSeller" src="images/Sản Phẩm Bán Chạy.png"  />
 				</div>
 			</div>
 			<jsp:include page="components/bestSeller.jsp"></jsp:include>

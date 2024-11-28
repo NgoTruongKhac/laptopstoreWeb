@@ -34,6 +34,7 @@ public class ListPeripheralDAO {
 				Peripheral peripheral= new Peripheral( rs.getString("name"), rs.getString("description"), rs.getString("image"),
 						rs.getInt("price"), rs.getString("brand"), rs.getString("category"),rs.getString("connect"),rs.getBoolean("ledRGB")
 					  );
+				peripheral.setPeripheralId(rs.getInt("peripheralId"));
 				listPeripheral.add(peripheral);
 			}
 
