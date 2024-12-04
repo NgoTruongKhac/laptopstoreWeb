@@ -19,6 +19,14 @@ public class ListCartItemOrderServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 
 		String[] listCartId = req.getParameterValues("selectCartItem");
+		
+		
+		if(listCartId==null) {
+			req.getSession().setAttribute("message", "bạn chưa chọn sản phẩm!");
+			req.getSession().setAttribute("type", "warning");
+			resp.sendRedirect(req.getContextPath()+"/viewCart");
+			return;
+		}
 
 		int totalPrice = Integer.parseInt(req.getParameter("totalPrice"));
 

@@ -8,11 +8,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Insert title here</title>
 <%@ include file="styleCSS/allCss.jsp"%>
-<!-- <link rel="stylesheet" href="styleCSS/styleCart.css" /> -->
+
 <link rel="stylesheet" href="${includeCss}" />
 </head>
 <body>
 	<jsp:include page="components/navbar.jsp"></jsp:include>
+	<jsp:include page="components/alert.jsp"></jsp:include>
 	<div  class="container d-flex justify-content-center mt-2">
 		<div class="row col-12 col-md-8 d-flex justify-content-center">
 			<div class="mt-2 mb-2">
