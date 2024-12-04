@@ -2,33 +2,33 @@ package servlet;
 
 import java.io.IOException;
 
-import dao.EditLaptopDAO;
-import entity.Laptop;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/detailLaptop")
-
-public class DetailLaptopServlet extends HttpServlet {
+@WebServlet("/detailProduct")
+public class DetailProductServlet extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-
-		int laptopId = Integer.parseInt(req.getParameter("laptopId"));
-
-		EditLaptopDAO editlaptop = new EditLaptopDAO();
-
-		Laptop laptop = editlaptop.getLaptop(laptopId);
-
-		req.setAttribute("Laptop", laptop);
+		int prouductId=Integer.parseInt(req.getParameter("productId"));
 		
-		req.getRequestDispatcher("detailLaptop.jsp").forward(req, resp);
-
+		
+		if(prouductId%2==0) {
+			
+			resp.sendRedirect(req.getContextPath()+"/detailLaptop?laptopId="+prouductId);
+			
+		}else {
+			
+			resp.sendRedirect(req.getContextPath()+"/detailPeripheral?peripheralId="+prouductId);
+		}
+		
 	}
+	
+	
 
 }

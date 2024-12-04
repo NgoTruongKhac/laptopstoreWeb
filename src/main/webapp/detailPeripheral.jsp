@@ -8,16 +8,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Insert title here</title>
 <%@ include file="styleCSS/allCss.jsp"%>
+<link  rel="stylesheet" href="styleCSS/detailProduct.css">
 </head>
 <body>
 	<jsp:include page="components/navbar.jsp"></jsp:include>
 	<main class="d-flex flex-column mt-4 mb-4">
-		<div class="row d-flex align-self-center rounded-2"
-			style="width: 92%; border: solid 1px">
+		<div class="product row d-flex align-self-center rounded-2"
+			style="width: 92%;">
 			<div class="col-md-5 col-12 d-flex justify-content-center">
 				<img src="${Peripheral.image}" alt="" style="width: 70%" />
 			</div>
-			<div class="col-md-7 col-12" style="border-left: solid 1px">
+			<div class="col-md-7 col-12" style="border-left: solid 1px #0d6efd">
 				<div class="d-flex justify-content-center mt-4">
 					<h3>${Peripheral.name}</h3>
 				</div>
@@ -36,15 +37,15 @@
 				<div class="d-flex justify-content-evenly mt-3 mb-3">
 					<button class="btn btn-outline-primary"
 						style="width: 50%; font-size: xx-large">Mua ngay</button>
-					<button class="btn btn-outline-primary"
+					<button onclick="addToCart(${peripheral.peripheralId})" class="btn btn-outline-primary"
 						style="width: 15%; font-size: xx-large">
 						<i class="bi bi-cart-plus"></i>
 					</button>
 				</div>
 			</div>
 		</div>
-		<div class="row d-flex align-self-center mt-3 rounded-2"
-			style="width: 92%; border: solid 1px">
+		<div class="detail row d-flex align-self-center mt-3 rounded-2"
+			style="width: 92%;">
 			<div class="col-md-6 col-12">
 				<div class="mt-3 mb-3">
 					<h4>Thông tin chi tiết</h4>
@@ -53,7 +54,7 @@
 					<p>${Peripheral.description}</p>
 				</div>
 			</div>
-			<div class="col-md-6 col-12" style="border-left: solid 1px">
+			<div class="col-md-6 col-12" style="border-left: solid 1px #0d6efd">
 				<div class="mt-3 mb-3">
 					<h4>Thông số kĩ thuật</h4>
 				</div>
@@ -70,7 +71,7 @@
 							</tr>
 							<tr>
 								<td>led RGB</td>
-								<td>${Peripheral.ledRGB}</td>
+								<td>${Peripheral.ledRGB?"có led RGB":"không led RGB"}</td>
 							</tr>
 						</tbody>
 					</table>
@@ -78,7 +79,7 @@
 			</div>
 		</div>
 		<div class="row d-flex align-self-center mt-3" style="width: 92%">
-			<div id="review" class="col-md-7 col-12 rounded-2" style="border: solid 1px">
+			<div id="review" class="col-md-7 col-12 rounded-2">
 				<div>
 					<h4>Nhận xét & đánh giá</h4>
 				</div>
@@ -93,6 +94,7 @@
 	<%@ include file="components/footer.jsp"%>
 
 <script type="text/javascript" src="javaScript/scrollToReview.js"></script>
+<script type="text/javascript" src="javaScript/ajaxAddToCart.js"></script>
 
 </body>
 </html>

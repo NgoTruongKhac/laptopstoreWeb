@@ -22,7 +22,6 @@ public class LoadMorePeripheralServlet extends HttpServlet {
 		List<Peripheral> listPeripheral = listPeripheralDAO.getListPeripheral(amount);
 
 		req.setAttribute("ListPeripheral", listPeripheral);
-		System.out.println("load more peripheral");
 
 		req.getRequestDispatcher("components/listPeripheral.jsp").forward(req, resp);
 	}

@@ -13,7 +13,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 
 @WebServlet("/loadMoreLaptop")
-public class ListMoreLaptopServlet extends HttpServlet{
+public class LoadMoreLaptopServlet extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -24,7 +24,6 @@ public class ListMoreLaptopServlet extends HttpServlet{
 		
 		req.setAttribute("ListLaptop", listLaptop);
 		
-		System.out.println("load more laptop");
 		
 		req.getRequestDispatcher("components/listLaptop.jsp").forward(req, resp);
 	}

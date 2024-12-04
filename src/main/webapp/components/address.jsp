@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%> 
+	pageEncoding="UTF-8"%>
 
 <div class="modal fade mt-3" id="address" tabindex="-1"
 	aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -39,7 +39,8 @@
 						</div>
 						<div class="mb-2">
 							<label class="form-check-label" for="">Đặt làm địa chỉ
-								mặc định</label> <input class="form-check-input" type="checkbox" name="isDefault">
+								mặc định</label> <input class="form-check-input" type="checkbox"
+								name="isDefault">
 						</div>
 
 					</div>
@@ -55,47 +56,4 @@
 </div>
 
 
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
-<script>
-	var citis = document.getElementById("city");
-var districts = document.getElementById("district");
-var wards = document.getElementById("ward");
-var Parameter = {
-  url: "https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/data.json", 
-  method: "GET", 
-  responseType: "application/json", 
-};
-var promise = axios(Parameter);
-promise.then(function (result) {
-  renderCity(result.data);
-});
 
-function renderCity(data) {
-  for (const x of data) {
-	  citis.options[citis.options.length] = new Option(x.Name, x.Name);
-  }
-  citis.onchange = function () {
-    district.length = 1;
-    ward.length = 1;
-    if(this.value != ""){
-      const result = data.filter(n => n.Name === this.value);
-
-      for (const k of result[0].Districts) {
-    	  district.options[district.options.length] = new Option(k.Name, k.Name);
-      }
-    }
-  };
-  district.onchange = function () {
-    ward.length = 1;
-    const dataCity = data.filter((n) => n.Name === citis.value);
-    if (this.value != "") {
-      const dataWards = dataCity[0].Districts.filter(n => n.Name === this.value)[0].Wards;
-
-      for (const w of dataWards) {
-    	  wards.options[wards.options.length] = new Option(w.Name, w.Name);
-      }
-    }
-  };
-}
-	</script>

@@ -58,11 +58,13 @@
 	}
 	.cardImg {
 		width: 11rem;
-		height: 11rem
+		height: 11rem;
+		
 	}
 	.cardSellerImg {
 		width: 10rem;
 		height: 10rem;
+		margin-top: 3px;
 	}
 	.titleSeller {
 		width: 380px;

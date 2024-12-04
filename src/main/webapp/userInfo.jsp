@@ -11,7 +11,7 @@ response.setDateHeader("Expires", 0); // Proxies.
 
 <!DOCTYPE html>
 <html>
-<head> 
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -154,7 +154,12 @@ response.setDateHeader("Expires", 0); // Proxies.
 	</div>
 	<%@ include file="components/changeEmailOrPhone.jsp"%>
 	<jsp:include page="components/alert.jsp"></jsp:include>
-	<%@ include file="components/footer.jsp" %>
+	<%@ include file="components/footer.jsp"%>
+
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+
+	<script type="text/javascript" src="javaScript/addressVietNamAPI.js"></script>
 
 </body>
 

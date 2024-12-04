@@ -43,10 +43,10 @@
 					</a>
 					<div class="col d-flex justify-content-between">
 						<a href="#" class="btn btn-outline-primary"
-							style="font-size: 13px"> Mua Ngay </a> <a href="#"
+							style="font-size: 13px"> Mua Ngay </a> <button onclick="addToCart(${peripheral.peripheralId})"
 							title="thêm vào giỏ hàng" class="btn btn-outline-primary"
 							style="font-size: 13px"> <i class="bi bi-cart-plus-fill"></i>
-						</a>
+						</button>
 					</div>
 
 				</div>

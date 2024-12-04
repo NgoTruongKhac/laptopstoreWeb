@@ -85,6 +85,7 @@ response.setDateHeader("Expires", 0); // Proxies.
 
 	<%@ include file="components/footer.jsp"%>
 	<script type="text/javascript" src="javaScript/moreProduct.js"></script>
+	<script type="text/javascript" src="javaScript/ajaxAddToCart.js"></script>
 
 
 

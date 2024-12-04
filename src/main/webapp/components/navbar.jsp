@@ -8,14 +8,14 @@
 
 <div class="sticky-top bg-white shadow-sm">
 
-	<div class="container mt-3 mb-1">
+	<div class="container mt-2 mb-1">
 		<div class=row>
 
-			<div class="col-md-3 col-2 mb-2">
+			<div class="col-md-3 col-2 mb-1 d-flex align-items-center">
 				<a href="index.jsp" class="text-decoration-none"><img
 					src="images/laptopStoreLogo.png" class="logoImg"></a>
 			</div>
-			<div class="col-md-6 col-10">
+			<div class="col-md-6 col-10 mt-2">
 
 				<form class="d-flex" role="search">
 					<div class="w-75">
@@ -27,7 +27,17 @@
 				</form>
 
 			</div>
-			<div class="user col-md-3 col-6 d-flex justify-content-evenly">
+			<div
+				class="user col-md-3 col-8 d-flex justify-content-evenly align-items-center">
+
+				<div class="cart">
+					<a href="${pageContext.request.contextPath}/viewCart"
+						title="Giỏ hàng" style="text-decoration: none;"><i
+						class="cart bi bi-cart"></i><span id="cartCount" class="badge text-bg-danger" <c:if test="${cartCount==0}">style="display: none;"</c:if>>${cartCount}</span>
+						
+					</a>
+				</div>
+
 
 
 				<c:if test="${not empty User}">
@@ -94,8 +104,8 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 					<li class="nav-item me-4"><a class="nav-link active"
-						aria-current="page" href="index"><i class="fa-solid fa-house"></i>
-							Trang Chủ</a></li>
+						aria-current="page" href="index.jsp"><i
+							class="fa-solid fa-house"></i> Trang Chủ</a></li>
 					<li class="nav-item me-4"><a class="nav-link active" href="#"><i
 							class="fa-solid fa-laptop"></i> Laptop Văn Phòng</a></li>
 					<li class="nav-item me-4"><a class="nav-link active" href="#"><i

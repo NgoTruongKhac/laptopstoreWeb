@@ -10,17 +10,28 @@
 
 @media ( max-width : 768px) {
 	.logoImg {
-		width: 65px;
+		width: 70px;
 	}
-	.user{
-	
-	display: flex;
-	margin-left: auto;
+	.user {
+		display: flex;
+		margin-left: auto;
+	}
+	.cart {
+		font-size: 25px;
+	}
+		#cartCount {
+		font-size: 10px;
 	}
 }
 
 @media ( min-width : 768px) {
 	.logoImg {
-		width: 180px;
+		width: 170px;
+	}
+	.cart {
+		font-size: 28px;
+	}
+	#cartCount {
+		font-size: 10px;
 	}
 }

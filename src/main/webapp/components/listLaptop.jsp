@@ -10,7 +10,7 @@
 			<div class="card">
 				<div class="card-body" style="margin-top: -13px">
 					<a
-						href="${pageContext.request.contextPath}/detailProduct?laptopId=${laptop.laptopId}"
+						href="${pageContext.request.contextPath}/detailLaptop?laptopId=${laptop.laptopId}"
 						style="text-decoration: none; color: black">
 						<div class="d-flex justify-content-center">
 							<img src="${laptop.image}" class="cardImg card-img-top" alt="..." />
@@ -49,10 +49,10 @@
 					</a>
 					<div class="col d-flex justify-content-between">
 						<a href="#" class="btn btn-outline-primary"
-							style="font-size: 13px"> Mua Ngay </a> <a href="#"
+							style="font-size: 13px"> Mua Ngay </a> <button onclick="addToCart(${laptop.laptopId})"
 							title="thêm vào giỏ hàng" class="btn btn-outline-primary"
 							style="font-size: 13px"> <i class="bi bi-cart-plus-fill"></i>
-						</a>
+						</button>
 					</div>
 
 				</div>

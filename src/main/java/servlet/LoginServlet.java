@@ -2,8 +2,13 @@ package servlet;
 
 import java.io.IOException;
 import java.net.URLEncoder;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
+import dao.AddToCartDAO;
 import dao.LoginDAO;
+import dao.QuantityCartDAO;
 import entity.User;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
@@ -30,6 +35,9 @@ public class LoginServlet extends HttpServlet {
 			User user = login.isSuccess(emailOrPhone, pass);
 
 			boolean Iscorrect = login.getIsCorrectPass();
+			
+			
+			QuantityCartDAO quantityCart=new QuantityCartDAO();
 
 			if (!Iscorrect) {
 				req.getSession().setAttribute("message", "mật khẩu không đúng!");
@@ -41,6 +49,11 @@ public class LoginServlet extends HttpServlet {
 
 			if (user != null) {
 
+				int cartCount=quantityCart.getCartCount(user.getUserId());
+				
+				req.getSession().setAttribute("cartCount", cartCount);
+				
+				
 				req.getSession().setAttribute("User", user);
 				if ("admin".equals(user.getRole())) {
 					req.getSession().setAttribute("message", "Đăng nhập thành công");
