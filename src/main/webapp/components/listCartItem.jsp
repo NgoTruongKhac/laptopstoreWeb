@@ -20,7 +20,7 @@
 			class="form-check-label" for="selectAll">chọn tất cả</label>
 	</div>
 
-	<form action="listCartItemOrder" method="post">
+	<form action="listCartItemOrder" method="post" style="margin: 0;padding: 0">
 		<c:forEach var="product" items="${ListCart}">
 			<div class="cartItem d-flex flex-column rounded-1 mb-2">
 				<div class="row d-flex align-items-center mt-1 mb-1">

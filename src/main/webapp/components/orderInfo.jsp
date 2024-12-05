@@ -3,6 +3,9 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+<div class="mt-2">
+	<h5>Sản phẩm đã chọn</h5>
+</div>
 <c:forEach var="product" items="${ListCartItem}">
 	<div class="product row d-flex align-items-center rounded-1 mt-2">
 
@@ -26,23 +29,37 @@
 </div>
 <div class="info row d-flex justify-content-evenly rounded-1">
 	<div class="row d-flex justify-content-center mb-3 mt-4">
-		<div class="col-md-4 col-5">
-			<input class="form-control" type="text" placeholder="Họ"
-				value="${User.firstName}" />
-		</div>
-		<div class="col-md-6 col-7">
-			<input class="form-control" type="text" placeholder="Tên"
-				value="${User.lastName}" />
+		<div class="row col-md-10 d-flex align-items-center">
+			<div class="col-md-1">
+				<label for="" class="form-label">Họ</label>
+			</div>
+			<div class="col-md-3">
+				<input class="form-control" type="text" name="lastName" value="${User.lastName}"/>
+			</div>
+			<div class="col-md-1">
+				<label for="Tên" class="form-label">Tên</label>
+			</div>
+			<div class="col-md-7">
+				<input class="form-control" type="text" name="firstName" value="${User.firstName}" />
+			</div>
 		</div>
 	</div>
 	<div class="row d-flex justify-content-center mb-4">
-		<div class="col-md-10 col-12 mb-3">
-			<input class="form-control" type="text" placeholder="Số điện thoại"
-				value="${User.phoneNumber}" />
+		<div class="row col-md-10 col-12 mb-3 d-flex align-items-center">
+			<div class="col-md-3">
+				<label for="" class="form-label">Số điện thoại</label>
+			</div>
+			<div class="col-md-9">
+				<input class="form-control" type="text" name="phoneNumber" value="${User.phoneNumber}" />
+			</div>
 		</div>
-		<div class="col-md-10 col-12">
-			<input class="form-control" type="email" placeholder="email"
-				value="${User.email}" />
+		<div class="row col-md-10 col-12 d-flex align-items-center">
+			<div class="col-md-3">
+				<label for="" class="form-label">email</label>
+			</div>
+			<div class="col-md-9">
+				<input class="form-control" type="email" name="email" value="${User.email}" />
+			</div>
 		</div>
 	</div>
 </div>
@@ -109,6 +126,6 @@
 		</h4>
 	</div>
 	<div>
-		<button class="btn btn-outline-primary">Thanh toán</button>
+		<button class="btn btn-outline-primary">Đặt hàng</button>
 	</div>
 </div>
