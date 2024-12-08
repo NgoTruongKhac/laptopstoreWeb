@@ -9,7 +9,7 @@
 		<div class="peripheralItem col-6 col-md-3 mb-4">
 			<div class="cardP card">
 				<div class="card-body" style="margin-top: -13px">
-					<a href="${pageContext.request.contextPath}/detailPeripheral?peripheralId=${peripheral.peripheralId}" style="text-decoration: none; color: black">
+					<a href="${pageContext.request.contextPath}/detailPeripheral?productId=${peripheral.peripheralId}" style="text-decoration: none; color: black">
 						<div class="d-flex justify-content-center">
 							<img src="${peripheral.image}" class="cardPImg card-img-top" alt="..."
 								 />

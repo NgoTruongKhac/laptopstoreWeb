@@ -44,7 +44,7 @@
 					</div>
 				</div>
 				<div class="line">
-					<hr />
+					<hr id="line2"/>
 				</div>
 				<div id="payment" class="d-flex flex-column">
 					<div class="d-flex justify-content-center mt-2">

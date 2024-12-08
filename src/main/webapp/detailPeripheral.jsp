@@ -37,7 +37,7 @@
 				<div class="d-flex justify-content-evenly mt-3 mb-3">
 					<button class="btn btn-outline-primary"
 						style="width: 50%; font-size: xx-large">Mua ngay</button>
-					<button onclick="addToCart(${peripheral.peripheralId})" class="btn btn-outline-primary"
+					<button onclick="addToCart(${Peripheral.peripheralId})" class="btn btn-outline-primary"
 						style="width: 15%; font-size: xx-large">
 						<i class="bi bi-cart-plus"></i>
 					</button>

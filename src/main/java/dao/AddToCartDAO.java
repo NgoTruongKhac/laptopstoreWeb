@@ -23,13 +23,12 @@ public class AddToCartDAO {
 		
 		try {
 			
-			String query="insert into cart (userId,productId,productType,quantity) values (?,?,?,?)";
+			String query="insert into cart (userId,productId,quantity) values (?,?,?)";
 			PreparedStatement pr=conn.prepareStatement(query);
 			
 			pr.setInt(1, cart.getUserId());
 			pr.setInt(2, cart.getProductId());
-			pr.setString(3, cart.getProductType());
-			pr.setInt(4, cart.getQuantity());
+			pr.setInt(3, cart.getQuantity());
 			
 			int i=pr.executeUpdate();
 			

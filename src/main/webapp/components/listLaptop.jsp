@@ -10,7 +10,7 @@
 			<div class="card">
 				<div class="card-body" style="margin-top: -13px">
 					<a
-						href="${pageContext.request.contextPath}/detailLaptop?laptopId=${laptop.laptopId}"
+						href="${pageContext.request.contextPath}/detailLaptop?productId=${laptop.laptopId}"
 						style="text-decoration: none; color: black">
 						<div class="d-flex justify-content-center">
 							<img src="${laptop.image}" class="cardImg card-img-top" alt="..." />

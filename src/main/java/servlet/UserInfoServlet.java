@@ -33,11 +33,11 @@ public class UserInfoServlet extends HttpServlet {
 		
 		List<Address> listAddress=getListAddress.getListAddress(userId);
 		
-		req.getSession().setAttribute("ListAddress",listAddress);
+		req.setAttribute("ListAddress",listAddress);
 		
-		req.getSession().setAttribute("User",userRefresh);
+		req.setAttribute("User",userRefresh);
 		
-		resp.sendRedirect("userInfo.jsp");
+		req.getRequestDispatcher("userInfo.jsp").forward(req, resp);
 
 
 	}

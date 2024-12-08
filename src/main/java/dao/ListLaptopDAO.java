@@ -14,32 +14,32 @@ public class ListLaptopDAO {
 	private Connection conn;
 	private ConnectDatabase db;
 	private List<Laptop> listLaptop;
-	
-	public ListLaptopDAO () {
-		db=new ConnectDatabase();
+
+	public ListLaptopDAO() {
+		db = new ConnectDatabase();
 		conn = db.getConnection();
 	}
 
 	public List<Laptop> getListLaptop(int amount) {
 		listLaptop = new ArrayList<Laptop>();
 		try {
-			
-			String query = "SELECT *FROM laptop ORDER BY laptopId OFFSET ? ROWS FETCH NEXT 8 ROWS ONLY;";
-					
+
+			String query = "SELECT p.productId, p.name, p.description, p.image, p.price, p.brand, \r\n"
+					+ "       l.category, l.cpu, l.gpu, l.ram, l.drive, l.size, l.resolution \r\n"
+					+ "FROM laptop l\r\n" + "JOIN product p ON l.productId = p.productId\r\n"
+					+ "ORDER BY p.productId\r\n" + "OFFSET ? ROWS FETCH NEXT 8 ROWS ONLY;\r\n";
+
 			PreparedStatement pr = conn.prepareStatement(query);
 			pr.setInt(1, amount);
-			
-			ResultSet rs=pr.executeQuery();
+
+			ResultSet rs = pr.executeQuery();
 
 			while (rs.next()) {
 				Laptop laptop = new Laptop(rs.getString("name"), rs.getString("description"), rs.getString("image"),
-						rs.getInt("price"), rs.getString("brand"), rs.getString("category"), rs.getString("cpu"), 
-					    rs.getString("gpu"), 
-					    rs.getString("ram"), 
-					    rs.getString("drive"), 
-					    rs.getString("size"), 
-					    rs.getString("resolution"));
-				laptop.setLaptopId(rs.getInt("laptopId"));
+						rs.getInt("price"), rs.getString("brand"), rs.getString("category"), rs.getString("cpu"),
+						rs.getString("gpu"), rs.getString("ram"), rs.getString("drive"), rs.getString("size"),
+						rs.getString("resolution"));
+				laptop.setLaptopId(rs.getInt("productId"));
 				listLaptop.add(laptop);
 			}
 
@@ -49,16 +49,18 @@ public class ListLaptopDAO {
 		}
 		return listLaptop;
 	}
-	public List<Laptop> getListLaptopManage(int page,int pageSize) {
+
+	public List<Laptop> getListLaptopManage(int page, int pageSize) {
 		listLaptop = new ArrayList<Laptop>();
-		
-		
-	    
-	    int offset = (page - 1) * pageSize;
-		
+
+		int offset = (page - 1) * pageSize;
+
 		try {
-			
-			String query = "SELECT * FROM laptop ORDER BY laptopId OFFSET ? ROWS FETCH NEXT ? ROWS ONLY";
+
+			String query = "SELECT p.productId, p.name, p.description, p.image, p.price, p.brand, \r\n"
+					+ "       l.category, l.cpu, l.gpu, l.ram, l.drive, l.size, l.resolution \r\n"
+					+  "FROM laptop l\r\n" + "JOIN product p ON l.productId = p.productId\r\n"
+					+ "ORDER BY p.productId\r\n" + "OFFSET ? ROWS FETCH NEXT ? ROWS ONLY;\r\n";
 			PreparedStatement pr = conn.prepareStatement(query);
 			pr.setInt(1, offset);
 			pr.setInt(2, pageSize);
@@ -67,13 +69,10 @@ public class ListLaptopDAO {
 
 			while (rs.next()) {
 				Laptop laptop = new Laptop(rs.getString("name"), rs.getString("description"), rs.getString("image"),
-						rs.getInt("price"), rs.getString("brand"), rs.getString("category"), rs.getString("cpu"), 
-					    rs.getString("gpu"), 
-					    rs.getString("ram"), 
-					    rs.getString("drive"), 
-					    rs.getString("size"), 
-					    rs.getString("resolution"));
-				laptop.setLaptopId(rs.getInt("laptopId"));
+						rs.getInt("price"), rs.getString("brand"), rs.getString("category"), rs.getString("cpu"),
+						rs.getString("gpu"), rs.getString("ram"), rs.getString("drive"), rs.getString("size"),
+						rs.getString("resolution"));
+				laptop.setLaptopId(rs.getInt("productId"));
 				listLaptop.add(laptop);
 			}
 
@@ -83,20 +82,20 @@ public class ListLaptopDAO {
 		}
 		return listLaptop;
 	}
-	public int getTotalProductCount() {
-	    int totalProducts = 0;
-	    try {
-	        String query = "SELECT COUNT(*) FROM laptop";
-	        PreparedStatement pr = conn.prepareStatement(query);
-	        ResultSet rs = pr.executeQuery();
-	        if (rs.next()) {
-	            totalProducts = rs.getInt(1);
-	        }
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
-	    return totalProducts;
-	}
 
+	public int getTotalProductCount() {
+		int totalProducts = 0;
+		try {
+			String query = "SELECT COUNT(*) FROM laptop";
+			PreparedStatement pr = conn.prepareStatement(query);
+			ResultSet rs = pr.executeQuery();
+			if (rs.next()) {
+				totalProducts = rs.getInt(1);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return totalProducts;
+	}
 
 }

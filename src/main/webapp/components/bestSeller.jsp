@@ -11,7 +11,7 @@
 					<div class="card-seller"
 						style="background-color: white; flex: 1 0 20%; height: 24rem">
 						<div class="card-body" style="margin-top: -13px">
-							<a href="${pageContext.request.contextPath}/detailLaptop?laptopId=${laptop.laptopId}" style="text-decoration: none; color: black"
+							<a href="${pageContext.request.contextPath}/detailLaptop?productId=${laptop.laptopId}" style="text-decoration: none; color: black"
 								draggable="false">
 								<div class="d-flex justify-content-center">
 									<img src="${laptop.image}" class="cardSellerImg card-img-top" alt="..."

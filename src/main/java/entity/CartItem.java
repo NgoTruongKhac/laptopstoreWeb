@@ -5,17 +5,16 @@ public class CartItem {
 	private int cartId;
 	private int userId;
 	private int productId;
-	private String productType;
 	private int quantity;
 	private String name;
 	private String image;
 	private int price;
+	private String type;
 
-	public CartItem(int cartId,int userId, int productId, String productType, int quantity, String name, String image, int price) {
+	public CartItem(int cartId,int userId, int productId, int quantity, String name, String image, int price) {
 		this.cartId=cartId;
 		this.userId = userId;
 		this.productId = productId;
-		this.productType = productType;
 		this.quantity = quantity;
 		this.name = name;
 		this.image = image;
@@ -33,12 +32,7 @@ public class CartItem {
 	public void setProductId(int productId) {
 		this.productId = productId;
 	}
-	public String getProductType() {
-		return productType;
-	}
-	public void setProductType(String productType) {
-		this.productType = productType;
-	}
+
 	public int getQuantity() {
 		return quantity;
 	}
@@ -71,9 +65,16 @@ public class CartItem {
 	public void setCartId(int cartId) {
 		this.cartId = cartId;
 	}
+	
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
 	@Override
 	public String toString() {
-		return "CartItem [userId=" + userId + ", productId=" + productId + ", productType=" + productType
+		return "CartItem [userId=" + userId + ", productId=" + productId + ", productType=" 
 				+ ", quantity=" + quantity + ", name=" + name + ", image=" + image + ", price=" + price + "]";
 	}
 	

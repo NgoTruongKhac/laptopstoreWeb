@@ -24,7 +24,7 @@ public class ListCartDAO {
 	public List<CartItem> getListCart(int userId){
 		listCart=new ArrayList<CartItem>();
 		try {
-			String qery="select c.cartId, c.userId,c.productId,c.productType,c.quantity, CASE WHEN c.productType='laptop' THEN l.name WHEN c.productType='peripheral' THEN p.name END AS name,CASE WHEN c.productType='laptop' THEN l.image WHEN c.productType='peripheral' THEN p.image END AS image,CASE WHEN c.productType='laptop' THEN l.price WHEN c.productType='peripheral' THEN p.price END AS price from cart c LEFT JOIN laptop l ON c.productId = l.laptopId AND c.productType = 'laptop' LEFT JOIN peripheral p ON c.productId = p.peripheralId AND c.productType = 'peripheral' WHERE c.userId = ?;";
+			String qery="select c.cartId, c.userId,c.productId,c.quantity, p.name,p.image,p.price, p.type from cart c join product p on c.productId=p.productId where c.userId=?;";
 			
 			PreparedStatement pr=conn.prepareStatement(qery);
 			
@@ -32,7 +32,8 @@ public class ListCartDAO {
 			ResultSet rs=pr.executeQuery();
 			
 			while(rs.next()) {
-				CartItem item=new CartItem(rs.getInt("cartId"),userId, rs.getInt("productId"), rs.getString("productType"), rs.getInt("quantity"),rs.getString("name"), rs.getString("image"),rs.getInt("price"));
+				CartItem item=new CartItem(rs.getInt("cartId"),userId, rs.getInt("productId"), rs.getInt("quantity"),rs.getString("name"), rs.getString("image"),rs.getInt("price"));
+				item.setType(rs.getString("type"));
 				listCart.add(item);
 			}
 			

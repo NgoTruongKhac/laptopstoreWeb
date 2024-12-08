@@ -17,7 +17,8 @@ public class DetailPeripheralServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		int PeripheralId=Integer.parseInt(req.getParameter("peripheralId"));
+		int PeripheralId=Integer.parseInt(req.getParameter("productId"));
+		
 		EditPeripheralDAO peripheralDao=new EditPeripheralDAO();
 		
 		Peripheral peripheral=peripheralDao.getPeripheral(PeripheralId);

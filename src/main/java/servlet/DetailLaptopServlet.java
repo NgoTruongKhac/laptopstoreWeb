@@ -19,7 +19,7 @@ public class DetailLaptopServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 
-		int laptopId = Integer.parseInt(req.getParameter("laptopId"));
+		int laptopId = Integer.parseInt(req.getParameter("productId"));
 
 		EditLaptopDAO editlaptop = new EditLaptopDAO();
 

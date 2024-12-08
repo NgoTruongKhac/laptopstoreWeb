@@ -71,6 +71,7 @@ public class AddLaptopServlet extends HttpServlet {
 
 		AddLaptopDAO addLaptopDao = new AddLaptopDAO();
 		boolean isSuccess = addLaptopDao.isAddLaptop(newLaptop);
+		System.out.println(isSuccess);
 
 		if (isSuccess) {
 

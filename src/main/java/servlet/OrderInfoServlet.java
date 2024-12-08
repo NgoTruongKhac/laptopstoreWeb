@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import dao.AddressDefaultDAO;
+import dao.ListCartItemOrderDAO;
 import dao.UserInfoDAO;
 import entity.Address;
 import entity.CartItem;
@@ -18,36 +19,43 @@ import jakarta.servlet.http.HttpServletResponse;
 public class OrderInfoServlet extends HttpServlet {
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		
-		List<CartItem> listCartItem=(List<CartItem>) req.getSession().getAttribute("ListCartItem");
-		int totalPrice=(int) req.getSession().getAttribute("totalPrice");
-		
+
+		String[] listCartId = req.getParameterValues("selectCartItem");
+
+		if (listCartId == null) {
+			req.getSession().setAttribute("message", "bạn chưa chọn sản phẩm!");
+			req.getSession().setAttribute("type", "warning");
+			resp.sendRedirect(req.getContextPath() + "/viewCart");
+			return;
+		}
+
+		int totalPrice = Integer.parseInt(req.getParameter("totalPrice"));
+
+		ListCartItemOrderDAO dao = new ListCartItemOrderDAO();
+
+		List<CartItem> listCartItem = dao.listCartItemOrder(listCartId);
+
 		User user = (User) req.getSession().getAttribute("User");
 
 		int userId = user.getUserId();
-		
-		UserInfoDAO userInfoDao=new UserInfoDAO();
-		User userInfo=userInfoDao.userInfo(userId);
-		AddressDefaultDAO addressDefaultDao=new AddressDefaultDAO();
-		
-		Address address=addressDefaultDao.getAddressDefault(userId);
-		
-		if(address!=null) {
+
+		AddressDefaultDAO addressDefaultDao = new AddressDefaultDAO();
+
+		Address address = addressDefaultDao.getAddressDefault(userId);
+
+		if (address != null) {
 			req.setAttribute("Address", address);
 		}
+
 		req.setAttribute("User", user);
-		
 
 		req.setAttribute("includeCss", "styleCSS/orderInfo.css");
 		req.setAttribute("nameBtnBack", "Quay lại");
 		req.setAttribute("includePage", "components/orderInfo.jsp");
-		req.setAttribute("ListCartItem", listCartItem);
-		req.setAttribute("totalPrice", totalPrice);
-		
-		
+		req.getSession().setAttribute("ListCartItem", listCartItem);
+		req.getSession().setAttribute("totalPrice", totalPrice);
 
 		req.getRequestDispatcher("cart.jsp").forward(req, resp);
 

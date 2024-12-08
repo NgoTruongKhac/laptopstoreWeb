@@ -24,7 +24,10 @@ public class ListPeripheralDAO {
 		listPeripheral = new ArrayList<Peripheral>();
 		try {
 			
-			String query = "SELECT *FROM peripheral ORDER BY peripheralId OFFSET ? ROWS FETCH NEXT 8 ROWS ONLY;";
+			String query = "SELECT p.productId, p.name, p.description, p.image, p.price, p.brand, \r\n"
+					+ "       pe.category, pe.connect,pe.ledRGB \r\n"
+					+  "FROM peripheral pe\r\n" + "JOIN product p ON pe.productId = p.productId\r\n"
+					+ "ORDER BY p.productId\r\n" + "OFFSET ? ROWS FETCH NEXT 8 ROWS ONLY;\r\n";
 			PreparedStatement pr = conn.prepareStatement(query);
 			pr.setInt(1, amount);
 
@@ -34,7 +37,7 @@ public class ListPeripheralDAO {
 				Peripheral peripheral= new Peripheral( rs.getString("name"), rs.getString("description"), rs.getString("image"),
 						rs.getInt("price"), rs.getString("brand"), rs.getString("category"),rs.getString("connect"),rs.getBoolean("ledRGB")
 					  );
-				peripheral.setPeripheralId(rs.getInt("peripheralId"));
+				peripheral.setPeripheralId(rs.getInt("productId"));
 				listPeripheral.add(peripheral);
 			}
 
@@ -53,7 +56,10 @@ public class ListPeripheralDAO {
 		
 		try {
 			
-			String query = "SELECT * FROM peripheral ORDER BY peripheralId OFFSET ? ROWS FETCH NEXT ? ROWS ONLY";
+			String query = "SELECT p.productId, p.name, p.description, p.image, p.price, p.brand, \r\n"
+					+ "       pe.category, pe.connect,pe.ledRGB \r\n"
+					+  "FROM peripheral pe\r\n" + "JOIN product p ON pe.productId = p.productId\r\n"
+					+ "ORDER BY p.productId\r\n" + "OFFSET ? ROWS FETCH NEXT ? ROWS ONLY;\r\n";
 			PreparedStatement pr = conn.prepareStatement(query);
 			pr.setInt(1, offset);
 			pr.setInt(2, pageSize);
@@ -64,7 +70,7 @@ public class ListPeripheralDAO {
 				Peripheral peripheral= new Peripheral(rs.getString("name"), rs.getString("description"), rs.getString("image"),
 						rs.getInt("price"), rs.getString("brand"), rs.getString("category"), rs.getString("connect"),rs.getBoolean("ledRGB")
 					 );
-				peripheral.setPeripheralId(rs.getInt("peripheralId"));
+				peripheral.setPeripheralId(rs.getInt("productId"));
 				listPeripheral.add(peripheral);
 			}
 

@@ -41,10 +41,11 @@ public class UpdateUserInfoServlet extends HttpServlet {
 		boolean isUpdate = updateUser.isUpdate(userUpdate, userId);
 
 		if (isUpdate) {
-			req.getSession().setAttribute("message", "Lưu thông tin thành công!");
-		    req.getSession().setAttribute("type", "success");
+			req.setAttribute("message", "Lưu thông tin thành công!");
+		    req.setAttribute("type", "success");
 
-		    resp.sendRedirect(req.getContextPath() + "/userInfo");
+//		    resp.sendRedirect(req.getContextPath() + "/userInfo");
+		    req.getRequestDispatcher("/userInfo").forward(req, resp);
 		} 
 
 	}

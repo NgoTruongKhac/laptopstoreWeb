@@ -29,8 +29,8 @@ public class VerifyChangeEmail extends HttpServlet {
 
 		if (currentTime - verificationTime > 300000) {
 
-			req.getSession().setAttribute("message", "mã xác nhận đã hết hạn.");
-			req.getSession().setAttribute("type", "error");
+			req.setAttribute("message", "mã xác nhận đã hết hạn.");
+			req.setAttribute("type", "error");
 			req.getRequestDispatcher("verify.jsp").forward(req, resp);
 
 			return;
@@ -38,8 +38,8 @@ public class VerifyChangeEmail extends HttpServlet {
 		}
 
 		if (!verificationCode.equals(ConfirmverificationCode) ) {
-			req.getSession().setAttribute("message", "Mã xác nhận không đúng.");
-			req.getSession().setAttribute("type", "error");
+			req.setAttribute("message", "Mã xác nhận không đúng.");
+			req.setAttribute("type", "error");
 			req.getRequestDispatcher("verify.jsp").forward(req, resp);
 			return;
 		}
@@ -49,10 +49,10 @@ public class VerifyChangeEmail extends HttpServlet {
 		
 		
 		if (isChangeEmail) {
-			req.getSession().setAttribute("emailOrPhone", newEmail);
-			req.getSession().setAttribute("message", "Thay đổi email thành công.");
-			req.getSession().setAttribute("type", "success");
-			resp.sendRedirect(req.getContextPath() + "/userInfo");
+			req.setAttribute("emailOrPhone", newEmail);
+			req.setAttribute("message", "Thay đổi email thành công.");
+			req.setAttribute("type", "success");
+			req.getRequestDispatcher("/userInfo");
 		}
 		
 	}

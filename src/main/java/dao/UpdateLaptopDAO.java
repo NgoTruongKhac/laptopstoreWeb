@@ -21,28 +21,37 @@ public class UpdateLaptopDAO {
 
 		try {
 
-			String query = "update laptop set name=?,description=?,image=?,price=?,brand=?,category=?,cpu=?,gpu=?,ram=?,drive=?,size=?,resolution=? where laptopId=?;";
+			String productQuery = "UPDATE product SET name = ?, description = ?, image = ?, price = ?, brand = ? WHERE productId =?;";
+			PreparedStatement productStmt = conn.prepareStatement(productQuery);
 
-			PreparedStatement pr = conn.prepareStatement(query);
+			productStmt.setString(1, laptop.getName());
+			productStmt.setString(2, laptop.getDescription());
+			productStmt.setString(3, laptop.getImage());
+			productStmt.setInt(4, laptop.getPrice());
+			productStmt.setString(5, laptop.getBrand());
+			productStmt.setInt(6, laptop.getLaptopId()); // Sử dụng laptopId để tìm productId
 
-			pr.setString(1, laptop.getName());
-			pr.setString(2, laptop.getDescription());
-			pr.setString(3, laptop.getImage());
-			pr.setInt(4, laptop.getPrice());
-			pr.setString(5, laptop.getBrand());
-			pr.setString(6, laptop.getCategory());
-			pr.setString(7, laptop.getCpu());
-			pr.setString(8, laptop.getGpu());
-			pr.setString(9, laptop.getRam());
-			pr.setString(10, laptop.getRam());
-			pr.setString(11, laptop.getDrive());
-			pr.setString(12, laptop.getResolution());
-			pr.setInt(13, laptop.getLaptopId());
+			int rowsUpdatedProduct = productStmt.executeUpdate();
 
-			int i = pr.executeUpdate();
+			if (rowsUpdatedProduct == 1) {
+				// 2. Cập nhật bảng laptop
+				String laptopQuery = "UPDATE laptop SET category = ?, cpu = ?, gpu = ?, ram = ?, drive = ?, size = ?, resolution = ? WHERE productId = ?;";
+				PreparedStatement laptopStmt = conn.prepareStatement(laptopQuery);
 
-			if (i == 1) {
-				isSuccess = true;
+				laptopStmt.setString(1, laptop.getCategory());
+				laptopStmt.setString(2, laptop.getCpu());
+				laptopStmt.setString(3, laptop.getGpu());
+				laptopStmt.setString(4, laptop.getRam());
+				laptopStmt.setString(5, laptop.getDrive());
+				laptopStmt.setString(6, laptop.getSize());
+				laptopStmt.setString(7, laptop.getResolution());
+				laptopStmt.setInt(8, laptop.getLaptopId());
+
+				int rowsUpdatedLaptop = laptopStmt.executeUpdate();
+
+				if (rowsUpdatedLaptop == 1) {
+					isSuccess = true; // Thành công khi cả hai bảng được cập nhật
+				}
 			}
 
 		} catch (Exception e) {

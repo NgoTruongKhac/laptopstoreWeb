@@ -75,8 +75,7 @@ public class AddPeripheralServlet extends HttpServlet {
 		AddPeripheralDAO addPeripheral = new AddPeripheralDAO();
 		boolean isSuccess = addPeripheral.isAddPeripheral(newPeripheral);
 		
-		System.out.println(isSuccess);
-		System.out.println(newPeripheral.toString());
+	
 
 
 		if (isSuccess) {

@@ -22,9 +22,8 @@ public class AddToCartServlet extends HttpServlet {
 		User user = (User) req.getSession().getAttribute("User");
 		int userId = user.getUserId();
 
-		String productType = productId % 2 == 0 ? "laptop" : "peripheral";
 
-		Cart cart = new Cart(userId, productId, productType, 1);
+		Cart cart = new Cart(userId, productId, 1);
 
 		AddToCartDAO addToCart = new AddToCartDAO();
 		QuantityCartDAO quantityCart=new QuantityCartDAO();

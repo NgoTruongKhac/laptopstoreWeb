@@ -20,7 +20,7 @@
 			class="form-check-label" for="selectAll">chọn tất cả</label>
 	</div>
 
-	<form action="listCartItemOrder" method="post" style="margin: 0;padding: 0">
+	<form action="orderInfo" method="post" style="margin: 0;padding: 0">
 		<c:forEach var="product" items="${ListCart}">
 			<div class="cartItem d-flex flex-column rounded-1 mb-2">
 				<div class="row d-flex align-items-center mt-1 mb-1">
@@ -32,7 +32,7 @@
 					</div>
 					<div class="col-md-5 col-5 d-flex flex-column">
 						<a
-							href="${pageContext.request.contextPath}/detailProduct?productId=${product.productId}"
+							href="${pageContext.request.contextPath}/detailProduct?productId=${product.productId}&type=${product.type}"
 							style="text-decoration: none;">
 							<h6 class="d-flex justify-content-center">${product.name}</h6>
 						</a>
@@ -66,7 +66,7 @@
 		</c:forEach>
 		<div
 			class="sticky-bottom d-flex justify-content-between align-items-center rounded-1 mb-2"
-			style="margin-top: 7rem; background-color: white; z-index: 10">
+			style="margin-top: 5rem; background-color: white; z-index: 10">
 			<div class="d-flex flex-column mt-1">
 				<h5>Tính tổng:</h5>
 				<h4 class="text-danger">0 đ</h4>

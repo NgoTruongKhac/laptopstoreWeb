@@ -73,11 +73,12 @@ public class UpdatePeripheralServlet extends HttpServlet {
 
 		UpdatePeripheralDAO updatePeripheral = new UpdatePeripheralDAO();
 		boolean isSuccess = updatePeripheral.isUpdatePeripheral(newPeripheral);
+		System.out.println(newPeripheral.toString());
 
 		if (isSuccess) {
 
-			System.out.println("thanh cong");
-//			resp.sendRedirect(req.getContextPath() + "/adminPage/listProduct");
+			
+	
 			resp.sendRedirect(req.getContextPath() + "/adminPage/listPeripheral?pagePeripheral=" + pagePeripheral);
 		} else {
 			System.out.println("loi");

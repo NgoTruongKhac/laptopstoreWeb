@@ -40,9 +40,9 @@ public class LoginServlet extends HttpServlet {
 			QuantityCartDAO quantityCart=new QuantityCartDAO();
 
 			if (!Iscorrect) {
-				req.getSession().setAttribute("message", "mật khẩu không đúng!");
-				req.getSession().setAttribute("type", "error");
-				req.getSession().setAttribute("error", "login");
+				req.setAttribute("message", "mật khẩu không đúng!");
+				req.setAttribute("type", "error");
+				req.setAttribute("error", "login");
 				req.getRequestDispatcher("index.jsp").include(req, resp);
 				return;
 			}
@@ -56,22 +56,22 @@ public class LoginServlet extends HttpServlet {
 				
 				req.getSession().setAttribute("User", user);
 				if ("admin".equals(user.getRole())) {
-					req.getSession().setAttribute("message", "Đăng nhập thành công");
-					req.getSession().setAttribute("type", "success");
-					resp.sendRedirect("adminPage.jsp");
+					req.setAttribute("message", "Đăng nhập thành công");
+					req.setAttribute("type", "success");
+					req.getRequestDispatcher("adminPage.jsp").forward(req, resp);
 					return;
 				} else {
-					req.getSession().setAttribute("message", "Đăng nhập thành công");
-					req.getSession().setAttribute("type", "success");
-					resp.sendRedirect("index.jsp");
+					req.setAttribute("message", "Đăng nhập thành công");
+					req.setAttribute("type", "success");
+					req.getRequestDispatcher("index.jsp").forward(req, resp);
 					return;
 				}
 
 			}
 
-			req.getSession().setAttribute("message", "email hoặc sđt không đúng!");
-			req.getSession().setAttribute("type", "error");
-			req.getSession().setAttribute("error", "login");
+			req.setAttribute("message", "email hoặc sđt không đúng!");
+			req.setAttribute("type", "error");
+			req.setAttribute("error", "login");
 			req.getRequestDispatcher("index.jsp").include(req, resp);
 
 		} catch (Exception e) {

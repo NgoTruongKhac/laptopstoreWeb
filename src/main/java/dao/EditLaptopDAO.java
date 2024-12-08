@@ -22,7 +22,10 @@ public class EditLaptopDAO {
 
 		try {
 
-			String query = "select * from laptop where laptopId=?";
+			String query = "SELECT p.productId, p.name, p.description, p.image, p.price, p.brand, \r\n"
+					+ "       l.category, l.cpu, l.gpu, l.ram, l.drive, l.size, l.resolution \r\n"
+					+ "FROM laptop l\r\n" + "JOIN product p ON l.productId = p.productId\r\n"
+					+ "where p.productId=?\r\n";
 			PreparedStatement pr = conn.prepareStatement(query);
 			pr.setInt(1, laptopId);
 

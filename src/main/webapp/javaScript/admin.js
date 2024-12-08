@@ -86,6 +86,8 @@ function showSection(sectionId) {
 				addDynamicScript('javaScript/previewImage.js');
 				addDynamicScript('javaScript/ajaxAddProduct.js');
 				addDynamicScript('javaScript/ajaxEditProduct.js');
+				
+				
 			},
 			error: function(xhr, status, error) {
 				console.error("Error loading Product section:", error);
@@ -104,6 +106,8 @@ function showSection(sectionId) {
 				addDynamicScript('javaScript/selectAvatar.js');
 				addDynamicScript('javaScript/alertDeleteUser.js');
 				addDynamicScript('javaScript/ajaxEditUser.js');
+				
+				
 			},
 			error: function(xhr, status, error) {
 				console.error("Error loading User section:", error);

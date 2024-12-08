@@ -22,9 +22,9 @@ public class DeleteAddress extends HttpServlet {
 
 		boolean isSuccess = deleteAdress.deleteAdress(addressId);
 		if (isSuccess) {
-			req.getSession().setAttribute("message", "Xoá địa chỉ thành công");
-			req.getSession().setAttribute("type", "success");
-			resp.sendRedirect(req.getContextPath() + "/userInfo");
+			req.setAttribute("message", "Xoá địa chỉ thành công");
+			req.setAttribute("type", "success");
+			req.getRequestDispatcher("/userInfo").forward(req, resp);
 
 		}
 

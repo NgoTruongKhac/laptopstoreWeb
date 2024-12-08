@@ -18,7 +18,7 @@ public class DeletePeripheralDAO {
 	public boolean deletePeripheral(int peripheralId) {
 		boolean isSuccess = false;
 		try {
-			String query = "delete from peripheral where peripheralId=?;";
+			String query = "delete from product where productId=?;";
 			PreparedStatement pr = conn.prepareStatement(query);
 			pr.setInt(1, peripheralId);
 

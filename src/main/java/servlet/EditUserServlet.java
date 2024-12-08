@@ -25,7 +25,7 @@ public class EditUserServlet extends HttpServlet{
 		
 		User user=editUser.getUser(userId);
 		
-		System.out.println(user.toString());
+		
 		
 		
 		req.setAttribute("User", user);

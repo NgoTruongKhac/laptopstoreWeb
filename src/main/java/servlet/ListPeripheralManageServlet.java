@@ -28,6 +28,8 @@ public class ListPeripheralManageServlet extends HttpServlet{
 		ListPeripheralDAO listPeripheralDao= new ListPeripheralDAO();
 		List<Peripheral> listPeripheral= listPeripheralDao.getListPeripheralManage(pagePeripheral, pageSize);
 		
+		
+		
 		int totalPeripheral = listPeripheralDao.getTotalProductCount(); // Tổng số sản phẩm
 		int totalPagePeripheral = (int) Math.ceil((double) totalPeripheral / pageSize); // Tính tổng số trang
 

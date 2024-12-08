@@ -26,16 +26,16 @@ public class AuthorizationFilter implements Filter {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpServletResponse httpResponse = (HttpServletResponse) response;
 
-        // Get the session and check for the logged-in user
+        
         HttpSession session = httpRequest.getSession(false);
         User user = (session != null) ? (User) session.getAttribute("User") : null;
 
-        // Get requested URI
+      
         String uri = httpRequest.getRequestURI();
 
-        // Authorization logic
+       
         if (user == null) {
-            // If the user is not logged in and tries to access admin page, redirect to login or index
+           
             if (uri.contains("/adminPage")) {
                 httpResponse.sendRedirect("error.jsp");
                 return;
@@ -43,7 +43,7 @@ public class AuthorizationFilter implements Filter {
         } else {
             String role = user.getRole();
 
-            // Redirect customers trying to access admin page
+           
             if ("customer".equals(role) && uri.contains("/adminPage.jsp")) {
                 httpResponse.sendRedirect("error.jsp");
                 return;
@@ -52,7 +52,7 @@ public class AuthorizationFilter implements Filter {
 
         }
 
-        // Allow request to proceed if no restrictions are hit
+      
         chain.doFilter(request, response);
     }
 

@@ -27,8 +27,8 @@ public class VerifyFogotPass extends HttpServlet {
 
 		if (currentTime - verificationTime > 300000) {
 
-			req.getSession().setAttribute("message", "mã xác nhận đã hết hạn.");
-			req.getSession().setAttribute("type", "error");
+			req.setAttribute("message", "mã xác nhận đã hết hạn.");
+			req.setAttribute("type", "error");
 			req.getRequestDispatcher("verify.jsp").forward(req, resp);
 
 			return;
@@ -36,8 +36,8 @@ public class VerifyFogotPass extends HttpServlet {
 		}
 
 		if (!verificationCode.equals(ConfirmverificationCode) ) {
-			req.getSession().setAttribute("message", "Mã xác nhận không đúng.");
-			req.getSession().setAttribute("type", "error");
+			req.setAttribute("message", "Mã xác nhận không đúng.");
+			req.setAttribute("type", "error");
 			req.getRequestDispatcher("verify.jsp").forward(req, resp);
 			return;
 		}
@@ -46,9 +46,9 @@ public class VerifyFogotPass extends HttpServlet {
 		boolean isChangePass = forgotPass.isChangePass(newPass, email);
 		
 		if (isChangePass) {
-			req.getSession().setAttribute("message", "Đổi mật khẩu thành công! Bạn có thể đăng nhập.");
-			req.getSession().setAttribute("type", "success");
-			resp.sendRedirect("index.jsp");
+			req.setAttribute("message", "Đổi mật khẩu thành công! Bạn có thể đăng nhập.");
+			req.setAttribute("type", "success");
+			req.getRequestDispatcher("index.jsp").forward(req, resp);
 		}
 	}
 	

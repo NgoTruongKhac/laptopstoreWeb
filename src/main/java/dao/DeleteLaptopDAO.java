@@ -18,7 +18,7 @@ public class DeleteLaptopDAO {
 	public boolean  deleteLaptop(int laptopId) {
 		boolean isSuccess=false;
 		try {
-			String query = "delete from laptop where laptopId=?;";
+			String query = "delete from product where productId=?;";
 			PreparedStatement pr = conn.prepareStatement(query);
 			pr.setInt(1, laptopId);
 			
