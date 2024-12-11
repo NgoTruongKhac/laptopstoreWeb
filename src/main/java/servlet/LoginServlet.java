@@ -35,9 +35,8 @@ public class LoginServlet extends HttpServlet {
 			User user = login.isSuccess(emailOrPhone, pass);
 
 			boolean Iscorrect = login.getIsCorrectPass();
-			
-			
-			QuantityCartDAO quantityCart=new QuantityCartDAO();
+
+			QuantityCartDAO quantityCart = new QuantityCartDAO();
 
 			if (!Iscorrect) {
 				req.setAttribute("message", "mật khẩu không đúng!");
@@ -49,11 +48,10 @@ public class LoginServlet extends HttpServlet {
 
 			if (user != null) {
 
-				int cartCount=quantityCart.getCartCount(user.getUserId());
-				
+				int cartCount = quantityCart.getCartCount(user.getUserId());
+
 				req.getSession().setAttribute("cartCount", cartCount);
-				
-				
+
 				req.getSession().setAttribute("User", user);
 				if ("admin".equals(user.getRole())) {
 					req.setAttribute("message", "Đăng nhập thành công");
@@ -61,9 +59,9 @@ public class LoginServlet extends HttpServlet {
 					req.getRequestDispatcher("adminPage.jsp").forward(req, resp);
 					return;
 				} else {
-					req.setAttribute("message", "Đăng nhập thành công");
-					req.setAttribute("type", "success");
-					req.getRequestDispatcher("index.jsp").forward(req, resp);
+					req.getSession().setAttribute("message", "Đăng nhập thành công");
+					req.getSession().setAttribute("type", "success");
+					resp.sendRedirect(req.getContextPath()+"/");
 					return;
 				}
 

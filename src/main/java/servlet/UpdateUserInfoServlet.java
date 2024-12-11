@@ -5,7 +5,6 @@ import java.sql.Date;
 
 import dao.UpdateUserInfoDAO;
 import entity.User;
-import entity.UserUpdate;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -34,7 +33,7 @@ public class UpdateUserInfoServlet extends HttpServlet {
 
 		Date birthday = Date.valueOf(birthdayStr);
 
-		UserUpdate userUpdate = new UserUpdate(firstName, lastName, sex, birthday, avatarSrc);
+		User userUpdate = new User(firstName, lastName, sex, birthday, avatarSrc);
 
 		UpdateUserInfoDAO updateUser = new UpdateUserInfoDAO();
 
@@ -44,7 +43,7 @@ public class UpdateUserInfoServlet extends HttpServlet {
 			req.setAttribute("message", "Lưu thông tin thành công!");
 		    req.setAttribute("type", "success");
 
-//		    resp.sendRedirect(req.getContextPath() + "/userInfo");
+
 		    req.getRequestDispatcher("/userInfo").forward(req, resp);
 		} 
 

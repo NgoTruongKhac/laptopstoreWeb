@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 
 import database.ConnectDatabase;
-import entity.UserUpdate;
+import entity.User;
 
 public class UpdateUserInfoDAO {
 	
@@ -16,7 +16,7 @@ public class UpdateUserInfoDAO {
 		conn=db.getConnection();
 	}
 	
-	public boolean isUpdate(UserUpdate userUpdate, int userId) {
+	public boolean isUpdate(User userUpdate, int userId) {
 		boolean isUpdate=false;
 		
 		try {

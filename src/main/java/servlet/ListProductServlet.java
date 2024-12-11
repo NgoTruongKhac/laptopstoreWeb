@@ -48,6 +48,9 @@ public class ListProductServlet extends HttpServlet {
 		List<Laptop> bestSeller = bestSellerdao.getBestSeller();
 
 		req.getServletContext().setAttribute("BestSeller", bestSeller);
+		
+		req.setAttribute("message", req.getSession().getAttribute("message"));
+		req.setAttribute("type", req.getSession().getAttribute("type"));
 
 
 		req.getRequestDispatcher("index.jsp").forward(req, resp);

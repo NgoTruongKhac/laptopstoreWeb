@@ -29,7 +29,7 @@ public class VerifySMSServlet extends HttpServlet {
 		String pass = (String) req.getSession().getAttribute("pass");
 		String hashedPassword = BCrypt.hashpw(pass, BCrypt.gensalt());
 
-		User user = new User(firstName,lastName, hashedPassword, null, phoneNumber);
+		User user = new User(firstName,lastName, hashedPassword, "", phoneNumber);
 
 		
 		long verificationTime = (long) req.getSession().getAttribute("verificationTime");

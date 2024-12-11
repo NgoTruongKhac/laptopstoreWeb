@@ -52,6 +52,11 @@ public class VerifyChangeEmail extends HttpServlet {
 			req.setAttribute("emailOrPhone", newEmail);
 			req.setAttribute("message", "Thay đổi email thành công.");
 			req.setAttribute("type", "success");
+			
+			req.getSession().removeAttribute("verificationCode");
+			req.getSession().removeAttribute("newEmail");	
+			req.getSession().removeAttribute("verificationTime");
+			
 			req.getRequestDispatcher("/userInfo");
 		}
 		

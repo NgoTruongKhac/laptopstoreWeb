@@ -6,7 +6,7 @@ public class User {
 	
 	private int userId;
 	private String firstName;
-	private String LastName;
+	private String lastName;
 	private String pass;
 	private String email;
 	private String phoneNumber;
@@ -15,17 +15,22 @@ public class User {
 	private String avatar;
 	private String role;
 	
-	
 
-	public User(String firstName, String LastName, String pass, String email, String phoneNumber
+	public User(String firstName, String lastName, String pass, String email, String phoneNumber
 			) {
 		this.firstName = firstName;
-		this.LastName = LastName;
+		this.lastName = lastName;
 		this.pass = pass;
 		this.email = email;
 		this.phoneNumber = phoneNumber;
 	}
-	
+	public User(String firstName, String lastName, String sex, Date birthday, String avatar) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.sex = sex;
+		this.birthday = birthday;
+		this.avatar=avatar;
+	}
 
 	public String getFirstName() {
 		return firstName;
@@ -36,11 +41,11 @@ public class User {
 	}
 
 	public String getLastName() {
-		return LastName;
+		return lastName;
 	}
 
 	public void setLastName(String lastName) {
-		LastName = lastName;
+		this.lastName = lastName;
 	}
 
 	public String getPass() {
@@ -119,7 +124,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", firstName=" + firstName + ", LastName=" + LastName + ", pass=" + pass
+		return "User [userId=" + userId + ", firstName=" + firstName + ", LastName=" + lastName + ", pass=" + pass
 				+ ", email=" + email + ", phoneNumber=" + phoneNumber + ", sex=" + sex + ", birthday=" + birthday
 				+ ", avatar=" + avatar + ", role=" + role + "]";
 	}

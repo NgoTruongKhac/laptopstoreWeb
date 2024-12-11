@@ -61,8 +61,15 @@ public class VerifyRegisterServlet extends HttpServlet {
 
 			req.setAttribute("message", "Đăng ký thành công! Bạn có thể đăng nhập.");
 			req.setAttribute("type", "success");
-			req.getRequestDispatcher("index.jsp").forward(req, resp);
+			
+			req.getSession().removeAttribute("verificationCode");
+			req.getSession().removeAttribute("email");
+			req.getSession().removeAttribute("firstName");
+			req.getSession().removeAttribute("lastName");
+			req.getSession().removeAttribute("pass");
+			req.getSession().removeAttribute("verificationTime");
 
+			req.getRequestDispatcher("index.jsp").forward(req, resp);
 		}
 
 
