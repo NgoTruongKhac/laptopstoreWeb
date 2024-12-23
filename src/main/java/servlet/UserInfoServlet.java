@@ -35,7 +35,7 @@ public class UserInfoServlet extends HttpServlet {
 		
 		req.setAttribute("ListAddress",listAddress);
 		
-		req.setAttribute("User",userRefresh);
+		req.getSession().setAttribute("User",userRefresh);
 		
 		req.getRequestDispatcher("userInfo.jsp").forward(req, resp);
 

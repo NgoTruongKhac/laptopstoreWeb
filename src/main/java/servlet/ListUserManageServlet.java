@@ -38,8 +38,10 @@ public class ListUserManageServlet extends HttpServlet {
 		req.setAttribute("page", page);
 
 
+		req.setAttribute("dynamicSection", "componentsAdmin/manageUser.jsp");
+		req.setAttribute("activeUser", "active");
 
-		req.getRequestDispatcher("/componentsAdmin/manageUser.jsp").forward(req, resp);
+		req.getRequestDispatcher("/adminPage.jsp").forward(req, resp);
 	}
 
 }

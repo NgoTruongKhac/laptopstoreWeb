@@ -7,8 +7,6 @@ document.getElementById("addUserForm").addEventListener("submit", function(event
 	var formData = new FormData(form);
 
 
-
-
 	$.ajax({
 
 		url: contextPath + "/adminPage/addUser", // Đường dẫn servlet xử lý
@@ -18,16 +16,12 @@ document.getElementById("addUserForm").addEventListener("submit", function(event
 		contentType: false,
 		dataType: "json", // Không đặt kiểu dữ liệu
 		success: function(response) {
-			// Xử lý kết quả trả về (ví dụ: cập nhật nội dung trang)
-
-
-
 
 			if (response.type === "success") {
 
 				$('#addUser').modal('hide');
 				$('#addUserForm')[0].reset();
-				$('#selected-avatar').attr('src', 'images/blank_avatar.png') 
+				$('#selected-avatar').attr('src', 'images/blank_avatar.png')
 			}
 
 			document.getElementById("listUserManage").innerHTML = response;
@@ -44,7 +38,7 @@ document.getElementById("addUserForm").addEventListener("submit", function(event
 				dismissible: true
 			});
 			$.ajax({
-				url: contextPath + "/adminPage/listUser",
+				url: contextPath + "/adminPage/renderListUser",
 				type: "get",
 				dataType: "html",
 				success: function(response) {
@@ -64,6 +58,7 @@ document.getElementById("addUserForm").addEventListener("submit", function(event
 			console.error("Error:", error);
 		}
 	});
+
 
 
 

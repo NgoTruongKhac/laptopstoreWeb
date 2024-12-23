@@ -35,6 +35,7 @@ public class ListUserDAO {
 				User user=new User(rs.getString("firstName"), rs.getString("lastName"), "", rs.getString("email"), rs.getString("phoneNumber"));
 				user.setUserId(rs.getInt("userId"));
 				user.setBirthday(rs.getDate("birthday"));
+				user.setAvatar(rs.getString("avatar"));
 				
 				listUser.add(user);
 			}
@@ -46,18 +47,18 @@ public class ListUserDAO {
 		return listUser;
 	}
 	public int getTotalUser() {
-	    int totalProducts = 0;
+	    int totalUser = 0;
 	    try {
 	        String query = "SELECT COUNT(*) FROM account";
 	        PreparedStatement pr = conn.prepareStatement(query);
 	        ResultSet rs = pr.executeQuery();
 	        if (rs.next()) {
-	            totalProducts = rs.getInt(1);
+	            totalUser = rs.getInt(1);
 	        }
 	    } catch (Exception e) {
 	        e.printStackTrace();
 	    }
-	    return totalProducts;
+	    return totalUser;
 	}
 
 }

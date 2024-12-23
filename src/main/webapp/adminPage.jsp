@@ -11,16 +11,21 @@
 <title>Sidebar With Bootstrap</title>
 <link href="https://cdn.lineicons.com/4.0/lineicons.css"
 	rel="stylesheet" />
-<%@ include file="styleCSS/allCss.jsp"%>
-<link rel="stylesheet" href="styleCSS/adminCSS.css" />
-<link rel="stylesheet" href="styleCSS/modalAddLaptop.css" />
-<link rel="stylesheet" href="styleCSS/avatar.css" />
+<%@ include file="/styleCSS/allCss.jsp"%>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/styleCSS/adminCSS.css" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/styleCSS/modalAddLaptop.css" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/styleCSS/avatar.css" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/styleCSS/avatar.css" />
 
 
 </head>
 <body>
 
-<jsp:include page="components/alert.jsp"></jsp:include>
+	<jsp:include page="/components/alert.jsp"></jsp:include>
 	<div class="wrapper">
 		<aside id="sidebar"
 			style="border-right: solid; position: fixed; z-index: 1002; height: 100%;">
@@ -33,25 +38,25 @@
 				</div>
 			</div>
 			<ul class="sidebar-nav">
-				<li class="sidebar-item active" data-section="dashboard"><a
-					href="javascript:void(0)" class="sidebar-link"
-					onclick="showSection('dashboard')"> <i
-						class="bi bi-speedometer2"></i> <span>Quản trị</span>
+				<li class="sidebar-item ${activeDashboard}" data-section="dashboard"><a
+					href="${pageContext.request.contextPath}/adminPage"
+					class="sidebar-link"> <i class="bi bi-speedometer2"></i> <span>Quản
+							trị</span>
 				</a></li>
-				<li class="sidebar-item" data-section="User"><a
-					href="javascript:void(0)" class="sidebar-link"
-					onclick="showSection('User')"> <i class="bi bi-people"></i> <span>Tài
+				<li class="sidebar-item ${activeUser}" data-section="User"><a
+					href="${pageContext.request.contextPath}/adminPage/listUser"
+					class="sidebar-link"> <i class="bi bi-people"></i> <span>Tài
 							Khoản</span>
 				</a></li>
-				<li class="sidebar-item" data-section="Product"><a
-					href="javascript:void(0)" class="sidebar-link"
-					onclick="showSection('Product')"> <i class="lni lni-agenda"></i>
-						<span>Sản Phẩm</span>
+				<li class="sidebar-item ${activeProduct}" data-section="Product"><a
+					href="${pageContext.request.contextPath}/adminPage/listProduct"
+					class="sidebar-link"> <i class="lni lni-agenda"></i> <span>Sản
+							Phẩm</span>
 				</a></li>
-				<li class="sidebar-item" data-section="Order"><a
-					href="javascript:void(0)" class="sidebar-link"
-					onclick="showSection('Order')"> <i class="bi bi-bag-check"></i>
-						<span>Đặt hàng</span>
+				<li class="sidebar-item ${activeOrder}" data-section="Order"><a
+					href="${pageContext.request.contextPath}/adminPage/listOrder"
+					class="sidebar-link"> <i class="bi bi-bag-check"></i> <span>Đặt
+							hàng</span>
 				</a></li>
 			</ul>
 		</aside>
@@ -95,7 +100,8 @@
 							</button>
 
 							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="userInfo"><i
+								<li><a class="dropdown-item"
+									href="${pageContext.request.contextPath}/userInfo"><i
 										class="bi bi-person-vcard me-2"></i>Xem thông tin</a></li>
 								<li>
 									<button class="dropdown-item" onclick="confirmLogout()">
@@ -112,55 +118,20 @@
 			<div style="margin-top: 70px; overflow: hidden; margin-left: 70px">
 
 				<main class="content px-3 py-4">
-					<div id="dashboard"
-						class="content-section active container-fluid mt-2"
-						style="height: 87vh">
-						<div class="row">
-							<div class="col-md-12">
-								<h4>Quản trị</h4>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-md-4 mb-3">
-								<div class="card text-dark h-100" style="border: solid red">
-									<div class="card-body py-3">Tài Khoản</div>
-									<div class="card-footer d-flex">
-										xem chi tiết <span class="ms-auto"> <i
-											class="bi bi-chevron-right"></i>
-										</span>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-4 mb-3">
-								<div class="card text-dark h-100" style="border: solid yellow">
-									<div class="card-body py-3">Sản phẩm</div>
-									<div class="card-footer d-flex">
-										xem chi tiết <span class="ms-auto"> <i
-											class="bi bi-chevron-right"></i>
-										</span>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-4 mb-3">
-								<div class="card text-dark h-100" style="border: solid green">
-									<div class="card-body py-3">Đặt hàng</div>
-									<div class="card-footer d-flex">
-										xem chi tiết <span class="ms-auto"> <i
-											class="bi bi-chevron-right"></i>
-										</span>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+					<!-- session dashboard -->
+					<c:if test="${not empty activeDashboard}">
+						<jsp:include page="${dynamicSection}"></jsp:include>
+					</c:if>
+					<!-- session product -->
+					<c:if test="${not empty activeProduct}">
+						<jsp:include page="${dynamicSection}"></jsp:include>
+					</c:if>
+					<!-- session user -->
+					<c:if test="${not empty activeUser}">
 
-					<div id="User" class="content-section">
 						<div class="mb-4 d-flex justify-content-center">
 							<h4>Tài Khoản</h4>
 						</div>
-
-
-
 						<div class="mb-4 d-flex justify-content-end">
 							<button data-bs-toggle="modal" data-bs-target="#addUser"
 								class="btn btn-outline-primary btn-sm">
@@ -168,28 +139,62 @@
 							</button>
 							<%@include file="/componentsAdmin/addUser.jsp"%>
 						</div>
-						<div id="listUserManage"></div>
-
-
-
-					</div>
-					<div id="Product" class="content-section"></div>
-
-					<div id="Order" class="content-section">
-						<h4>Dat hang</h4>
-					</div>
+						<jsp:include page="${dynamicSection}"></jsp:include>
+					</c:if>
+					<!-- session order -->
+					<c:if test="${not empty activeOrder}">
+						<div class="mb-4 d-flex justify-content-center">
+							<h4>Đặt Hàng</h4>
+						</div>
+						<jsp:include page="${dynamicSection}"></jsp:include>
+					</c:if>
 				</main>
 			</div>
 		</div>
 	</div>
 
-	
-	<script type="text/javascript" src="javaScript/admin.js"></script>
-	<script type="text/javascript" src="javaScript/alertLogout.js"></script>
-	<script type="text/javascript" src="javaScript/pagination.js"></script>
-	<script type="text/javascript" src="javaScript/alertDeleteProduct.js"></script>
-	<script type="text/javascript" src="javaScript/selectAvatar.js"></script>
 
+	<script type="text/javascript"
+		src="${pageContext.request.contextPath}/javaScript/admin.js"></script>
+	<script type="text/javascript"
+		src="${pageContext.request.contextPath}/javaScript/alertLogout.js"></script>
+	<script type="text/javascript"
+		src="${pageContext.request.contextPath}/javaScript/pagination.js"></script>
+	<script type="text/javascript"
+		src="${pageContext.request.contextPath}/javaScript/selectAvatar.js"></script>
+
+	<c:if test="${not empty activeProduct}">
+
+		<script type="text/javascript"
+			src="${pageContext.request.contextPath}/javaScript/ajaxAddProduct.js"></script>
+		<script type="text/javascript"
+			src="${pageContext.request.contextPath}/javaScript/alertDeleteProduct.js"></script>
+		<script type="text/javascript"
+			src="${pageContext.request.contextPath}/javaScript/ajaxEditProduct.js"></script>
+		<script type="text/javascript"
+			src="${pageContext.request.contextPath}/javaScript/previewImage.js"></script>
+	</c:if>
+
+	<c:if test="${not empty activeUser}">
+
+		<script type="text/javascript"
+			src="${pageContext.request.contextPath}/javaScript/ajaxAddUser.js"></script>
+		<script type="text/javascript"
+			src="${pageContext.request.contextPath}/javaScript/alertDeleteUser.js"></script>
+		<script type="text/javascript"
+			src="${pageContext.request.contextPath}/javaScript/ajaxEditUser.js"></script>
+		<script type="text/javascript"
+			src="${pageContext.request.contextPath}/javaScript/previewImage.js"></script>
+
+
+	</c:if>
+	<c:if test="${not empty activeOrder}">
+		<script type="text/javascript"
+			src="${pageContext.request.contextPath}/javaScript/ajaxOrderDetail.js"></script>
+		<script type="text/javascript"
+			src="${pageContext.request.contextPath}/javaScript/confirmOrder.js"></script>
+
+	</c:if>
 
 
 

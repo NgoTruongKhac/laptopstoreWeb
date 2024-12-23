@@ -14,6 +14,7 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet("/updateUserInfo")
 public class UpdateUserInfoServlet extends HttpServlet {
 
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub

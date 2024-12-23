@@ -21,6 +21,7 @@
 					<div class="d-flex justify-content-center mb-2">
 						<h3>Đặt lại mật khẩu</h3>
 					</div>
+					
 					<div>
 						<label class="form-label">Email/Số điện thoại:</label> <input
 							class="form-control" type="email" name="email"

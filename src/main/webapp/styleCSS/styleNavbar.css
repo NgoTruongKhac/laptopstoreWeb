@@ -19,8 +19,11 @@
 	.cart {
 		font-size: 25px;
 	}
-		#cartCount {
+	#cartCount {
 		font-size: 10px;
+	}
+	#btn-search {
+		font-size: 10px
 	}
 }
 
@@ -34,4 +37,55 @@
 	#cartCount {
 		font-size: 10px;
 	}
+	.login, .register {
+		height: 42px;
+	}
+}
+
+@media ( min-width : 768px) {
+	.name-search {
+		font-size: 14px;
+	}
+	.price-search {
+		font-size: 15px;
+		margin-top: -15px;
+		margin-bottom: -10px;
+	}
+	.image-search {
+		width: 48%;
+	}
+	#listProductSuggest {
+		width: 40%;
+		z-index: 1000;
+		margin: 0;
+		padding: 0;
+		max-height: 370px;
+		overflow-y: auto;
+	}
+}
+
+@media ( max-width : 768px) {
+	.name-search {
+		font-size: 10px;
+	}
+	.price-search {
+		font-size: 11px;
+		margin-top: -10px;
+		margin-bottom: -10px;
+	}
+	.image-search {
+		width: 60%;
+	}
+	#listProductSuggest {
+		width: 65%;
+		z-index: 1000;
+		margin: 0;
+		padding: 0;
+		max-height: 200px;
+		overflow-y: auto;
+	}
+}
+
+.product-suggest:hover {
+	background-color: #cff4fc;
 }

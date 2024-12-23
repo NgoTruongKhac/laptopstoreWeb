@@ -24,13 +24,6 @@ public class OrderInfoServlet extends HttpServlet {
 
 		String[] listCartId = req.getParameterValues("selectCartItem");
 
-		if (listCartId == null) {
-			req.getSession().setAttribute("message", "bạn chưa chọn sản phẩm!");
-			req.getSession().setAttribute("type", "warning");
-			resp.sendRedirect(req.getContextPath() + "/viewCart");
-			return;
-		}
-
 		int totalPrice = Integer.parseInt(req.getParameter("totalPrice"));
 
 		ListCartItemOrderDAO dao = new ListCartItemOrderDAO();
@@ -56,7 +49,6 @@ public class OrderInfoServlet extends HttpServlet {
 		req.setAttribute("includePage", "components/orderInfo.jsp");
 		req.getSession().setAttribute("ListCartItem", listCartItem);
 		req.getSession().setAttribute("totalPrice", totalPrice);
-
 		req.getRequestDispatcher("cart.jsp").forward(req, resp);
 
 	}

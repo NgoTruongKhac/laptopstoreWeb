@@ -41,7 +41,7 @@
 					<div class="col-md-6 col-12">
 						<div onclick="avatarPicker()"
 							class="avatar-picker mb-3 d-flex justify-content-center">
-							<img class="rounded-circle" width="18%" src="${User.avatar}"
+							<img class="rounded-circle" width="18%" src="${pageContext.request.contextPath}/${User.avatar}"
 								alt="Avatar" class="avatar" id="selected-avatar-edit"
 								name="image" /> <input id="avatarSrc-edit" type="hidden"
 								name="avatarSrc" value="${User.avatar}">
@@ -53,7 +53,7 @@
 							</div>
 							<div>
 								<input class="form-control" type="date" name="birthday"
-									pattern='yyyy-MM-dd'
+									pattern='yyyy-MM-dd' required="required"
 									value="<fmt:formatDate value='${User.birthday}' pattern='yyyy-MM-dd'/>" />
 							</div>
 						</div>
@@ -90,7 +90,7 @@
 									type="radio" value="customer"
 									${User.role.trim()=='customer'? 'checked':'' } /> <label
 									class="form-check-label" for="customer">customer</label>
-							</div>
+						</div>
 						</div>
 					</div>
 				</div>

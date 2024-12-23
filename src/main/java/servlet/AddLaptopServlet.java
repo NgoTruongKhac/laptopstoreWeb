@@ -62,7 +62,7 @@ public class AddLaptopServlet extends HttpServlet {
 					is.close();
 				}
 				// Tạo đường dẫn file trong ứng dụng để lưu vào database
-				imagePath = UPLOAD_DIR + "/" + fileName;
+				imagePath =UPLOAD_DIR + "/" + fileName;
 			}
 		}
 

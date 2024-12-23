@@ -51,9 +51,12 @@ public class ListProductManageServlet extends HttpServlet {
 		req.setAttribute("ListPeripheral", listPeripheral);
 		req.setAttribute("totalPagePeripheral", totalPagePeripheral);
 		req.setAttribute("pagePeripheral", pagePeripheral);
+		
+		req.setAttribute("dynamicSection", "componentsAdmin/manageProduct.jsp");
+		req.setAttribute("activeProduct", "active");
 
 
-		req.getRequestDispatcher("/componentsAdmin/manageProduct.jsp").forward(req, resp);
+		req.getRequestDispatcher("/adminPage.jsp").forward(req, resp);
 	}
 
 }

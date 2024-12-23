@@ -225,4 +225,9 @@ a.sidebar-link:hover {
     z-index: 1; /* Đảm bảo navbar nằm dưới sidebar */
   }
 }
+.info,
+.product {
+  border: solid 1px #0d6efd;
+}
+
 

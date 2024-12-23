@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
 
 
@@ -27,7 +27,15 @@
 					<tr>
 						<th scope="row">${laptop.laptopId}</th>
 						<td>${laptop.name}</td>
-						<td><img src="${laptop.image}" style="width: 70px;"></img></td>
+						<td><c:choose>
+								<c:when test="${fn:contains(laptop.image, 'uploads')}">
+									<img src="${pageContext.request.contextPath}/${laptop.image}"
+										style="width: 70px;" />
+								</c:when>
+								<c:otherwise>
+									<img src="${laptop.image}" style="width: 70px;" />
+								</c:otherwise>
+							</c:choose></td>
 						<td><c:out value="${String.format('%,d', laptop.price)} đ" /></td>
 						<td>${laptop.brand}</td>
 						<td>${laptop.category}</td>

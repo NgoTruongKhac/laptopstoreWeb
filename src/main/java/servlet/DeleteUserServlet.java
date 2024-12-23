@@ -24,11 +24,9 @@ public class DeleteUserServlet extends HttpServlet{
 		DeleteUserDAO deleteUser=new DeleteUserDAO();
 		boolean isSuccess=deleteUser.isDeleteUser(userId);
 		
+		
 		if(isSuccess) {
-			
-			
-			resp.sendRedirect(req.getContextPath() + "/adminPage/listUser?page=" + page);
-			
+			req.getRequestDispatcher("/adminPage/renderListUser").forward(req, resp);
 		}
 		
 		

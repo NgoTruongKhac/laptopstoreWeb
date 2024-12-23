@@ -54,9 +54,9 @@ public class LoginServlet extends HttpServlet {
 
 				req.getSession().setAttribute("User", user);
 				if ("admin".equals(user.getRole())) {
-					req.setAttribute("message", "Đăng nhập thành công");
-					req.setAttribute("type", "success");
-					req.getRequestDispatcher("adminPage.jsp").forward(req, resp);
+					req.getSession().setAttribute("message", "Đăng nhập thành công");
+					req.getSession().setAttribute("type", "success");
+					resp.sendRedirect(req.getContextPath()+"/adminPage");
 					return;
 				} else {
 					req.getSession().setAttribute("message", "Đăng nhập thành công");

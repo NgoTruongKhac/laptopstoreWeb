@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
 <div class="modal-dialog modal-lg">
 	<div class="modal-content">
@@ -39,18 +41,20 @@
 									class="form-check-label" for="mouseEdit">Chuột</label>
 							</div>
 							<div class="form-check form-check-inline">
-								<input id="keyboardEdit" name="category" class="form-check-input"
-									type="radio" value="keyboard"
-									${Peripheral.category.trim() =='keyboard' ? 'checked' : ''} /> <label
-									class="form-check-label" for="keyboardEdit">bàn phím</label>
-									
-									
+								<input id="keyboardEdit" name="category"
+									class="form-check-input" type="radio" value="keyboard"
+									${Peripheral.category.trim() =='keyboard' ? 'checked' : ''} />
+								<label class="form-check-label" for="keyboardEdit">bàn
+									phím</label>
+
+
 							</div>
 							<div class="form-check form-check-inline">
-								<input id="headphoneEdit" name="category" class="form-check-input"
-									type="radio" value="headphone"
-									${Peripheral.category.trim() =='headphone' ? 'checked' : ''} /> <label
-									class="form-check-label" for="headphoneEdit">tai nghe</label>
+								<input id="headphoneEdit" name="category"
+									class="form-check-input" type="radio" value="headphone"
+									${Peripheral.category.trim() =='headphone' ? 'checked' : ''} />
+								<label class="form-check-label" for="headphoneEdit">tai
+									nghe</label>
 							</div>
 						</div>
 					</div>
@@ -68,51 +72,67 @@
 							<input hidden="true" type="text" value="${Peripheral.image}"
 								name="imagePath">
 							<div class="col-6">
-								<img id="preview-p-edit" alt="" src="${Peripheral.image}"
-									style="display: block;" name="preview-p-edit" />
+
+
+								<c:choose>
+									<c:when test="${fn:contains(Peripheral.image, 'uploads')}">
+										<img id="preview-p-edit" alt="" src="${pageContext.request.contextPath}/${Peripheral.image}"
+											style="display: block;" name="preview-p-edit" />
+									</c:when>
+									<c:otherwise>
+										<img id="preview-p-edit" alt="" src="${Peripheral.image}"
+											style="display: block;" name="preview-p-edit" />
+									</c:otherwise>
+								</c:choose>
 							</div>
 						</div>
 
 						<div class="row">
 							<div class="mb-3 d-flex flex-row">
 								<div class="mb-1">
-									<label class="form-check me-2" for="" style="min-width: 80px">Kết nối :</label>
+									<label class="form-check me-2" for="" style="min-width: 80px">Kết
+										nối :</label>
 								</div>
 
 								<div class="form-check form-check-inline">
 									<input id="yesEdit" name="connect" class="form-check-input"
 										type="radio" value="có dây"
-										${Peripheral.connect.trim() == 'có dây' ? 'checked' : ''} /> <label
-										class="form-check-label" for="yesEdit" style="min-width: 60px">Có dây</label>
+										${Peripheral.connect.trim() == 'có dây' ? 'checked' : ''} />
+									<label class="form-check-label" for="yesEdit"
+										style="min-width: 60px">Có dây</label>
 								</div>
 								<div class="form-check form-check-inline">
 									<input id="noEdit" name="connect" class="form-check-input"
 										type="radio" value="không dây"
-										${Peripheral.connect.trim() == 'không dây' ? 'checked' : ''} /> <label
-										class="form-check-label" for="noEdit" style="min-width: 60px">Không dây</label>
-										
+										${Peripheral.connect.trim() == 'không dây' ? 'checked' : ''} />
+									<label class="form-check-label" for="noEdit"
+										style="min-width: 60px">Không dây</label>
+
 								</div>
 							</div>
 							<div class="mb-3 d-flex flex-row">
 								<div class="mb-1">
-									<label class="form-check me-2" for="" style="min-width: 80px">led RGB :</label>
+									<label class="form-check me-2" for="" style="min-width: 80px">led
+										RGB :</label>
 								</div>
 
 								<div class="form-check form-check-inline">
 									<input id="rgbEdit" name="ledRGB" class="form-check-input"
 										type="radio" value="1" ${Peripheral.ledRGB ? 'checked' : ''} />
-									<label class="form-check-label" for="rgbEdit" style="min-width: 60px">Có</label>
+									<label class="form-check-label" for="rgbEdit"
+										style="min-width: 60px">Có</label>
 								</div>
 								<div class="form-check form-check-inline">
 									<input id="noRgbEdit" name="ledRGB" class="form-check-input"
 										type="radio" value="0" ${!Peripheral.ledRGB ? 'checked' : ''} />
-									<label class="form-check-label" for="noRgbEdit" style="min-width: 60px">Không</label>
+									<label class="form-check-label" for="noRgbEdit"
+										style="min-width: 60px">Không</label>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				
+
 
 				<div>
 					<div>
@@ -122,8 +142,8 @@
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button onclick="updatePeripheral(${pagePeripheral})" 
-					type="submit" class="btn btn-primary">Cập nhật</button>
+				<button onclick="updatePeripheral(${pagePeripheral})" type="submit"
+					class="btn btn-primary">Cập nhật</button>
 			</div>
 		</form>
 	</div>

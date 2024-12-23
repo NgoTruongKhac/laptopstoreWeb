@@ -25,14 +25,11 @@
 		</div>
 
 	</div>
+	
 </div>
 <div id="listLaptopManage">
 	<jsp:include page="manageLaptop.jsp"></jsp:include>
 </div>
-
-
-
-
 
 <div class="d-flex flex-row justify-content-between">
 	<div>

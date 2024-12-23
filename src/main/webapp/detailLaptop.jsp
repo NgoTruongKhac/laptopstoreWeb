@@ -35,8 +35,8 @@
 					</h1>
 				</div>
 				<div class="d-flex justify-content-evenly mt-3 mb-3">
-					<button class="btn btn-outline-primary"
-						style="width: 50%; font-size: xx-large">Mua ngay</button>
+					<a href="${pageContext.request.contextPath}/buyNow?productId=${Laptop.laptopId}" class="btn btn-outline-primary"
+						style="width: 50%; font-size: xx-large">Mua ngay</a>
 					<button onclick="addToCart(${Laptop.laptopId})" class="btn btn-outline-primary"
 						style="width: 15%; font-size: xx-large">
 						<i class="bi bi-cart-plus"></i>
@@ -107,6 +107,7 @@
 
 <script type="text/javascript" src="javaScript/scrollToReview.js"></script>
 <script type="text/javascript" src="javaScript/ajaxAddToCart.js"></script>
+<script type="text/javascript" src="javaScript/ajaxSearchSuggest.js"></script>
 
 </body>
 </html>

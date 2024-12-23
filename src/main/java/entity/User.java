@@ -3,7 +3,7 @@ package entity;
 import java.sql.Date;
 
 public class User {
-	
+
 	private int userId;
 	private String firstName;
 	private String lastName;
@@ -14,22 +14,21 @@ public class User {
 	private Date birthday;
 	private String avatar;
 	private String role;
-	
 
-	public User(String firstName, String lastName, String pass, String email, String phoneNumber
-			) {
+	public User(String firstName, String lastName, String pass, String email, String phoneNumber) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.pass = pass;
 		this.email = email;
 		this.phoneNumber = phoneNumber;
 	}
+
 	public User(String firstName, String lastName, String sex, Date birthday, String avatar) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.sex = sex;
 		this.birthday = birthday;
-		this.avatar=avatar;
+		this.avatar = avatar;
 	}
 
 	public String getFirstName() {
@@ -64,8 +63,6 @@ public class User {
 		this.email = email;
 	}
 
-
-
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
@@ -73,7 +70,6 @@ public class User {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-	
 
 	public String getSex() {
 		return sex;
@@ -90,7 +86,6 @@ public class User {
 	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
 	}
-	
 
 	public String getAvatar() {
 		return avatar;
@@ -99,28 +94,22 @@ public class User {
 	public void setAvatar(String avatar) {
 		this.avatar = avatar;
 	}
-	
 
 	public int getUserId() {
 		return userId;
 	}
 
-
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
-	
-
 
 	public String getRole() {
 		return role;
 	}
 
-
 	public void setRole(String role) {
 		this.role = role;
 	}
-
 
 	@Override
 	public String toString() {
@@ -128,10 +117,5 @@ public class User {
 				+ ", email=" + email + ", phoneNumber=" + phoneNumber + ", sex=" + sex + ", birthday=" + birthday
 				+ ", avatar=" + avatar + ", role=" + role + "]";
 	}
-
-
-
-
-
 
 }

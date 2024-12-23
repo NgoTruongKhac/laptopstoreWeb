@@ -20,6 +20,14 @@ public class CartItem {
 		this.image = image;
 		this.price = price;
 	}
+	
+	public CartItem(int productId, int quantity, String name, String image, int price) {
+		this.productId = productId;
+		this.quantity = quantity;
+		this.name = name;
+		this.image = image;
+		this.price = price;
+	}
 	public int getUserId() {
 		return userId;
 	}

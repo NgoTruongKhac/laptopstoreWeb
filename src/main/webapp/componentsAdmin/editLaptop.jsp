@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <div class="modal-dialog modal-lg">
 	<div class="modal-content">
 		<form id="editLaptopForm" method="post">
@@ -37,9 +38,9 @@
 							<div class="col-6 mb-3">
 								<label for="file-upload-edit" class="custom-file-upload">
 									<i class="bi bi-upload me-1"></i> Ảnh
-								</label>
-									<input onchange="changeImage()" id="file-upload-edit" type="file" accept="image/*"
-										name="file-upload-edit" style="display: none;" />
+								</label> <input onchange="changeImage()" id="file-upload-edit"
+									type="file" accept="image/*" name="file-upload-edit"
+									style="display: none;" />
 
 								<!-- Vùng hiển thị bản xem trước -->
 							</div>
@@ -47,8 +48,18 @@
 							<input hidden="true" type="text" value="${Laptop.image}"
 								name="imagePath">
 							<div class="col-6">
-								<img id="preview-edit" src="${Laptop.image}"
-									style="display: block;" name="preview-edit" />
+								<c:choose>
+									<c:when test="${fn:contains(Laptop.image, 'uploads')}">
+										<img id="preview-edit"
+											src="${pageContext.request.contextPath}/${Laptop.image}"
+											style="display: block;" name="preview-edit" />
+									</c:when>
+									<c:otherwise>
+										<img id="preview-edit" src="${Laptop.image}"
+											style="display: block;" name="preview-edit" />
+									</c:otherwise>
+								</c:choose>
+
 							</div>
 						</div>
 

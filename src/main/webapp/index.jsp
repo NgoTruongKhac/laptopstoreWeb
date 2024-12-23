@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%-- <%
 response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
 response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
 response.setDateHeader("Expires", 0); // Proxies.
-%>
+%> --%>
+
 
 <!DOCTYPE html>
 <html>
@@ -33,7 +35,7 @@ response.setDateHeader("Expires", 0); // Proxies.
 			style="padding-top: 8px; width: 95%; border-radius: 20px;">
 			<div class="d-flex justify-content-center">
 				<div>
-					<img class="titleSeller" src="images/Sản Phẩm Bán Chạy.png"  />
+					<img class="titleSeller" src="images/Sản Phẩm Bán Chạy.png" />
 				</div>
 			</div>
 			<jsp:include page="components/bestSeller.jsp"></jsp:include>
@@ -86,6 +88,11 @@ response.setDateHeader("Expires", 0); // Proxies.
 	<%@ include file="components/footer.jsp"%>
 	<script type="text/javascript" src="javaScript/moreProduct.js"></script>
 	<script type="text/javascript" src="javaScript/ajaxAddToCart.js"></script>
+
+
+	<script type="text/javascript" src="javaScript/ajaxSearchSuggest.js"></script>
+
+
 
 
 

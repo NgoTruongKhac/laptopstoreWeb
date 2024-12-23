@@ -1,9 +1,7 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.List;
 
-import entity.CartItem;
 import entity.User;
 import entity.UserInfoOrder;
 import jakarta.servlet.ServletException;
@@ -20,8 +18,8 @@ public class PaymentServlet extends HttpServlet{
 		// TODO Auto-generated method stub
 		
 		
-		List<CartItem> listCartItem=(List<CartItem>) req.getSession().getAttribute("ListCartItem");
-		int totalPrice=(int) req.getSession().getAttribute("totalPrice");
+//		List<CartItem> listCartItem=(List<CartItem>) req.getSession().getAttribute("ListCartItem");
+//		int totalPrice=(int) req.getSession().getAttribute("totalPrice");
 		
 		
 		User user = (User) req.getSession().getAttribute("User");
@@ -38,15 +36,14 @@ public class PaymentServlet extends HttpServlet{
 		String ward = req.getParameter("ward");
 		String street = req.getParameter("street");
 		String note=req.getParameter("note");
-		UserInfoOrder userInfo=new UserInfoOrder(userId, firstName, lastName, lastName, email, phoneNumber, province, district, ward, street, note);
+		UserInfoOrder userInfo=new UserInfoOrder(userId, firstName, lastName, email, phoneNumber, province, district, ward, street, note);
 		
-		req.setAttribute("User", userInfo);
+		req.getSession().setAttribute("userInfo", userInfo);
 		
-		req.setAttribute("totoral", totalPrice);
+//		req.setAttribute("totalPrice", totalPrice);
 		
 		req.setAttribute("includeCss", "styleCSS/payment.css");
 		req.setAttribute("nameBtnBack", "Quay lại");
-		
 		req.setAttribute("includePage", "components/payment.jsp");
 		
 		req.getRequestDispatcher("cart.jsp").forward(req, resp);

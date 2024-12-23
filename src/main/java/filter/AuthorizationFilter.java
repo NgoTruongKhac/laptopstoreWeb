@@ -44,7 +44,7 @@ public class AuthorizationFilter implements Filter {
             String role = user.getRole();
 
            
-            if ("customer".equals(role) && uri.contains("/adminPage.jsp")) {
+            if ("customer".equals(role) && uri.contains("/adminPage")) {
                 httpResponse.sendRedirect("error.jsp");
                 return;
             }

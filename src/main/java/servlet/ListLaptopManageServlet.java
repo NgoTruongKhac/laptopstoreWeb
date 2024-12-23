@@ -36,7 +36,6 @@ public class ListLaptopManageServlet extends HttpServlet {
 		req.setAttribute("ListLaptop", listLaptop);
 		req.setAttribute("totalPageLaptop", totalPageLaptop);
 		req.setAttribute("pageLaptop", pageLaptop);
-		
 		req.getRequestDispatcher("/componentsAdmin/manageLaptop.jsp").forward(req, resp);
 
 	}

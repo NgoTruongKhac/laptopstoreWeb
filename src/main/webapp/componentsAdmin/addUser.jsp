@@ -5,7 +5,7 @@
 	aria-labelledby="userModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
-			<form id="addUserForm" method="post">
+			<form id="addUserForm"  method="post">
 				<div class="modal-header">
 					<h1 class="modal-title fs-5" id="userModalLabel">Thêm tài
 						khoản</h1>

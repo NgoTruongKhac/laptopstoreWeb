@@ -46,3 +46,36 @@ function loadPageUser(pageNumber) {
     });
 }
 
+function loadPageOrder(pageOrder) {
+    var url =contextPath+"/adminPage/renderListOrder?pageOrder=" + pageOrder;
+
+    $.ajax({
+        url: url,
+        type: "get",
+        dataType: "html",
+        success: function(response) {
+             document.getElementById("listOrderManage").innerHTML = response;
+        },
+        error: function(xhr, status, error) {
+            console.error("Error loading section:", error);
+        }
+    });
+}
+
+function loadPageMyOrder(pageOrder) {
+    var url =contextPath+"/renderListMyOrder?pageOrder=" + pageOrder;
+
+    $.ajax({
+        url: url,
+        type: "get",
+        dataType: "html",
+        success: function(response) {
+             document.getElementById("listMyOrder").innerHTML = response;
+        },
+        error: function(xhr, status, error) {
+            console.error("Error loading section:", error);
+        }
+    });
+}
+
+

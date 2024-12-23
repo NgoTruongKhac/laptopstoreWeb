@@ -14,16 +14,32 @@
 <body>
 	<jsp:include page="components/navbar.jsp"></jsp:include>
 	<jsp:include page="components/alert.jsp"></jsp:include>
-	<div  class="container d-flex justify-content-center mt-2">
+	<div class="container d-flex justify-content-center mt-2">
 		<div class="row col-12 col-md-8 d-flex justify-content-center">
-			<div class="mt-2 mb-2">
-				<button  onclick="window.history.back();" style="background-color: transparent; border: none;">
-					<i class="bi bi-arrow-left me-2"></i><span>${nameBtnBack}</span>
-				</button>
-			</div>
+			<c:if test="${not empty nameBtnBack}">
+				<div class="mt-2 mb-2">
+
+					<button onclick="window.history.back();"
+						style="background-color: transparent; border: none;">
+						<i class="bi bi-arrow-left me-2"></i><span>${nameBtnBack}</span>
+					</button>
+				</div>
+			</c:if>
+
+			<c:if test="${not empty nameBtnHome}">
+				<div class="mt-2 mb-2">
+
+					<button
+						onclick="window.location.href ='${pageContext.request.contextPath}/index.jsp';"
+						style="background-color: transparent; border: none;">
+						<i class="bi bi-arrow-left me-2"></i><span>${nameBtnHome}</span>
+					</button>
+				</div>
+			</c:if>
+
 			<div
 				class="d-flex justify-content-around align-items-center mt-2 rounded-1"
-				style="border: solid 1px">
+				style="border: solid 1px #0d6efd">
 				<div id="cart" class="d-flex flex-column">
 					<div class="d-flex justify-content-center mt-2">
 						<i class="process bi bi-bag-check"></i>
@@ -44,7 +60,7 @@
 					</div>
 				</div>
 				<div class="line">
-					<hr id="line2"/>
+					<hr id="line2" />
 				</div>
 				<div id="payment" class="d-flex flex-column">
 					<div class="d-flex justify-content-center mt-2">
@@ -55,7 +71,7 @@
 					</div>
 				</div>
 				<div class="line">
-					<hr />
+					<hr id="line3" />
 				</div>
 				<div id="complete" class="d-flex flex-column">
 					<div class="d-flex justify-content-center mt-2">
@@ -88,7 +104,8 @@
 		src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
 
 	<script type="text/javascript" src="javaScript/addressVietNamAPI.js"></script>
-
+<script type="text/javascript" src="javaScript/ajaxSearchSuggest.js"></script>
+<script type="text/javascript" src="javaScript/alertNoneCheck.js"></script>
 
 </body>
 </html>

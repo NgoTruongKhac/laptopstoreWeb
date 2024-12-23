@@ -160,6 +160,7 @@ response.setDateHeader("Expires", 0); // Proxies.
 		src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
 
 	<script type="text/javascript" src="javaScript/addressVietNamAPI.js"></script>
+	<script type="text/javascript" src="javaScript/ajaxSearchSuggest.js"></script>
 
 </body>
 

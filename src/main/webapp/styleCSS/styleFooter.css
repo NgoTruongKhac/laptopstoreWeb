@@ -14,3 +14,7 @@
 	color: red;
 	font-weight: 500;
 }
+.info,
+.product {
+  border: solid 1px #0d6efd;
+}

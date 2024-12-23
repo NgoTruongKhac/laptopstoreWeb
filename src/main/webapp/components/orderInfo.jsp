@@ -30,7 +30,7 @@
 
 	<div class="info row d-flex justify-content-evenly rounded-1">
 		<div class="row d-flex justify-content-center mb-3 mt-4">
-			<div class="row col-md-10 d-flex align-items-center">
+			<div class="row col-md-10 d-flex justify-content-end">
 				<div class="col-md-1">
 					<label for="" class="form-label">Họ</label>
 				</div>
@@ -41,7 +41,7 @@
 				<div class="col-md-1">
 					<label for="Tên" class="form-label">Tên</label>
 				</div>
-				<div class="col-md-7">
+				<div class="col-md-5">
 					<input class="form-control" type="text" name="firstName"
 						value="${User.firstName}" />
 				</div>

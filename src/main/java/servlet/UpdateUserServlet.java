@@ -45,7 +45,8 @@ public class UpdateUserServlet extends HttpServlet{
 		boolean isSuccess=updateUser.isUpdateUser(user);
 		
 		if(isSuccess) {
-			resp.sendRedirect(req.getContextPath() + "/adminPage/listUser?page=" + page);
+			
+			resp.sendRedirect(req.getContextPath() + "/adminPage/renderListUser?page=" + page);
 		}
 		
 	}

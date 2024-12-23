@@ -42,7 +42,7 @@
 						</div>
 					</a>
 					<div class="col d-flex justify-content-between">
-						<a href="#" class="btn btn-outline-primary"
+						<a href="${pageContext.request.contextPath}/buyNow?productId=${peripheral.peripheralId}" class="btn btn-outline-primary"
 							style="font-size: 13px"> Mua Ngay </a> <button onclick="addToCart(${peripheral.peripheralId})"
 							title="thêm vào giỏ hàng" class="btn btn-outline-primary"
 							style="font-size: 13px"> <i class="bi bi-cart-plus-fill"></i>

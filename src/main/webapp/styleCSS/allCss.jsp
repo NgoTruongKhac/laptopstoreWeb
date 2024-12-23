@@ -36,6 +36,8 @@
 	crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.0/nouislider.min.css" />
 <link rel="stylesheet" href="styleCSS/font.css">
 <link rel="stylesheet" href="styleCSS/styleNavbar.css">
 <link rel="stylesheet" href="styleCSS/styleFooter.css">

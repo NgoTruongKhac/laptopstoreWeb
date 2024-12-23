@@ -30,7 +30,6 @@ public class AddUserServlet extends HttpServlet {
 			String sex = req.getParameter("sex");
 			String birthdayStr = req.getParameter("birthday");
 
-
 			Date birthday = Date.valueOf(birthdayStr);
 			String avatar = req.getParameter("avatarSrc");
 			String role = req.getParameter("role");
@@ -48,14 +47,16 @@ public class AddUserServlet extends HttpServlet {
 			boolean isSuccess = addUser.isAddUser(newUser);
 
 			if (isSuccess) {
-
+//
 				resp.setContentType("application/json");
 				resp.setCharacterEncoding("UTF-8");
-
 				resp.getWriter().write("{\"message\": \"Thêm tài khoản thành công\", \"type\": \"success\"}");
-			} 
 
-				 
+//				  req.getSession().setAttribute("message", "thêm tài khoản thành công");
+//				  req.getSession().setAttribute("type", "success");
+//				  resp.sendRedirect(req.getContextPath()+"/adminPage/listUser");
+
+			}
 
 		} catch (SQLException e) {
 			resp.setContentType("application/json");

@@ -34,7 +34,7 @@ public class ListCartItemServlet extends HttpServlet {
 		req.getSession().setAttribute("cartCount", cartCount);
 
 		req.setAttribute("includeCss", "styleCSS/listCart.css");
-		req.setAttribute("nameBtnBack", "Tiếp tục mua");
+		req.setAttribute("nameBtnHome", "Tiếp tục mua");
 		req.setAttribute("includePage", "components/listCartItem.jsp");
 
 		req.getRequestDispatcher("cart.jsp").forward(req, resp);

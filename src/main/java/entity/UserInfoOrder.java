@@ -4,22 +4,20 @@ public class UserInfoOrder {
 	
 	private int userId;
 	private String firstName;
-	private String LastName;
-	private String pass;
+	private String lastName;
 	private String email;
 	private String phoneNumber;
-	
 	private String province;
 	private String district;
 	private String ward;
 	private String street;
 	private String note;
-	public UserInfoOrder(int userId, String firstName, String lastName, String pass, String email, String phoneNumber,
+	public UserInfoOrder(int userId, String firstName, String lastName, String email, String phoneNumber,
 			String province, String district, String ward, String street, String note) {
 		this.userId = userId;
 		this.firstName = firstName;
-		LastName = lastName;
-		this.pass = pass;
+		this.lastName = lastName;
+
 		this.email = email;
 		this.phoneNumber = phoneNumber;
 		this.province = province;
@@ -41,17 +39,12 @@ public class UserInfoOrder {
 		this.firstName = firstName;
 	}
 	public String getLastName() {
-		return LastName;
+		return lastName;
 	}
 	public void setLastName(String lastName) {
-		LastName = lastName;
+		lastName = lastName;
 	}
-	public String getPass() {
-		return pass;
-	}
-	public void setPass(String pass) {
-		this.pass = pass;
-	}
+
 	public String getEmail() {
 		return email;
 	}
@@ -93,6 +86,12 @@ public class UserInfoOrder {
 	}
 	public void setNote(String note) {
 		this.note = note;
+	}
+	@Override
+	public String toString() {
+		return "UserInfoOrder [userId=" + userId + ", firstName=" + firstName + ", LastName=" + lastName + ", pass="
+				 + ", email=" + email + ", phoneNumber=" + phoneNumber + ", province=" + province + ", district="
+				+ district + ", ward=" + ward + ", street=" + street + ", note=" + note + "]";
 	}
 	
 	
