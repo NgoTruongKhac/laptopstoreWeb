@@ -11,11 +11,12 @@
 					<div class="card-seller"
 						style="background-color: white; flex: 1 0 20%; height: 24rem">
 						<div class="card-body" style="margin-top: -13px">
-							<a href="${pageContext.request.contextPath}/detailLaptop?productId=${laptop.laptopId}" style="text-decoration: none; color: black"
-								draggable="false">
+							<a
+								href="${pageContext.request.contextPath}/detailLaptop?productId=${laptop.laptopId}"
+								style="text-decoration: none; color: black" draggable="false">
 								<div class="d-flex justify-content-center">
-									<img src="${laptop.image}" class="cardSellerImg card-img-top" alt="..."
-										 draggable="false" />
+									<img src="${laptop.image}" class="cardSellerImg card-img-top"
+										alt="..." draggable="false" />
 								</div>
 								<h6 class="name mb-2 card-title" style="padding-left: 30px">
 									${laptop.name}</h6>
@@ -45,17 +46,21 @@
 											value="${String.format('%,d', laptop.price)} đ" /></span>
 								</div>
 
-								<div 
-									class="vote mb-1 d-flex justify-content-center">
-									<span class="text-warning me-1">0.0</span> <i
-										class="bi bi-star-fill text-warning me-1"></i> (0 đánh giá)
+								<div class="vote mb-1 d-flex justify-content-center">
+									<span class="text-warning me-1">${laptop.rate}</span> <i
+										class="bi bi-star-fill text-warning me-1"></i>
+									(${laptop.quantityReview})đánh giá
 								</div>
 							</a>
 							<div class="col d-flex justify-content-between">
-								<a href="${pageContext.request.contextPath}/buyNow?productId=${laptop.laptopId}"class="btn btn-outline-primary"
-									style="font-size: 13px"> Mua Ngay </a> <button onclick="addToCart(${laptop.laptopId})"
+								<a
+									href="${pageContext.request.contextPath}/buyNow?productId=${laptop.laptopId}"
+									class="btn btn-outline-primary" style="font-size: 13px">
+									Mua Ngay </a>
+								<button onclick="addToCart(${laptop.laptopId})"
 									title="thêm vào giỏ hàng" class="btn btn-outline-primary"
-									style="font-size: 13px"> <i class="bi bi-cart-plus-fill"></i>
+									style="font-size: 13px">
+									<i class="bi bi-cart-plus-fill"></i>
 								</button>
 							</div>
 						</div>

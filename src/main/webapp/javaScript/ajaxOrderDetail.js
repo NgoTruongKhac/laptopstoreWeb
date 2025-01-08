@@ -33,3 +33,19 @@ function myOrderDetail(orderId,pageOrder) {
 		}
 	});
 }
+function selectReview(orderId,pageOrder) {
+	$.ajax({
+		url: contextPath + "/selectReview?orderId=" + orderId+"&pageOrder="+pageOrder,
+		type: "GET",
+		dataType: "html",
+		success: function(response) {
+
+			document.getElementById("selectReview").innerHTML = response;
+			
+			
+		},
+		error: function(xhr, status, error) {
+			console.error("Error loading section:", error);
+		}
+	});
+}

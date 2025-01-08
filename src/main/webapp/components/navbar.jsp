@@ -12,7 +12,8 @@
 		<div class=row>
 
 			<div class="col-md-3 col-2 mb-1 d-flex align-items-center">
-				<a href="${pageContext.request.contextPath}/" class="text-decoration-none"><img
+				<a href="${pageContext.request.contextPath}/"
+					class="text-decoration-none"><img
 					src="images/laptopStoreLogo.png" class="logoImg"></a>
 			</div>
 			<div class="col-md-6 col-10 mt-2">
@@ -58,7 +59,7 @@
 						<button id="accountIcon" type="button"
 							class="login d-flex align-items-center btn btn-outline-primary dropdown-toggle"
 							data-bs-toggle="dropdown" aria-expanded="false">
-							<i class="bi bi-person"></i> ${User.firstName}
+							<i class="bi bi-person-fill me-1"></i> ${User.firstName}
 						</button>
 
 						<ul class="dropdown-menu">
@@ -114,9 +115,11 @@
 					<li class="nav-item me-4"><a class="nav-link active"
 						aria-current="page" href="${pageContext.request.contextPath}/"><i
 							class="fa-solid fa-house"></i> Trang Chủ</a></li>
-					<li class="nav-item me-4"><a class="nav-link active" href="filterLaptop?office=gaming&from=0&to=100000000&title=Laptop văn phòng"><i
+					<li class="nav-item me-4"><a class="nav-link active"
+						href="filterLaptop?office=gaming&from=0&to=100000000&title=Laptop văn phòng"><i
 							class="fa-solid fa-laptop"></i> Laptop Văn Phòng</a></li>
-					<li class="nav-item me-4"><a class="nav-link active" href="filterLaptop?category=gaming&from=0&to=100000000&title=Laptop gaming"><i
+					<li class="nav-item me-4"><a class="nav-link active"
+						href="filterLaptop?category=gaming&from=0&to=100000000&title=Laptop gaming"><i
 							class="fa-solid fa-gamepad"></i> Laptop Gamming</a></li>
 
 					<li class="nav-item dropdown me-4"><a
@@ -124,32 +127,39 @@
 						data-bs-toggle="dropdown" aria-expanded="false"><i
 							class="bi bi-tags-fill"></i> Thương Hiệu </a>
 						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="filterLaptop?brand=asus&from=0&to=100000000&title=Laptop Asus">Asus</a></li>
-							<li><a class="dropdown-item" href="filterLaptop?brand=lenovo&from=0&to=100000000&title=Laptop Lenovo">Lenovo</a></li>
-							<li><a class="dropdown-item" href="filterLaptop?brand=dell&from=0&to=100000000&title=Laptop Dell">Dell</a></li>
-							<li><a class="dropdown-item" href="filterLaptop?brand=acer&from=0&to=100000000&title=Laptop acer">Acer</a></li>
+							<li><a class="dropdown-item"
+								href="filterLaptop?brand=asus&from=0&to=100000000&title=Laptop Asus">Asus</a></li>
+							<li><a class="dropdown-item"
+								href="filterLaptop?brand=lenovo&from=0&to=100000000&title=Laptop Lenovo">Lenovo</a></li>
+							<li><a class="dropdown-item"
+								href="filterLaptop?brand=dell&from=0&to=100000000&title=Laptop Dell">Dell</a></li>
+							<li><a class="dropdown-item"
+								href="filterLaptop?brand=acer&from=0&to=100000000&title=Laptop acer">Acer</a></li>
 						</ul></li>
 					<li class="nav-item dropdown me-4"><a
 						class="nav-link dropdown-toggle" href="#" role="button"
 						data-bs-toggle="dropdown" aria-expanded="false"><i
-							class='bx bxs-devices me-1'></i>Phụ Kiện</a>
+							class="bi bi-pc-display me-1"></i></i>Phụ Kiện</a>
 						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="#"><i
-									class='bx bx-mouse-alt me-2'></i>chuột</a></li>
-							<li><a class="dropdown-item" href="#"><i
-									class="fa-regular fa-keyboard me-2"></i>bàn phím</a></li>
-							<li><a class="dropdown-item" href="#"><i
-									class="fa-solid fa-headphones me-2"></i>tai nghe</a></li>
+							<li><a class="dropdown-item"
+								href="filterPeripheral?category=mouse&from=0&to=10000000&title=Phụ kiện chuột"><i
+									class="bi bi-mouse2 me-2"></i>chuột</a></li>
+							<li><a class="dropdown-item"
+								href="filterPeripheral?category=keyboard&from=0&to=10000000&title=Phụ kiện bàn phím"><i
+									class="bi bi-keyboard me-2"></i>bàn phím</a></li>
+							<li><a class="dropdown-item"
+								href="filterPeripheral?category=headphone&from=0&to=10000000&title=Phụ kiện tai nghe"><i
+									class="bi bi-headphones me-2"></i>tai nghe</a></li>
 
 						</ul></li>
 					<li class="nav-item dropdown me-4"><a
 						class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
-						href="#" role="button"><i class="bi bi-funnel me-1"></i>Lọc</a>
+						href="#" role="button"><i class="bi bi-funnel-fill me-1"></i>Lọc</a>
 						<ul class="dropdown-menu">
 							<li><button class="dropdown-item" data-bs-toggle="modal"
 									data-bs-target="#filterLaptop">lọc laptop</button></li>
-									
-									
+
+
 							<li><button class="dropdown-item" data-bs-toggle="modal"
 									data-bs-target="#filterPeripheral">lọc phụ kiện</button></li>
 
@@ -161,8 +171,8 @@
 		</div>
 	</nav>
 </div>
-<%@include file="filterLaptop.jsp" %>
-<%@include file="filterPeripheral.jsp" %>
+<%@include file="filterLaptop.jsp"%>
+<%@include file="filterPeripheral.jsp"%>
 <%@include file="login.jsp"%>
 <%@include file="register.jsp"%>
 
@@ -181,8 +191,7 @@
 	<c:if test="${error=='register'}">
 		<script type="text/javascript">
 			// Đảm bảo trang đã tải xong trước khi mở modal
-			document
-					.addEventListener("DOMContentLoaded",
+			document.addEventListener("DOMContentLoaded",
 							function() {
 								new bootstrap.Modal(document
 										.getElementById('register')).show();

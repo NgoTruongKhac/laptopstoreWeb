@@ -21,13 +21,17 @@ document.querySelectorAll(".payment").forEach((payment) => {
 
 // Xử lý khi click nút "áp dụng"
 document
-	.querySelector(".modal-footer .btn-primary")
+	.getElementById("btnPayment")
 	.addEventListener("click", function() {
 		if (selectedPayment) {
 			// Thay thế nội dung trong div.paymentMethod
+			const selectedValue=selectedPayment.querySelector(".payment-option").getAttribute("data-value");
+			
 			const paymentMethodDiv = document.querySelector(".paymentMethod");
 			paymentMethodDiv.innerHTML = "";
 			paymentMethodDiv.appendChild(selectedPayment);
+			
+			document.getElementById("paymentName").value = selectedValue;
 
 			// Ẩn modal
 			const modal = bootstrap.Modal.getInstance(

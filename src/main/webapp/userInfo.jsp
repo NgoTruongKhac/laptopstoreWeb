@@ -87,10 +87,7 @@ response.setDateHeader("Expires", 0); // Proxies.
 								<label class="labels">Số điện thoại</label>
 								<div class="d-flex flex-row" style="height: 35px;">
 									<input type="text" class="form-control" name="phoneNumber"
-										value="${User.phoneNumber}" readonly="readonly"> <a
-										data-bs-toggle="modal" data-bs-target="#changePhone"
-										class="d-flex align-items-center btn btn-primary btn-sm"
-										style="min-width: 75px; margin-left: 5px;">Thay đổi</a>
+										value="${User.phoneNumber}">
 								</div>
 
 							</div>

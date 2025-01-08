@@ -25,7 +25,7 @@
 			<div class="cartItem d-flex flex-column rounded-1 mb-2">
 				<div class="row d-flex align-items-center mt-1 mb-1">
 					<div class="col-md-1 col-2">
-						<input class="myCheckbox form-check-input" type="checkbox" name="selectCartItem" value="${product.cartId}" />
+						<input class="myCheckbox form-check-input" type="checkbox" name="selectCartItem" value="${product.productId}" />
 					</div>
 					<div class="col-md-3 col-5 d-flex justify-content-center">
 						<img src="${product.image}" alt="" style="width: 55%" />

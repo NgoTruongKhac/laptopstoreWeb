@@ -25,7 +25,7 @@
 
 	<main class="mt-2 d-flex justify-content-center flex-column">
 
-		
+
 		<div class="text-center mt-2">
 			<h4>${title}</h4>
 		</div>
@@ -33,6 +33,7 @@
 		<section class="mt-3">
 			<div class="container my-4">
 				<div id="productLaptop" class="row">
+					<div class="text-center">${emptyProduct}</div>
 					<jsp:include page="${filterProduct}"></jsp:include>
 				</div>
 			</div>

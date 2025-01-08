@@ -7,7 +7,7 @@
 
 
 <div class="table-responsive">
-	<table class="table table table-bordered table-striped text-center"
+	<table class="table table-bordered table-striped text-center"
 		style="vertical-align: middle;">
 		<thead>
 			<tr>
@@ -15,7 +15,7 @@
 				<th scope="col">Tên</th>
 				<th scope="col">Ảnh</th>
 				<th scope="col">Giá</th>
-				<th scope="col">Thương hiệu</th>
+				<th scope="col">Hiệu</th>
 				<th scope="col">Loại</th>
 				<th scope="col">Sửa</th>
 				<th scope="col">Xoá</th>
@@ -26,17 +26,17 @@
 				<c:forEach var="laptop" items="${ListLaptop}">
 					<tr>
 						<th scope="row">${laptop.laptopId}</th>
-						<td>${laptop.name}</td>
+						<td class="name-product">${laptop.name}</td>
 						<td><c:choose>
 								<c:when test="${fn:contains(laptop.image, 'uploads')}">
-									<img src="${pageContext.request.contextPath}/${laptop.image}"
-										style="width: 70px;" />
+									<img class="image-product" src="${pageContext.request.contextPath}/${laptop.image}"
+										 />
 								</c:when>
 								<c:otherwise>
-									<img src="${laptop.image}" style="width: 70px;" />
+									<img src="${laptop.image}" class="image-product"/>
 								</c:otherwise>
 							</c:choose></td>
-						<td><c:out value="${String.format('%,d', laptop.price)} đ" /></td>
+						<td data-order="${laptop.price}"><c:out value="${String.format('%,d', laptop.price)} đ" /></td>
 						<td>${laptop.brand}</td>
 						<td>${laptop.category}</td>
 						<td><button data-bs-toggle="modal"

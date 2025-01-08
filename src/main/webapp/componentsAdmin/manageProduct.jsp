@@ -51,3 +51,4 @@
 <div id="listPeripheralManage">
 	<jsp:include page="managePeripheral.jsp"></jsp:include>
 </div>
+

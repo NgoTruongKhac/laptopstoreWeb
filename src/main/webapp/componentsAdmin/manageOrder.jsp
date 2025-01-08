@@ -22,7 +22,7 @@
 					<th scope="col" class="col-md">ngày đặt</th>
 					<th scope="col" class="col-md">Trạng thái</th>
 					<th scope="col" class="col-md">Chi tiết</th>
-					<th scope="col" class="col-md">Xác nhận</th>
+					<th scope="col" class="col-md">Hành động</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -40,9 +40,16 @@
 									data-bs-target="#orderDetail" class="btn btn-primary"
 									onclick="orderDetail(${order.orderId},${pageOrder})">chi
 									tiết</button></td>
-							<td><button
-									onclick="confirmOrder(${order.orderId}, ${pageOrder})"
-									class="btn btn-success">xác nhận</button></td>
+							<c:if test="${order.state == 'chưa xác nhận'}">
+								<td><button
+										onclick="confirmOrder(${order.orderId}, ${pageOrder})"
+										class="btn btn-success">xác nhận</button></td>
+							</c:if>
+							<c:if test="${order.state == 'đã xác nhận'}">
+								<td><button
+										onclick="delivery(${order.orderId}, ${pageOrder})"
+										class="btn btn-success">Vận chuyển</button></td>
+							</c:if>
 						</tr>
 					</c:forEach>
 				</c:if>

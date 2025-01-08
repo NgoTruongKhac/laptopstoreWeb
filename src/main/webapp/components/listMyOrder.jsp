@@ -13,7 +13,7 @@
 				<th scope="col" class="col-md">ngày đặt</th>
 				<th scope="col" class="col-md">Trạng thái</th>
 				<th scope="col" class="col-md">Chi tiết</th>
-				<th scope="col" class="col-md">Huỷ đơn</th>
+				<th scope="col" class="col-md">Hành động</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -33,9 +33,31 @@
 								onclick="myOrderDetail(${order.orderId},${pageOrder})">chi
 								tiết</button>
 						</td>
-						<td>
-							<button onclick="cancelMyOrder(${order.orderId},${pageOrder})" class="btn btn-outline-danger">Huỷ</button>
-						</td>
+						<c:if test="${order.state == 'chưa xác nhận'}">
+							<td>
+								<button onclick="cancelMyOrder(${order.orderId},${pageOrder})"
+									class="btn btn-outline-danger">Huỷ</button>
+							</td>
+						</c:if>
+
+						<c:if test="${order.state == 'đã giao'}">
+							<td>
+								<button type="button" class="btn btn-outline-success"
+									onclick="confirmReceived(${order.orderId},${pageOrder})">Xác nhận</button>
+							</td>
+						</c:if>
+						<c:if test="${order.state == 'đã huỷ'}">
+							<td>
+								<button onclick="deleteMyOrder(${order.orderId},${pageOrder})"
+									class="btn btn-outline-danger">Xoá</button>
+							</td>
+						</c:if>
+						<c:if test="${order.state == 'đã nhận'}">
+							<td>
+								<button type="button" class="btn btn-outline-success"
+								data-bs-toggle="modal" data-bs-target="#selectReview"	onclick="selectReview(${order.orderId},${pageOrder})">Đánh giá</button>
+							</td>
+						</c:if>
 					</tr>
 				</c:forEach>
 			</c:if>
@@ -45,6 +67,10 @@
 <div class="modal fade" id="orderDetail" tabindex="-1"
 	aria-labelledby="orderModalLabel" aria-hidden="true">
 	<%@include file="myOrderDetail.jsp"%>
+</div>
+<div class="modal fade mt-5" id="selectReview" tabindex="-1"
+	aria-labelledby="orderModalLabel" aria-hidden="true">
+	<%@include file="selectReview.jsp"%>
 </div>
 
 <div class="d-flex justify-content-center">

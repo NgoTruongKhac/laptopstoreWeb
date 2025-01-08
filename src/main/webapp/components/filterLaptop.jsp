@@ -100,7 +100,7 @@
 								</div>
 								<div class="form-check">
 									<input class="form-check-input" type="checkbox"
-										value="AMD Radeon" id="rtx4090" name="gpu" /> <label
+										value="AMD Radeon" id="radeon" name="gpu" /> <label
 										class="form-check-label" for="radeon">AMD Radeon </label>
 								</div>
 							</div>

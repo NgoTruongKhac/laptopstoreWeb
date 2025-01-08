@@ -43,8 +43,8 @@
 						</div>
 
 						<div class="vote mb-1 d-flex justify-content-center">
-							<span class="text-warning me-1">0.0</span> <i
-								class="bi bi-star-fill text-warning me-1"></i> (0 đánh giá)
+							<span class="text-warning me-1">${laptop.rate}</span> <i
+								class="bi bi-star-fill text-warning me-1"></i> (${laptop.quantityReview})đánh giá
 						</div>
 					</a>
 					<div class="col d-flex justify-content-between">

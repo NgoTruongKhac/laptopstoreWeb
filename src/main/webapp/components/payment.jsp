@@ -102,6 +102,7 @@
 		</h4>
 
 	</div>
+	<input id="paymentName" type="hidden" name="payment" value="">
 	<input type="text" name="finalPrice" value="${totalPrice}" hidden="true">
 	<div class="col-md-6 d-flex justify-content-end">
 		<button type="submit" class="btn btn-outline-primary">Thanh
@@ -113,7 +114,7 @@
 
 <!-- modal -->
 
-<div class="modal fade mt-5" id="paymentMethodModal" tabindex="-1"
+<div class="modal fade mt-3" id="paymentMethodModal" tabindex="-1"
 	aria-labelledby="paymentModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -130,7 +131,7 @@
 						<img class="imagePayment" src="images/cod.png" alt="" />
 					</div>
 					<div class="col-md-8 col-7">
-						<h6>Thanh toán khi nhận hàng</h6>
+						<h6 class="payment-option" data-value="cod">Thanh toán khi nhận hàng</h6>
 					</div>
 					<div class="col-md-1 col-2">
 						<i class="checked bi bi-check-circle"></i>
@@ -144,7 +145,7 @@
 							alt="" />
 					</div>
 					<div class="col-md-8 col-7">
-						<h6>Chuyển khoản</h6>
+						<h6 class="payment-option" data-value="bank">Chuyển khoản</h6>
 					</div>
 					<div class="col-md-1 col-2">
 						<i class="checked bi bi-check-circle"></i>
@@ -158,7 +159,35 @@
 							alt="" />
 					</div>
 					<div class="col-md-8 col-7">
-						<h6>ví VNPay</h6>
+						<h6 class="payment-option" data-value="vnpay">ví VNPay</h6>
+					</div>
+					<div class="col-md-1 col-2">
+						<i class="checked bi bi-check-circle"></i>
+					</div>
+				</div>
+				<div class="payment row rounded-1 d-flex align-items-center mb-1"
+					style="border: solid 1px">
+					<div class="col-md-3 col-3">
+						<img class="imagePayment"
+							src="images/Zalo-pay.png"
+							alt="" />
+					</div>
+					<div class="col-md-8 col-7">
+						<h6 class="payment-option" data-value="zalopay">ví ZaloPay</h6>
+					</div>
+					<div class="col-md-1 col-2">
+						<i class="checked bi bi-check-circle"></i>
+					</div>
+				</div>
+				<div class="payment row rounded-1 d-flex align-items-center mb-1"
+					style="border: solid 1px">
+					<div class="col-md-3 col-3">
+						<img class="imagePayment"
+							src="images/shopee-pay.png"
+							alt="" />
+					</div>
+					<div class="col-md-8 col-7">
+						<h6 class="payment-option" data-value="shopeepay">ví ShopeePay</h6>
 					</div>
 					<div class="col-md-1 col-2">
 						<i class="checked bi bi-check-circle"></i>
@@ -166,7 +195,7 @@
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-primary">áp dụng</button>
+				<button id="btnPayment" type="button" class="btn btn-primary">áp dụng</button>
 			</div>
 		</div>
 	</div>

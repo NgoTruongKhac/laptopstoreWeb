@@ -39,7 +39,7 @@
 								</div>
 							</div>
 							<div class="mb-2">
-								<label class="form-label">Email/Số điện thoại</label> <input
+								<label class="form-label">Email</label> <input
 									id="emailOrPhoneRegister" type="text" class="form-control"
 									name="emailOrPhone" required="required"
 									value="${param.emailOrPhone != null ? param.emailOrPhone : ''}" />

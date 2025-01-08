@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+.stars {
+	display: inline-flex;
+	flex-direction: row-reverse;
+	justify-content: center;
+}
+
+.stars input {
+	display: none;
+}
+
+.stars label {
+	margin-left: 10px;
+	font-size: 2rem;
+	color: #ccc;
+	cursor: pointer;
+	transition: color 0.3s;
+}
+
+.stars input:checked ~ label {
+	color: #f5a623;
+}
+
+.stars label:hover, .stars label:hover ~ label {
+	color: #f5a623;
+}
+
+#rating-result {
+	margin-top: 5px;
+	font-size: 1.5rem;
+	color: #333;
+}

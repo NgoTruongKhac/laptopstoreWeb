@@ -14,6 +14,7 @@ response.setDateHeader("Expires", 0); // Proxies.
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Laptop Store</title>
 <link rel="stylesheet" href="styleCSS/hoverCard.css">
+<link rel="stylesheet" href="styleCSS/evaluate.css">
 <%@ include file="styleCSS/allCss.jsp"%>
 
 <link rel="stylesheet" href="styleCSS/bestSeller.css">
@@ -54,8 +55,8 @@ response.setDateHeader("Expires", 0); // Proxies.
 	<script type="text/javascript" src="javaScript/pagination.js"></script>
 	<script type="text/javascript" src="javaScript/ajaxOrderDetail.js"></script>
 	<script type="text/javascript" src="javaScript/alertCancelMyOrder.js"></script>
-
-
+	<script type="text/javascript" src="javaScript/alertDeleteOrder.js"></script>
+	<script type="text/javascript" src="javaScript/confirmReceived.js"></script>
 
 
 

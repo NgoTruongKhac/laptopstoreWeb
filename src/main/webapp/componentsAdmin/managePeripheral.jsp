@@ -6,7 +6,7 @@
 
 
 	<div  class="table-responsive">
-		<table class="table table table-bordered table-striped text-center"
+		<table class="table table-bordered table-striped text-center"
 			style="vertical-align: middle;">
 			<thead>
 				<tr>
@@ -25,17 +25,17 @@
 					<c:forEach var="peripheral" items="${ListPeripheral}">
 						<tr>
 							<th scope="row">${peripheral.peripheralId}</th>
-							<td>${peripheral.name}</td>
+							<td class="name-product">${peripheral.name}</td>
 							<td><c:choose>
 								<c:when test="${fn:contains(peripheral.image, 'uploads')}">
-									<img src="${pageContext.request.contextPath}/${peripheral.image}"
-										style="width: 70px;" />
+									<img class="image-product" src="${pageContext.request.contextPath}/${peripheral.image}"
+										 />
 								</c:when>
 								<c:otherwise>
-									<img src="${peripheral.image}" style="width: 70px;" />
+									<img class="image-product" src="${peripheral.image}" />
 								</c:otherwise>
 							</c:choose></td>
-							<td><c:out value="${String.format('%,d', peripheral.price)} đ" /></td>
+							<td data-order="${laptop.price}"><c:out value="${String.format('%,d', peripheral.price)} đ" /></td>
 							<td>${peripheral.brand}</td>
 							<td>${peripheral.category}</td>
 							<td><button data-bs-toggle="modal"
