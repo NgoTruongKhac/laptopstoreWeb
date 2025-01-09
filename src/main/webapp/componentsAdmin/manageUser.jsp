@@ -5,9 +5,6 @@
 
 
 
-
-
-
 <div id="listUserManage">
 
 	<div class="table-responsive">
@@ -79,8 +76,6 @@
 			</ul>
 		</nav>
 	</div>
-
-
 
 </div>
 
